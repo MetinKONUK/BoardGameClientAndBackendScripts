@@ -77,6 +77,7 @@ namespace main
             this.login_loginButton.TabIndex = 1;
             this.login_loginButton.Text = "Log In";
             this.login_loginButton.UseVisualStyleBackColor = true;
+            this.login_loginButton.Click += new System.EventHandler(this.login_loginButton_Click);
             // 
             // login_passwordTextBox
             // 
