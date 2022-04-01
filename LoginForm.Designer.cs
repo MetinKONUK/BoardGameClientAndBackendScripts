@@ -1,5 +1,4 @@
-﻿
-namespace main
+﻿namespace main
 {
     partial class LoginForm
     {
@@ -83,6 +82,7 @@ namespace main
             // 
             this.login_passwordTextBox.Location = new System.Drawing.Point(0, 192);
             this.login_passwordTextBox.Name = "login_passwordTextBox";
+            this.login_passwordTextBox.PasswordChar = '*';
             this.login_passwordTextBox.Size = new System.Drawing.Size(170, 20);
             this.login_passwordTextBox.TabIndex = 3;
             // 
