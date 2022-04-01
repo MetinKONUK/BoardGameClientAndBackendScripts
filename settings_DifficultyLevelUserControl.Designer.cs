@@ -30,21 +30,23 @@ namespace main
         private void InitializeComponent()
         {
             this.settings_difficultyLevelPanel = new System.Windows.Forms.Panel();
+            this.settings_DifficultyLevelCustomRadioButton = new System.Windows.Forms.RadioButton();
+            this.settings_CustomDifficultyPanel = new System.Windows.Forms.Panel();
+            this.settings_CustomTextLabel = new System.Windows.Forms.Label();
+            this.settings_DifficultyLevelCustomRowTextBox = new System.Windows.Forms.TextBox();
+            this.settings_DifficultyLevelCustomColTextBox = new System.Windows.Forms.TextBox();
             this.settings_SaveDifficultyLevelSelectionButton = new System.Windows.Forms.Button();
             this.settings_DifficultyLevelNormalRadioButton = new System.Windows.Forms.RadioButton();
             this.settings_DifficultyLevelHardRadioButton = new System.Windows.Forms.RadioButton();
             this.settings_DifficultyLevelEasyRadioButton = new System.Windows.Forms.RadioButton();
-            this.settings_DifficultyLevelCustomRowTextBox = new System.Windows.Forms.TextBox();
-            this.settings_DifficultyLevelCustomColTextBox = new System.Windows.Forms.TextBox();
-            this.settings_CustomTextLabel = new System.Windows.Forms.Label();
             this.settings_difficultyLevelPanel.SuspendLayout();
+            this.settings_CustomDifficultyPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // settings_difficultyLevelPanel
             // 
-            this.settings_difficultyLevelPanel.Controls.Add(this.settings_CustomTextLabel);
-            this.settings_difficultyLevelPanel.Controls.Add(this.settings_DifficultyLevelCustomColTextBox);
-            this.settings_difficultyLevelPanel.Controls.Add(this.settings_DifficultyLevelCustomRowTextBox);
+            this.settings_difficultyLevelPanel.Controls.Add(this.settings_DifficultyLevelCustomRadioButton);
+            this.settings_difficultyLevelPanel.Controls.Add(this.settings_CustomDifficultyPanel);
             this.settings_difficultyLevelPanel.Controls.Add(this.settings_SaveDifficultyLevelSelectionButton);
             this.settings_difficultyLevelPanel.Controls.Add(this.settings_DifficultyLevelNormalRadioButton);
             this.settings_difficultyLevelPanel.Controls.Add(this.settings_DifficultyLevelHardRadioButton);
@@ -55,14 +57,61 @@ namespace main
             this.settings_difficultyLevelPanel.Size = new System.Drawing.Size(506, 351);
             this.settings_difficultyLevelPanel.TabIndex = 2;
             // 
+            // settings_DifficultyLevelCustomRadioButton
+            // 
+            this.settings_DifficultyLevelCustomRadioButton.AutoSize = true;
+            this.settings_DifficultyLevelCustomRadioButton.Location = new System.Drawing.Point(3, 72);
+            this.settings_DifficultyLevelCustomRadioButton.Name = "settings_DifficultyLevelCustomRadioButton";
+            this.settings_DifficultyLevelCustomRadioButton.Size = new System.Drawing.Size(60, 17);
+            this.settings_DifficultyLevelCustomRadioButton.TabIndex = 7;
+            this.settings_DifficultyLevelCustomRadioButton.TabStop = true;
+            this.settings_DifficultyLevelCustomRadioButton.Text = "Custom";
+            this.settings_DifficultyLevelCustomRadioButton.UseVisualStyleBackColor = true;
+            this.settings_DifficultyLevelCustomRadioButton.CheckedChanged += new System.EventHandler(this.settings_DifficultyLevelCustomRadioButton_CheckedChanged);
+            // 
+            // settings_CustomDifficultyPanel
+            // 
+            this.settings_CustomDifficultyPanel.Controls.Add(this.settings_CustomTextLabel);
+            this.settings_CustomDifficultyPanel.Controls.Add(this.settings_DifficultyLevelCustomRowTextBox);
+            this.settings_CustomDifficultyPanel.Controls.Add(this.settings_DifficultyLevelCustomColTextBox);
+            this.settings_CustomDifficultyPanel.Location = new System.Drawing.Point(3, 101);
+            this.settings_CustomDifficultyPanel.Name = "settings_CustomDifficultyPanel";
+            this.settings_CustomDifficultyPanel.Size = new System.Drawing.Size(123, 46);
+            this.settings_CustomDifficultyPanel.TabIndex = 7;
+            this.settings_CustomDifficultyPanel.Visible = false;
+            // 
+            // settings_CustomTextLabel
+            // 
+            this.settings_CustomTextLabel.AutoSize = true;
+            this.settings_CustomTextLabel.Location = new System.Drawing.Point(3, 19);
+            this.settings_CustomTextLabel.Name = "settings_CustomTextLabel";
+            this.settings_CustomTextLabel.Size = new System.Drawing.Size(45, 13);
+            this.settings_CustomTextLabel.TabIndex = 6;
+            this.settings_CustomTextLabel.Text = "Custom:";
+            // 
+            // settings_DifficultyLevelCustomRowTextBox
+            // 
+            this.settings_DifficultyLevelCustomRowTextBox.Location = new System.Drawing.Point(84, 16);
+            this.settings_DifficultyLevelCustomRowTextBox.Name = "settings_DifficultyLevelCustomRowTextBox";
+            this.settings_DifficultyLevelCustomRowTextBox.Size = new System.Drawing.Size(24, 20);
+            this.settings_DifficultyLevelCustomRowTextBox.TabIndex = 4;
+            // 
+            // settings_DifficultyLevelCustomColTextBox
+            // 
+            this.settings_DifficultyLevelCustomColTextBox.Location = new System.Drawing.Point(54, 16);
+            this.settings_DifficultyLevelCustomColTextBox.Name = "settings_DifficultyLevelCustomColTextBox";
+            this.settings_DifficultyLevelCustomColTextBox.Size = new System.Drawing.Size(24, 20);
+            this.settings_DifficultyLevelCustomColTextBox.TabIndex = 5;
+            // 
             // settings_SaveDifficultyLevelSelectionButton
             // 
-            this.settings_SaveDifficultyLevelSelectionButton.Location = new System.Drawing.Point(3, 105);
+            this.settings_SaveDifficultyLevelSelectionButton.Location = new System.Drawing.Point(3, 153);
             this.settings_SaveDifficultyLevelSelectionButton.Name = "settings_SaveDifficultyLevelSelectionButton";
             this.settings_SaveDifficultyLevelSelectionButton.Size = new System.Drawing.Size(75, 23);
             this.settings_SaveDifficultyLevelSelectionButton.TabIndex = 3;
             this.settings_SaveDifficultyLevelSelectionButton.Text = "Save";
             this.settings_SaveDifficultyLevelSelectionButton.UseVisualStyleBackColor = true;
+            this.settings_SaveDifficultyLevelSelectionButton.Click += new System.EventHandler(this.settings_SaveDifficultyLevelSelectionButton_Click);
             // 
             // settings_DifficultyLevelNormalRadioButton
             // 
@@ -97,29 +146,6 @@ namespace main
             this.settings_DifficultyLevelEasyRadioButton.Text = "Easy";
             this.settings_DifficultyLevelEasyRadioButton.UseVisualStyleBackColor = true;
             // 
-            // settings_DifficultyLevelCustomRowTextBox
-            // 
-            this.settings_DifficultyLevelCustomRowTextBox.Location = new System.Drawing.Point(81, 79);
-            this.settings_DifficultyLevelCustomRowTextBox.Name = "settings_DifficultyLevelCustomRowTextBox";
-            this.settings_DifficultyLevelCustomRowTextBox.Size = new System.Drawing.Size(24, 20);
-            this.settings_DifficultyLevelCustomRowTextBox.TabIndex = 4;
-            // 
-            // settings_DifficultyLevelCustomColTextBox
-            // 
-            this.settings_DifficultyLevelCustomColTextBox.Location = new System.Drawing.Point(51, 79);
-            this.settings_DifficultyLevelCustomColTextBox.Name = "settings_DifficultyLevelCustomColTextBox";
-            this.settings_DifficultyLevelCustomColTextBox.Size = new System.Drawing.Size(24, 20);
-            this.settings_DifficultyLevelCustomColTextBox.TabIndex = 5;
-            // 
-            // settings_CustomTextLabel
-            // 
-            this.settings_CustomTextLabel.AutoSize = true;
-            this.settings_CustomTextLabel.Location = new System.Drawing.Point(0, 82);
-            this.settings_CustomTextLabel.Name = "settings_CustomTextLabel";
-            this.settings_CustomTextLabel.Size = new System.Drawing.Size(45, 13);
-            this.settings_CustomTextLabel.TabIndex = 6;
-            this.settings_CustomTextLabel.Text = "Custom:";
-            // 
             // settings_DifficultyLevelUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -129,6 +155,8 @@ namespace main
             this.Size = new System.Drawing.Size(506, 351);
             this.settings_difficultyLevelPanel.ResumeLayout(false);
             this.settings_difficultyLevelPanel.PerformLayout();
+            this.settings_CustomDifficultyPanel.ResumeLayout(false);
+            this.settings_CustomDifficultyPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -143,5 +171,7 @@ namespace main
         private System.Windows.Forms.Label settings_CustomTextLabel;
         private System.Windows.Forms.TextBox settings_DifficultyLevelCustomColTextBox;
         private System.Windows.Forms.TextBox settings_DifficultyLevelCustomRowTextBox;
+        private System.Windows.Forms.Panel settings_CustomDifficultyPanel;
+        private System.Windows.Forms.RadioButton settings_DifficultyLevelCustomRadioButton;
     }
 }

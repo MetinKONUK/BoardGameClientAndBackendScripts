@@ -30,11 +30,11 @@ namespace main
         private void InitializeComponent()
         {
             this.settings_LeftPanel = new System.Windows.Forms.Panel();
+            this.settings_backToGameWindowButton = new System.Windows.Forms.Button();
             this.settings_ShapeButton = new System.Windows.Forms.Button();
             this.settings_difficultyLevelButton = new System.Windows.Forms.Button();
             this.settings_ShapesUserControl1 = new main.settings_ShapesUserControl();
             this.settings_DifficultyLevelUserControl1 = new main.settings_DifficultyLevelUserControl();
-            this.settings_backToGameWindowButton = new System.Windows.Forms.Button();
             this.settings_LeftPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,6 +48,17 @@ namespace main
             this.settings_LeftPanel.Name = "settings_LeftPanel";
             this.settings_LeftPanel.Size = new System.Drawing.Size(109, 450);
             this.settings_LeftPanel.TabIndex = 0;
+            // 
+            // settings_backToGameWindowButton
+            // 
+            this.settings_backToGameWindowButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.settings_backToGameWindowButton.Location = new System.Drawing.Point(0, 427);
+            this.settings_backToGameWindowButton.Name = "settings_backToGameWindowButton";
+            this.settings_backToGameWindowButton.Size = new System.Drawing.Size(109, 23);
+            this.settings_backToGameWindowButton.TabIndex = 3;
+            this.settings_backToGameWindowButton.Text = "Main Menu";
+            this.settings_backToGameWindowButton.UseVisualStyleBackColor = true;
+            this.settings_backToGameWindowButton.Click += new System.EventHandler(this.settings_backToGameWindowButton_Click);
             // 
             // settings_ShapeButton
             // 
@@ -84,17 +95,6 @@ namespace main
             this.settings_DifficultyLevelUserControl1.Name = "settings_DifficultyLevelUserControl1";
             this.settings_DifficultyLevelUserControl1.Size = new System.Drawing.Size(349, 227);
             this.settings_DifficultyLevelUserControl1.TabIndex = 1;
-            // 
-            // settings_backToGameWindowButton
-            // 
-            this.settings_backToGameWindowButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.settings_backToGameWindowButton.Location = new System.Drawing.Point(0, 427);
-            this.settings_backToGameWindowButton.Name = "settings_backToGameWindowButton";
-            this.settings_backToGameWindowButton.Size = new System.Drawing.Size(109, 23);
-            this.settings_backToGameWindowButton.TabIndex = 3;
-            this.settings_backToGameWindowButton.Text = "Main Menu";
-            this.settings_backToGameWindowButton.UseVisualStyleBackColor = true;
-            this.settings_backToGameWindowButton.Click += new System.EventHandler(this.settings_backToGameWindowButton_Click);
             // 
             // SettingsForm
             // 
