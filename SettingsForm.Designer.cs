@@ -36,8 +36,8 @@ namespace main
             this.settings_DifficultyLevelCustomRadioButton = new System.Windows.Forms.RadioButton();
             this.settings_CustomDifficultyPanel = new System.Windows.Forms.Panel();
             this.settings_CustomTextLabel = new System.Windows.Forms.Label();
-            this.settings_DifficultyLevelCustomRowTextBox = new System.Windows.Forms.TextBox();
             this.settings_DifficultyLevelCustomColTextBox = new System.Windows.Forms.TextBox();
+            this.settings_DifficultyLevelCustomRowTextBox = new System.Windows.Forms.TextBox();
             this.settings_SaveDifficultyLevelSelectionButton = new System.Windows.Forms.Button();
             this.settings_DifficultyLevelNormalRadioButton = new System.Windows.Forms.RadioButton();
             this.settings_DifficultyLevelHardRadioButton = new System.Windows.Forms.RadioButton();
@@ -113,8 +113,8 @@ namespace main
             // settings_CustomDifficultyPanel
             // 
             this.settings_CustomDifficultyPanel.Controls.Add(this.settings_CustomTextLabel);
-            this.settings_CustomDifficultyPanel.Controls.Add(this.settings_DifficultyLevelCustomRowTextBox);
             this.settings_CustomDifficultyPanel.Controls.Add(this.settings_DifficultyLevelCustomColTextBox);
+            this.settings_CustomDifficultyPanel.Controls.Add(this.settings_DifficultyLevelCustomRowTextBox);
             this.settings_CustomDifficultyPanel.Location = new System.Drawing.Point(3, 95);
             this.settings_CustomDifficultyPanel.Name = "settings_CustomDifficultyPanel";
             this.settings_CustomDifficultyPanel.Size = new System.Drawing.Size(123, 52);
@@ -130,19 +130,19 @@ namespace main
             this.settings_CustomTextLabel.TabIndex = 6;
             this.settings_CustomTextLabel.Text = "Custom:";
             // 
-            // settings_DifficultyLevelCustomRowTextBox
-            // 
-            this.settings_DifficultyLevelCustomRowTextBox.Location = new System.Drawing.Point(84, 16);
-            this.settings_DifficultyLevelCustomRowTextBox.Name = "settings_DifficultyLevelCustomRowTextBox";
-            this.settings_DifficultyLevelCustomRowTextBox.Size = new System.Drawing.Size(24, 20);
-            this.settings_DifficultyLevelCustomRowTextBox.TabIndex = 4;
-            // 
             // settings_DifficultyLevelCustomColTextBox
             // 
-            this.settings_DifficultyLevelCustomColTextBox.Location = new System.Drawing.Point(54, 16);
+            this.settings_DifficultyLevelCustomColTextBox.Location = new System.Drawing.Point(84, 16);
             this.settings_DifficultyLevelCustomColTextBox.Name = "settings_DifficultyLevelCustomColTextBox";
             this.settings_DifficultyLevelCustomColTextBox.Size = new System.Drawing.Size(24, 20);
-            this.settings_DifficultyLevelCustomColTextBox.TabIndex = 5;
+            this.settings_DifficultyLevelCustomColTextBox.TabIndex = 4;
+            // 
+            // settings_DifficultyLevelCustomRowTextBox
+            // 
+            this.settings_DifficultyLevelCustomRowTextBox.Location = new System.Drawing.Point(54, 16);
+            this.settings_DifficultyLevelCustomRowTextBox.Name = "settings_DifficultyLevelCustomRowTextBox";
+            this.settings_DifficultyLevelCustomRowTextBox.Size = new System.Drawing.Size(24, 20);
+            this.settings_DifficultyLevelCustomRowTextBox.TabIndex = 5;
             // 
             // settings_SaveDifficultyLevelSelectionButton
             // 
@@ -152,6 +152,7 @@ namespace main
             this.settings_SaveDifficultyLevelSelectionButton.TabIndex = 18;
             this.settings_SaveDifficultyLevelSelectionButton.Text = "Save";
             this.settings_SaveDifficultyLevelSelectionButton.UseVisualStyleBackColor = true;
+            this.settings_SaveDifficultyLevelSelectionButton.Click += new System.EventHandler(this.settings_SaveDifficultyLevelSelectionButton_Click);
             // 
             // settings_DifficultyLevelNormalRadioButton
             // 
@@ -207,6 +208,7 @@ namespace main
             this.settings_SaveShapeSelectionButton.TabIndex = 26;
             this.settings_SaveShapeSelectionButton.Text = "Save";
             this.settings_SaveShapeSelectionButton.UseVisualStyleBackColor = true;
+            this.settings_SaveShapeSelectionButton.Click += new System.EventHandler(this.settings_SaveShapeSelectionButton_Click);
             // 
             // settings_RoundCheckBox
             // 
@@ -259,6 +261,7 @@ namespace main
             this.Controls.Add(this.settings_LeftPanel);
             this.Name = "SettingsForm";
             this.Text = "Settings";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SettingsForm_FormClosed);
             this.Load += new System.EventHandler(this.SettingsForm_Load);
             this.settings_LeftPanel.ResumeLayout(false);
             this.settings_CustomDifficultyPanel.ResumeLayout(false);
@@ -282,8 +285,8 @@ namespace main
         private System.Windows.Forms.RadioButton settings_DifficultyLevelHardRadioButton;
         private System.Windows.Forms.Panel settings_CustomDifficultyPanel;
         private System.Windows.Forms.Label settings_CustomTextLabel;
-        private System.Windows.Forms.TextBox settings_DifficultyLevelCustomRowTextBox;
         private System.Windows.Forms.TextBox settings_DifficultyLevelCustomColTextBox;
+        private System.Windows.Forms.TextBox settings_DifficultyLevelCustomRowTextBox;
         private System.Windows.Forms.RadioButton settings_DifficultyLevelNormalRadioButton;
         private System.Windows.Forms.Button settings_SaveDifficultyLevelSelectionButton;
         private System.Windows.Forms.Panel settings_DifficultyLevelPanel;
