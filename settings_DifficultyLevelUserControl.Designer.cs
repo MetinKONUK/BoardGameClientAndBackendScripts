@@ -34,11 +34,17 @@ namespace main
             this.settings_DifficultyLevelNormalRadioButton = new System.Windows.Forms.RadioButton();
             this.settings_DifficultyLevelHardRadioButton = new System.Windows.Forms.RadioButton();
             this.settings_DifficultyLevelEasyRadioButton = new System.Windows.Forms.RadioButton();
+            this.settings_DifficultyLevelCustomRowTextBox = new System.Windows.Forms.TextBox();
+            this.settings_DifficultyLevelCustomColTextBox = new System.Windows.Forms.TextBox();
+            this.settings_CustomTextLabel = new System.Windows.Forms.Label();
             this.settings_difficultyLevelPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // settings_difficultyLevelPanel
             // 
+            this.settings_difficultyLevelPanel.Controls.Add(this.settings_CustomTextLabel);
+            this.settings_difficultyLevelPanel.Controls.Add(this.settings_DifficultyLevelCustomColTextBox);
+            this.settings_difficultyLevelPanel.Controls.Add(this.settings_DifficultyLevelCustomRowTextBox);
             this.settings_difficultyLevelPanel.Controls.Add(this.settings_SaveDifficultyLevelSelectionButton);
             this.settings_difficultyLevelPanel.Controls.Add(this.settings_DifficultyLevelNormalRadioButton);
             this.settings_difficultyLevelPanel.Controls.Add(this.settings_DifficultyLevelHardRadioButton);
@@ -51,7 +57,7 @@ namespace main
             // 
             // settings_SaveDifficultyLevelSelectionButton
             // 
-            this.settings_SaveDifficultyLevelSelectionButton.Location = new System.Drawing.Point(3, 72);
+            this.settings_SaveDifficultyLevelSelectionButton.Location = new System.Drawing.Point(3, 105);
             this.settings_SaveDifficultyLevelSelectionButton.Name = "settings_SaveDifficultyLevelSelectionButton";
             this.settings_SaveDifficultyLevelSelectionButton.Size = new System.Drawing.Size(75, 23);
             this.settings_SaveDifficultyLevelSelectionButton.TabIndex = 3;
@@ -91,6 +97,29 @@ namespace main
             this.settings_DifficultyLevelEasyRadioButton.Text = "Easy";
             this.settings_DifficultyLevelEasyRadioButton.UseVisualStyleBackColor = true;
             // 
+            // settings_DifficultyLevelCustomRowTextBox
+            // 
+            this.settings_DifficultyLevelCustomRowTextBox.Location = new System.Drawing.Point(81, 79);
+            this.settings_DifficultyLevelCustomRowTextBox.Name = "settings_DifficultyLevelCustomRowTextBox";
+            this.settings_DifficultyLevelCustomRowTextBox.Size = new System.Drawing.Size(24, 20);
+            this.settings_DifficultyLevelCustomRowTextBox.TabIndex = 4;
+            // 
+            // settings_DifficultyLevelCustomColTextBox
+            // 
+            this.settings_DifficultyLevelCustomColTextBox.Location = new System.Drawing.Point(51, 79);
+            this.settings_DifficultyLevelCustomColTextBox.Name = "settings_DifficultyLevelCustomColTextBox";
+            this.settings_DifficultyLevelCustomColTextBox.Size = new System.Drawing.Size(24, 20);
+            this.settings_DifficultyLevelCustomColTextBox.TabIndex = 5;
+            // 
+            // settings_CustomTextLabel
+            // 
+            this.settings_CustomTextLabel.AutoSize = true;
+            this.settings_CustomTextLabel.Location = new System.Drawing.Point(0, 82);
+            this.settings_CustomTextLabel.Name = "settings_CustomTextLabel";
+            this.settings_CustomTextLabel.Size = new System.Drawing.Size(45, 13);
+            this.settings_CustomTextLabel.TabIndex = 6;
+            this.settings_CustomTextLabel.Text = "Custom:";
+            // 
             // settings_DifficultyLevelUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -111,5 +140,8 @@ namespace main
         private System.Windows.Forms.RadioButton settings_DifficultyLevelNormalRadioButton;
         private System.Windows.Forms.RadioButton settings_DifficultyLevelHardRadioButton;
         private System.Windows.Forms.RadioButton settings_DifficultyLevelEasyRadioButton;
+        private System.Windows.Forms.Label settings_CustomTextLabel;
+        private System.Windows.Forms.TextBox settings_DifficultyLevelCustomColTextBox;
+        private System.Windows.Forms.TextBox settings_DifficultyLevelCustomRowTextBox;
     }
 }
