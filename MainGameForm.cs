@@ -25,6 +25,7 @@ namespace main
         private void mainGameWindow_SettingsButton_Click(object sender, EventArgs e)
         {
             var settingsWindow = new SettingsForm();
+
             settingsWindow.ShowDialog();
         }
     }

@@ -31,5 +31,10 @@ namespace main
         {
             settings_DifficultyLevelUserControl1.BringToFront();
         }
+
+        private void settings_backToGameWindowButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
