@@ -29,34 +29,48 @@ namespace main
         /// </summary>
         private void InitializeComponent()
         {
-            this.mainGameWindow_indicatorLabel = new System.Windows.Forms.Label();
+            this.mainGameWindow_UpPanel = new System.Windows.Forms.Panel();
+            this.mainGameWindow_SettingsButton = new System.Windows.Forms.Button();
+            this.mainGameWindow_UpPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // mainGameWindow_indicatorLabel
+            // mainGameWindow_UpPanel
             // 
-            this.mainGameWindow_indicatorLabel.AutoSize = true;
-            this.mainGameWindow_indicatorLabel.Location = new System.Drawing.Point(86, 81);
-            this.mainGameWindow_indicatorLabel.Name = "mainGameWindow_indicatorLabel";
-            this.mainGameWindow_indicatorLabel.Size = new System.Drawing.Size(103, 13);
-            this.mainGameWindow_indicatorLabel.TabIndex = 0;
-            this.mainGameWindow_indicatorLabel.Text = "Main Game Window";
+            this.mainGameWindow_UpPanel.Controls.Add(this.mainGameWindow_SettingsButton);
+            this.mainGameWindow_UpPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.mainGameWindow_UpPanel.Location = new System.Drawing.Point(0, 0);
+            this.mainGameWindow_UpPanel.Name = "mainGameWindow_UpPanel";
+            this.mainGameWindow_UpPanel.Size = new System.Drawing.Size(800, 40);
+            this.mainGameWindow_UpPanel.TabIndex = 0;
+            // 
+            // mainGameWindow_SettingsButton
+            // 
+            this.mainGameWindow_SettingsButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.mainGameWindow_SettingsButton.Location = new System.Drawing.Point(701, 0);
+            this.mainGameWindow_SettingsButton.Name = "mainGameWindow_SettingsButton";
+            this.mainGameWindow_SettingsButton.Size = new System.Drawing.Size(99, 40);
+            this.mainGameWindow_SettingsButton.TabIndex = 0;
+            this.mainGameWindow_SettingsButton.Text = "Settings";
+            this.mainGameWindow_SettingsButton.UseVisualStyleBackColor = true;
+            this.mainGameWindow_SettingsButton.Click += new System.EventHandler(this.mainGameWindow_SettingsButton_Click);
             // 
             // MainGameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.mainGameWindow_indicatorLabel);
+            this.Controls.Add(this.mainGameWindow_UpPanel);
             this.Name = "MainGameForm";
             this.Text = "MainGameWindow";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainGameForm_FormClosed);
+            this.mainGameWindow_UpPanel.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label mainGameWindow_indicatorLabel;
+        private System.Windows.Forms.Panel mainGameWindow_UpPanel;
+        private System.Windows.Forms.Button mainGameWindow_SettingsButton;
     }
 }
