@@ -61,7 +61,7 @@ namespace main
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.mainGameWindow_UpPanel);
             this.Name = "MainGameForm";
-            this.Text = "MainGameWindow";
+            this.Text = "Board Game";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainGameForm_FormClosed);
             this.mainGameWindow_UpPanel.ResumeLayout(false);
             this.ResumeLayout(false);

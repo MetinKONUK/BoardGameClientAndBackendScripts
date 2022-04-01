@@ -16,5 +16,20 @@ namespace main
         {
             InitializeComponent();
         }
+
+        private void settings_difficultyLevelButton_Click(object sender, EventArgs e)
+        {
+            settings_DifficultyLevelUserControl1.BringToFront();
+        }
+
+        private void settings_ShapeButton_Click(object sender, EventArgs e)
+        {
+            settings_ShapesUserControl1.BringToFront();
+        }
+
+        private void SettingsForm_Load(object sender, EventArgs e)
+        {
+            settings_DifficultyLevelUserControl1.BringToFront();
+        }
     }
 }
