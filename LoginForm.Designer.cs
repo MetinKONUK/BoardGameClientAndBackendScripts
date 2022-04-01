@@ -96,12 +96,14 @@
             // 
             // LoginForm
             // 
+            this.AcceptButton = this.login_loginButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.login_leftPanel);
             this.Name = "LoginForm";
-            this.Text = "Form1";
+            this.Text = "Log In";
+            this.Shown += new System.EventHandler(this.LoginForm_Shown);
             this.login_leftPanel.ResumeLayout(false);
             this.login_leftPanel.PerformLayout();
             this.ResumeLayout(false);

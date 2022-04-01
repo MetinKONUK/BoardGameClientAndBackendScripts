@@ -48,5 +48,10 @@ namespace main
 
             
         }
+
+        private void LoginForm_Shown(object sender, EventArgs e)
+        {
+            login_usernameTextBox.Focus();
+        }
     }
 }
