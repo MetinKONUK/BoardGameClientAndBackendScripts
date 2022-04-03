@@ -300,6 +300,7 @@ namespace main
             this.Settings_SaveColorSelectionButton.TabIndex = 26;
             this.Settings_SaveColorSelectionButton.Text = "Save";
             this.Settings_SaveColorSelectionButton.UseVisualStyleBackColor = true;
+            this.Settings_SaveColorSelectionButton.Click += new System.EventHandler(this.Settings_SaveColorSelectionButton_Click);
             // 
             // settings_GreenCheckBox
             // 

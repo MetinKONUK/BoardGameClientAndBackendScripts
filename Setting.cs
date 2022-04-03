@@ -12,5 +12,6 @@ namespace main
         public int Col{ get; set; }
         public List<int> Shapes{ get; set; }
         public int DifficultyLevel { get; set; }
+        public List<int> Colors { get; set; }
     }
 }
