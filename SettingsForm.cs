@@ -28,6 +28,10 @@ namespace main
         }
         private void SettingsForm_Load(object sender, EventArgs e)
         {
+            settings_ShapesPanel.Visible          = false;
+            settings_DifficultyLevelPanel.Visible = false;
+            Settings_ColorPanel.Visible           = false;
+
             var settingJson = File.ReadAllText(@"../../settings.json");
             var setting = JsonConvert.DeserializeObject<Setting>(settingJson);
             
@@ -71,18 +75,13 @@ namespace main
                         break;
                 }
             }
-
-
-
-
-            settings_ShapesPanel.Visible = false;
-            settings_DifficultyLevelPanel.Visible = false;
         }
 
         private void Settings_difficultyLevelButton_Click(object sender, EventArgs e)
         {
             settings_DifficultyLevelPanel.Show();
             settings_ShapesPanel.Hide();
+            Settings_ColorPanel.Hide();
             settings_DifficultyLevelPanel.BringToFront();
         }
 
@@ -90,6 +89,7 @@ namespace main
         {
             settings_ShapesPanel.Show();
             settings_DifficultyLevelPanel.Hide();
+            Settings_ColorPanel.Hide();
             settings_ShapesPanel.BringToFront();
         }
 
@@ -165,6 +165,14 @@ namespace main
         {
             var settingJson = JsonConvert.SerializeObject(_setting);
             File.WriteAllText(@"../../settings.json", settingJson);
+        }
+
+        private void settings_ColorButton_Click(object sender, EventArgs e)
+        {
+            Settings_ColorPanel.Show();
+            settings_ShapesPanel.Hide();
+            settings_DifficultyLevelPanel.Hide();
+            Settings_ColorPanel.BringToFront();
         }
     }
 }
