@@ -48,14 +48,22 @@ namespace main
             this.settings_TriangleCheckBox = new System.Windows.Forms.CheckBox();
             this.settings_SquareCheckBox = new System.Windows.Forms.CheckBox();
             this.settings_ShapesPanel = new System.Windows.Forms.Panel();
+            this.settings_ColorButton = new System.Windows.Forms.Button();
+            this.Settings_ColorPanel = new System.Windows.Forms.Panel();
+            this.settings_RedCheckBox = new System.Windows.Forms.CheckBox();
+            this.Settings_SaveColorSelectionButton = new System.Windows.Forms.Button();
+            this.settings_GreenCheckBox = new System.Windows.Forms.CheckBox();
+            this.Settings_BlueCheckBox = new System.Windows.Forms.CheckBox();
             this.settings_LeftPanel.SuspendLayout();
             this.settings_CustomDifficultyPanel.SuspendLayout();
             this.settings_DifficultyLevelPanel.SuspendLayout();
             this.settings_ShapesPanel.SuspendLayout();
+            this.Settings_ColorPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // settings_LeftPanel
             // 
+            this.settings_LeftPanel.Controls.Add(this.settings_ColorButton);
             this.settings_LeftPanel.Controls.Add(this.settings_backToGameWindowButton);
             this.settings_LeftPanel.Controls.Add(this.settings_ShapeButton);
             this.settings_LeftPanel.Controls.Add(this.settings_difficultyLevelButton);
@@ -197,7 +205,7 @@ namespace main
             this.settings_DifficultyLevelPanel.Controls.Add(this.settings_CustomDifficultyPanel);
             this.settings_DifficultyLevelPanel.Location = new System.Drawing.Point(115, 12);
             this.settings_DifficultyLevelPanel.Name = "settings_DifficultyLevelPanel";
-            this.settings_DifficultyLevelPanel.Size = new System.Drawing.Size(308, 211);
+            this.settings_DifficultyLevelPanel.Size = new System.Drawing.Size(308, 218);
             this.settings_DifficultyLevelPanel.TabIndex = 22;
             // 
             // settings_SaveShapeSelectionButton
@@ -248,14 +256,80 @@ namespace main
             this.settings_ShapesPanel.Controls.Add(this.settings_RoundCheckBox);
             this.settings_ShapesPanel.Location = new System.Drawing.Point(115, 12);
             this.settings_ShapesPanel.Name = "settings_ShapesPanel";
-            this.settings_ShapesPanel.Size = new System.Drawing.Size(308, 203);
+            this.settings_ShapesPanel.Size = new System.Drawing.Size(308, 197);
             this.settings_ShapesPanel.TabIndex = 27;
+            // 
+            // settings_ColorButton
+            // 
+            this.settings_ColorButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.settings_ColorButton.Location = new System.Drawing.Point(0, 62);
+            this.settings_ColorButton.Name = "settings_ColorButton";
+            this.settings_ColorButton.Size = new System.Drawing.Size(109, 31);
+            this.settings_ColorButton.TabIndex = 4;
+            this.settings_ColorButton.Text = "Colors";
+            this.settings_ColorButton.UseVisualStyleBackColor = true;
+            this.settings_ColorButton.Click += new System.EventHandler(this.settings_ColorButton_Click);
+            // 
+            // Settings_ColorPanel
+            // 
+            this.Settings_ColorPanel.Controls.Add(this.settings_RedCheckBox);
+            this.Settings_ColorPanel.Controls.Add(this.Settings_SaveColorSelectionButton);
+            this.Settings_ColorPanel.Controls.Add(this.settings_GreenCheckBox);
+            this.Settings_ColorPanel.Controls.Add(this.Settings_BlueCheckBox);
+            this.Settings_ColorPanel.Location = new System.Drawing.Point(115, 12);
+            this.Settings_ColorPanel.Name = "Settings_ColorPanel";
+            this.Settings_ColorPanel.Size = new System.Drawing.Size(308, 176);
+            this.Settings_ColorPanel.TabIndex = 28;
+            // 
+            // settings_RedCheckBox
+            // 
+            this.settings_RedCheckBox.AutoSize = true;
+            this.settings_RedCheckBox.ForeColor = System.Drawing.Color.Red;
+            this.settings_RedCheckBox.Location = new System.Drawing.Point(3, 3);
+            this.settings_RedCheckBox.Name = "settings_RedCheckBox";
+            this.settings_RedCheckBox.Size = new System.Drawing.Size(46, 17);
+            this.settings_RedCheckBox.TabIndex = 23;
+            this.settings_RedCheckBox.Text = "Red";
+            this.settings_RedCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // Settings_SaveColorSelectionButton
+            // 
+            this.Settings_SaveColorSelectionButton.Location = new System.Drawing.Point(3, 72);
+            this.Settings_SaveColorSelectionButton.Name = "Settings_SaveColorSelectionButton";
+            this.Settings_SaveColorSelectionButton.Size = new System.Drawing.Size(75, 23);
+            this.Settings_SaveColorSelectionButton.TabIndex = 26;
+            this.Settings_SaveColorSelectionButton.Text = "Save";
+            this.Settings_SaveColorSelectionButton.UseVisualStyleBackColor = true;
+            this.Settings_SaveColorSelectionButton.Click += new System.EventHandler(this.Settings_SaveColorSelectionButton_Click);
+            // 
+            // settings_GreenCheckBox
+            // 
+            this.settings_GreenCheckBox.AutoSize = true;
+            this.settings_GreenCheckBox.ForeColor = System.Drawing.Color.Lime;
+            this.settings_GreenCheckBox.Location = new System.Drawing.Point(3, 26);
+            this.settings_GreenCheckBox.Name = "settings_GreenCheckBox";
+            this.settings_GreenCheckBox.Size = new System.Drawing.Size(55, 17);
+            this.settings_GreenCheckBox.TabIndex = 24;
+            this.settings_GreenCheckBox.Text = "Green";
+            this.settings_GreenCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // Settings_BlueCheckBox
+            // 
+            this.Settings_BlueCheckBox.AutoSize = true;
+            this.Settings_BlueCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.Settings_BlueCheckBox.Location = new System.Drawing.Point(3, 49);
+            this.Settings_BlueCheckBox.Name = "Settings_BlueCheckBox";
+            this.Settings_BlueCheckBox.Size = new System.Drawing.Size(47, 17);
+            this.Settings_BlueCheckBox.TabIndex = 25;
+            this.Settings_BlueCheckBox.Text = "Blue";
+            this.Settings_BlueCheckBox.UseVisualStyleBackColor = true;
             // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(841, 450);
+            this.Controls.Add(this.Settings_ColorPanel);
             this.Controls.Add(this.settings_ShapesPanel);
             this.Controls.Add(this.settings_DifficultyLevelPanel);
             this.Controls.Add(this.settings_LeftPanel);
@@ -270,6 +344,8 @@ namespace main
             this.settings_DifficultyLevelPanel.PerformLayout();
             this.settings_ShapesPanel.ResumeLayout(false);
             this.settings_ShapesPanel.PerformLayout();
+            this.Settings_ColorPanel.ResumeLayout(false);
+            this.Settings_ColorPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -295,5 +371,11 @@ namespace main
         private System.Windows.Forms.CheckBox settings_TriangleCheckBox;
         private System.Windows.Forms.CheckBox settings_SquareCheckBox;
         private System.Windows.Forms.Panel settings_ShapesPanel;
+        private System.Windows.Forms.Button settings_ColorButton;
+        private System.Windows.Forms.Panel Settings_ColorPanel;
+        private System.Windows.Forms.CheckBox settings_RedCheckBox;
+        private System.Windows.Forms.Button Settings_SaveColorSelectionButton;
+        private System.Windows.Forms.CheckBox settings_GreenCheckBox;
+        private System.Windows.Forms.CheckBox Settings_BlueCheckBox;
     }
 }

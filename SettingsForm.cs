@@ -15,39 +15,43 @@ namespace main
 {
     public partial class SettingsForm : Form
     {
-        Setting _setting =  new Setting
-                      {
-                          Row             = -1,
-                          Col             = -1,
-                          DifficultyLevel = 0,
-                          Shapes          = new List<int>() { 1, 0, 1 }
-                      };
+        private Setting _setting = new Setting
+                                   {
+                                       Row             = -1,
+                                       Col             = -1,
+                                       DifficultyLevel = 0,
+                                       Shapes          = new List<int>() {1, 0, 1},
+                                       Colors          = new List<int>() {1, 1, 1}
+                                   };
         public SettingsForm()
         {
             InitializeComponent();
         }
         private void SettingsForm_Load(object sender, EventArgs e)
         {
+            settings_ShapesPanel.Visible          = false;
+            settings_DifficultyLevelPanel.Visible = false;
+            Settings_ColorPanel.Visible           = false;
+
             var settingJson = File.ReadAllText(@"../../settings.json");
             var setting = JsonConvert.DeserializeObject<Setting>(settingJson);
             
             _setting = setting;
+            if (setting != null && setting.Colors != null)
+            {
+                List<int> colors = setting.Colors;
+                if (colors[0] == 1) settings_RedCheckBox.Checked = true;
 
+                if (colors[1] == 1) settings_GreenCheckBox.Checked = true;
+
+                if (colors[2] == 1) Settings_BlueCheckBox.Checked = true;
+            }
             if (setting != null && setting.Shapes != null)
             {
                 List<int> shapes = setting.Shapes;
-                if (shapes[0] == 1)
-                {
-                    settings_SquareCheckBox.Checked = true;
-                }
-                if (shapes[1] == 1)
-                {
-                    settings_TriangleCheckBox.Checked = true;
-                }
-                if (shapes[2] == 1)
-                {
-                    settings_RoundCheckBox.Checked = true;
-                }
+                if (shapes[0] == 1) settings_SquareCheckBox.Checked = true;
+                if (shapes[1] == 1) settings_TriangleCheckBox.Checked = true;
+                if (shapes[2] == 1) settings_RoundCheckBox.Checked = true;
             }
 
             if (setting != null && setting.Shapes != null)
@@ -71,18 +75,13 @@ namespace main
                         break;
                 }
             }
-
-
-
-
-            settings_ShapesPanel.Visible = false;
-            settings_DifficultyLevelPanel.Visible = false;
         }
 
         private void Settings_difficultyLevelButton_Click(object sender, EventArgs e)
         {
             settings_DifficultyLevelPanel.Show();
             settings_ShapesPanel.Hide();
+            Settings_ColorPanel.Hide();
             settings_DifficultyLevelPanel.BringToFront();
         }
 
@@ -90,6 +89,7 @@ namespace main
         {
             settings_ShapesPanel.Show();
             settings_DifficultyLevelPanel.Hide();
+            Settings_ColorPanel.Hide();
             settings_ShapesPanel.BringToFront();
         }
 
@@ -161,10 +161,27 @@ namespace main
             }
         }
 
+
+        private void settings_ColorButton_Click(object sender, EventArgs e)
+        {
+            Settings_ColorPanel.Show();
+            settings_ShapesPanel.Hide();
+            settings_DifficultyLevelPanel.Hide();
+            Settings_ColorPanel.BringToFront();
+        }
+
+        private void Settings_SaveColorSelectionButton_Click(object sender, EventArgs e)
+        {
+            var red = settings_RedCheckBox.Checked ? 1 : 0;
+            var green = settings_GreenCheckBox.Checked ? 1 : 0;
+            var blue = Settings_BlueCheckBox.Checked ? 1 : 0;
+            _setting.Colors = new List<int>() { red, green, blue};
+        }
         private void SettingsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             var settingJson = JsonConvert.SerializeObject(_setting);
             File.WriteAllText(@"../../settings.json", settingJson);
         }
+
     }
 }
