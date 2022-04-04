@@ -34,11 +34,13 @@
             this.login_loginButton = new System.Windows.Forms.Button();
             this.login_passwordTextBox = new System.Windows.Forms.TextBox();
             this.login_usernameTextBox = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.login_leftPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // login_leftPanel
             // 
+            this.login_leftPanel.Controls.Add(this.button1);
             this.login_leftPanel.Controls.Add(this.login_passwordLabel);
             this.login_leftPanel.Controls.Add(this.login_usernameLabel);
             this.login_leftPanel.Controls.Add(this.login_loginButton);
@@ -93,6 +95,17 @@
             this.login_usernameTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.login_usernameTextBox.Size = new System.Drawing.Size(170, 20);
             this.login_usernameTextBox.TabIndex = 1;
+            this.login_usernameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.login_usernameTextBox_KeyPress);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(0, 271);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // LoginForm
             // 
@@ -103,6 +116,7 @@
             this.Controls.Add(this.login_leftPanel);
             this.Name = "LoginForm";
             this.Text = "Log In";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.Shown += new System.EventHandler(this.LoginForm_Shown);
             this.login_leftPanel.ResumeLayout(false);
             this.login_leftPanel.PerformLayout();
@@ -118,6 +132,7 @@
         private System.Windows.Forms.Button login_loginButton;
         private System.Windows.Forms.Label login_passwordLabel;
         private System.Windows.Forms.Label login_usernameLabel;
+        private System.Windows.Forms.Button button1;
     }
 }
 
