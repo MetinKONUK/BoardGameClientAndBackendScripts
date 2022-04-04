@@ -76,7 +76,7 @@
             this.login_loginButton.TabIndex = 3;
             this.login_loginButton.Text = "Log In";
             this.login_loginButton.UseVisualStyleBackColor = true;
-            this.login_loginButton.Click += new System.EventHandler(this.login_loginButton_Click);
+            this.login_loginButton.Click += new System.EventHandler(this.Login_loginButton_Click);
             // 
             // login_passwordTextBox
             // 
@@ -93,7 +93,7 @@
             this.login_usernameTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.login_usernameTextBox.Size = new System.Drawing.Size(170, 20);
             this.login_usernameTextBox.TabIndex = 1;
-            this.login_usernameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.login_usernameTextBox_KeyPress);
+            this.login_usernameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Login_usernameTextBox_KeyPress);
             // 
             // LoginForm
             // 
@@ -104,6 +104,7 @@
             this.Controls.Add(this.login_leftPanel);
             this.Name = "LoginForm";
             this.Text = "Log In";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.Shown += new System.EventHandler(this.LoginForm_Shown);
             this.login_leftPanel.ResumeLayout(false);
             this.login_leftPanel.PerformLayout();

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
@@ -11,18 +12,23 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
+using Newtonsoft.Json;
 
 namespace main
 {
     public partial class LoginForm : Form
     {
+        private SucceededLoginLogs _succededLoginLogs = new SucceededLoginLogs
+                                                  {
+                                                      Username = "",
+                                                  };
         public LoginForm()
         {
             InitializeComponent();
         }
 
         public Users Users = new Users();
-        private void login_loginButton_Click(object sender, EventArgs e)
+        private void Login_loginButton_Click(object sender, EventArgs e)
         {
             const string userDoesNotExistErrorMessage = "User does not exist!";
             const string passwordInvalidErrorMessage = "Invalid Password!";
@@ -42,6 +48,9 @@ namespace main
             else
             {
                 MessageBox.Show(accessGranted);
+                _succededLoginLogs.Username = Users.users[username];
+                var succeededLoginLogs = JsonConvert.SerializeObject(_succededLoginLogs);
+                File.WriteAllText(@"../../succeededLoginLogs.json", succeededLoginLogs);
                 var mainGameWindow = new MainGameForm();
                 this.Hide();
                 mainGameWindow.ShowDialog();
@@ -55,7 +64,7 @@ namespace main
             login_usernameTextBox.Focus();
         }
 
-        private void login_usernameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void Login_usernameTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             var isLetter = char.IsLetter(e.KeyChar);
             var isControl = char.IsControl(e.KeyChar);
@@ -63,6 +72,17 @@ namespace main
             if (!isLetter && !isControl)
             {
                 e.Handled = true;
+            }
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+            var succeededLoginLogJson = File.ReadAllText(@"../../succeededLoginLogs.json");
+            var succeededLoginLog = JsonConvert.DeserializeObject<SucceededLoginLogs>(succeededLoginLogJson);
+            if (succeededLoginLog != null)
+            {
+                var lastUsername = succeededLoginLog.Username;
+                login_usernameTextBox.Text = lastUsername;
             }
         }
     }
