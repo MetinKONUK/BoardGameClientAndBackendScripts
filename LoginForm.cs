@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
@@ -52,6 +53,17 @@ namespace main
         private void LoginForm_Shown(object sender, EventArgs e)
         {
             login_usernameTextBox.Focus();
+        }
+
+        private void login_usernameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            var isLetter = char.IsLetter(e.KeyChar);
+            var isControl = char.IsControl(e.KeyChar);
+
+            if (!isLetter && !isControl)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

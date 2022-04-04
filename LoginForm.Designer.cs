@@ -93,6 +93,7 @@
             this.login_usernameTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.login_usernameTextBox.Size = new System.Drawing.Size(170, 20);
             this.login_usernameTextBox.TabIndex = 1;
+            this.login_usernameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.login_usernameTextBox_KeyPress);
             // 
             // LoginForm
             // 
