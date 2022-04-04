@@ -85,5 +85,10 @@ namespace main
                 login_usernameTextBox.Text = lastUsername;
             }
         }
+
+        private void Login_TogglePasswordVisibilityCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            login_passwordTextBox.PasswordChar = Login_TogglePasswordVisibilityCheckBox.Checked ? '\0' : '*';
+        }
     }
 }
