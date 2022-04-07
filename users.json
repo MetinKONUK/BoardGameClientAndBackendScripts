@@ -1,0 +1,17 @@
+{
+    "user":{
+        "username": "user",
+        "password":"user",
+        "HighScore":12456
+            },
+    "beste":{
+        "username":"beste",
+        "password":"beste",
+        "HighScore":23984
+            },
+    "metin":{
+        "username":"metin",
+        "password":"metin",
+        "HighScore":23984
+            }
+}

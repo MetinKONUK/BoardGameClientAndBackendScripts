@@ -23,6 +23,8 @@ namespace main
                                        Shapes          = new List<int>() {1, 0, 1},
                                        Colors          = new List<int>() {1, 1, 1}
                                    };
+
+        private readonly UserBase _userBase = UserBase.Instance;
         public SettingsForm()
         {
             InitializeComponent();
@@ -33,30 +35,29 @@ namespace main
             settings_DifficultyLevelPanel.Visible = false;
             Settings_ColorPanel.Visible           = false;
 
-            var settingJson = File.ReadAllText(@"../../settings.json");
-            var setting = JsonConvert.DeserializeObject<Setting>(settingJson);
+            _userBase.SetSettings();
             
-            _setting = setting;
-            if (setting != null && setting.Colors != null)
+            _setting = _userBase.GetSettings()[_userBase.GetCurrentUser()];
+            if (_setting != null && _setting.Colors != null)
             {
-                List<int> colors = setting.Colors;
+                List<int> colors = _setting.Colors;
                 if (colors[0] == 1) settings_RedCheckBox.Checked = true;
 
                 if (colors[1] == 1) settings_GreenCheckBox.Checked = true;
 
                 if (colors[2] == 1) Settings_BlueCheckBox.Checked = true;
             }
-            if (setting != null && setting.Shapes != null)
+            if (_setting != null && _setting.Shapes != null)
             {
-                List<int> shapes = setting.Shapes;
+                List<int> shapes = _setting.Shapes;
                 if (shapes[0] == 1) settings_SquareCheckBox.Checked = true;
                 if (shapes[1] == 1) settings_TriangleCheckBox.Checked = true;
                 if (shapes[2] == 1) settings_RoundCheckBox.Checked = true;
             }
 
-            if (setting != null && setting.Shapes != null)
+            if (_setting != null && _setting.Shapes != null)
             {
-                var difficultyLevel = setting.DifficultyLevel;
+                var difficultyLevel = _setting.DifficultyLevel;
                 switch (difficultyLevel)
                 {
                     case 0:
@@ -70,8 +71,8 @@ namespace main
                         break;
                     default:
                         settings_DifficultyLevelCustomRadioButton.Checked = true;
-                        settings_DifficultyLevelCustomRowTextBox.Text = setting.Row.ToString();
-                        settings_DifficultyLevelCustomColTextBox.Text = setting.Col.ToString();
+                        settings_DifficultyLevelCustomRowTextBox.Text = _setting.Row.ToString();
+                        settings_DifficultyLevelCustomColTextBox.Text = _setting.Col.ToString();
                         break;
                 }
             }
@@ -117,14 +118,21 @@ namespace main
             if (settings_DifficultyLevelEasyRadioButton.Checked)
             {
                 _setting.DifficultyLevel = 0;
+                _setting.Row = -1;
+                _setting.Col = -1;
             } 
             else if (settings_DifficultyLevelNormalRadioButton.Checked)
             {
                 _setting.DifficultyLevel = 1;
+                _setting.Row = -1;
+                _setting.Col = -1;
+
             }
             else if (settings_DifficultyLevelHardRadioButton.Checked)
             {
                 _setting.DifficultyLevel = 2;
+                _setting.Row = -1;
+                _setting.Col = -1;
             }
             else
             {
@@ -179,9 +187,8 @@ namespace main
         }
         private void SettingsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            var settingJson = JsonConvert.SerializeObject(_setting);
-            File.WriteAllText(@"../../settings.json", settingJson);
+            _userBase.UpdateUserSetting(_userBase.GetCurrentUser(), _setting);
+            _userBase.SaveSettings();
         }
-
     }
 }

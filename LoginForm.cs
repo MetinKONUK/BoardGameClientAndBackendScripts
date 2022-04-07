@@ -22,12 +22,14 @@ namespace main
                                                   {
                                                       Username = "",
                                                   };
+
+        readonly UserBase _userBase = UserBase.Instance;
+
         public LoginForm()
         {
             InitializeComponent();
         }
 
-        public Users Users = new Users();
         private void Login_loginButton_Click(object sender, EventArgs e)
         {
             const string userDoesNotExistErrorMessage = "User does not exist!";
@@ -37,26 +39,42 @@ namespace main
             var username = login_usernameTextBox.Text;
             var password = login_passwordTextBox.Text;
             
-            if (!Users.users.ContainsKey(username))
+            _userBase.SetAdmins();
+            var admins = _userBase.GetAdmins();
+
+            if (admins.ContainsKey(username))
             {
-                MessageBox.Show(userDoesNotExistErrorMessage);
-            }
-            else if(Users.users[username] != password)
-            {
-                MessageBox.Show(passwordInvalidErrorMessage);
+                MessageBox.Show("Admin type user");
+                _userBase.SetCurrentUser(username);
             }
             else
             {
-                MessageBox.Show(accessGranted);
-                _succededLoginLogs.Username = Users.users[username];
-                var succeededLoginLogs = JsonConvert.SerializeObject(_succededLoginLogs);
-                File.WriteAllText(@"../../succeededLoginLogs.json", succeededLoginLogs);
-                var mainGameWindow = new MainGameForm();
-                this.Hide();
-                mainGameWindow.ShowDialog();
+                _userBase.SetUsers();
+                var users = _userBase.GetUsers();
+                if (users.ContainsKey(username))
+                {
+                    MessageBox.Show("User type user");
+                    if (users[username].Password != password)
+                    {
+                        MessageBox.Show(passwordInvalidErrorMessage);
+                    }
+                    else
+                    {
+                        MessageBox.Show(accessGranted);
+                        _userBase.SetCurrentUser(username);
+                        _succededLoginLogs.Username = username;
+                        var succeededLoginLogs = JsonConvert.SerializeObject(_succededLoginLogs);
+                        File.WriteAllText(@"../../succeededLoginLogs.json", succeededLoginLogs);
+                        var mainGameWindow = new MainGameForm();
+                        this.Hide();
+                        mainGameWindow.ShowDialog();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(userDoesNotExistErrorMessage);
+                }
             }
-
-            
         }
 
         private void LoginForm_Shown(object sender, EventArgs e)

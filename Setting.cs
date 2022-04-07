@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace main
 {
-    class Setting
+    public class Setting
     {
         public int Row { get; set; }
         public int Col{ get; set; }
