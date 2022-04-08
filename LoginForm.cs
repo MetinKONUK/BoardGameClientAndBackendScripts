@@ -18,7 +18,7 @@ namespace main
 {
     public partial class LoginForm : Form
     {
-        private SucceededLoginLogs _succededLoginLogs = new SucceededLoginLogs
+        private readonly SucceededLoginLogs _succeededLoginLogs = new SucceededLoginLogs
                                                   {
                                                       Username = "",
                                                   };
@@ -62,8 +62,8 @@ namespace main
                     {
                         MessageBox.Show(accessGranted);
                         _userBase.SetCurrentUser(username);
-                        _succededLoginLogs.Username = username;
-                        var succeededLoginLogs = JsonConvert.SerializeObject(_succededLoginLogs);
+                        _succeededLoginLogs.Username = username;
+                        var succeededLoginLogs = JsonConvert.SerializeObject(_succeededLoginLogs);
                         File.WriteAllText(@"../../succeededLoginLogs.json", succeededLoginLogs);
                         var mainGameWindow = new MainGameForm();
                         this.Hide();
@@ -107,6 +107,18 @@ namespace main
         private void Login_TogglePasswordVisibilityCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             login_passwordTextBox.PasswordChar = Login_TogglePasswordVisibilityCheckBox.Checked ? '\0' : '*';
+        }
+
+        private void Login_RegisterLabel_Click(object sender, EventArgs e)
+        {
+            var registerWindow = new RegisterForm();
+            this.Hide();
+            registerWindow.ShowDialog();
+        }
+
+        private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

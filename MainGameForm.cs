@@ -19,7 +19,9 @@ namespace main
 
         private void MainGameForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            var loginWindow = new LoginForm();
+            this.Hide();
+            loginWindow.ShowDialog();
         }
 
         private void mainGameWindow_SettingsButton_Click(object sender, EventArgs e)
