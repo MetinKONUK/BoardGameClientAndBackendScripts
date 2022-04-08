@@ -1,35 +1,5 @@
 {
-  "user": {
-    "Row": 31,
-    "Col": 31,
-    "Shapes": [
-      1,
-      1,
-      1
-    ],
-    "DifficultyLevel": 3,
-    "Colors": [
-      1,
-      1,
-      1
-    ]
-  },
   "beste": {
-    "Row": 16,
-    "Col": 32,
-    "Shapes": [
-      1,
-      1,
-      0
-    ],
-    "DifficultyLevel": 2,
-    "Colors": [
-      1,
-      1,
-      0
-    ]
-  },
-  "metin": {
     "Row": 12,
     "Col": 12,
     "Shapes": [
@@ -39,7 +9,37 @@
     ],
     "DifficultyLevel": 3,
     "Colors": [
+      1,
+      1,
+      1
+    ]
+  },
+  "user": {
+    "Row": -1,
+    "Col": -1,
+    "Shapes": [
+      1,
       0,
+      1
+    ],
+    "DifficultyLevel": 2,
+    "Colors": [
+      1,
+      1,
+      1
+    ]
+  },
+  "hasan": {
+    "Row": -1,
+    "Col": -1,
+    "Shapes": [
+      1,
+      0,
+      0
+    ],
+    "DifficultyLevel": 0,
+    "Colors": [
+      1,
       0,
       0
     ]

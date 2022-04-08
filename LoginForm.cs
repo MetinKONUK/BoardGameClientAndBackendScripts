@@ -24,6 +24,8 @@ namespace main
                                                   };
 
         readonly UserBase _userBase = UserBase.Instance;
+        readonly Sha2 _sha2= Sha2.Instance;
+
 
         public LoginForm()
         {
@@ -38,13 +40,17 @@ namespace main
 
             var username = login_usernameTextBox.Text;
             var password = login_passwordTextBox.Text;
-            
+            password = _sha2.Sha256Hash(password);
             _userBase.SetAdmins();
             var admins = _userBase.GetAdmins();
 
             if (admins.ContainsKey(username))
             {
                 MessageBox.Show("Admin type user");
+                if (admins[username].Password != password)
+                {
+                    MessageBox.Show(passwordInvalidErrorMessage);
+                }
                 _userBase.SetCurrentUser(username);
             }
             else

@@ -1,17 +1,32 @@
 {
-    "user":{
-        "username": "user",
-        "password":"user",
-        "HighScore":12456
-            },
-    "beste":{
-        "username":"beste",
-        "password":"beste",
-        "HighScore":23984
-            },
-    "metin":{
-        "username":"metin",
-        "password":"metin",
-        "HighScore":23984
-            }
+  "user": {
+    "Username": "user",
+    "Password": "04f8996da763b7a969b1028ee3007569eaf3a635486ddab211d512c85b9df8fb",
+    "NameSurname": "User USER",
+    "PhoneNumber": "5xx xxx xx xx",
+    "Address": "None/None",
+    "City": "None",
+    "Country": "None",
+    "Email": "user@hotmail.com"
+  },
+  "beste": {
+    "Username": "beste",
+    "Password": "2483a056889c7257464e6ce0b9cf808a0add1e8d9fe67b253fdb7f2f1e9fa1df",
+    "NameSurname": "Beste BUDAK",
+    "PhoneNumber": "544 508 94 04",
+    "Address": "Ankara/Turkey",
+    "City": "Ankara",
+    "Country": "United States",
+    "Email": "bestebudak@gmail.com"
+  },
+  "hasan": {
+    "Username": "hasan",
+    "Password": "82a5c663481036616824c0510f21ede50f734e63d14e5f657716ac38f3c0f9f6",
+    "NameSurname": "",
+    "PhoneNumber": "",
+    "Address": "",
+    "City": "",
+    "Country": "",
+    "Email": ""
+  }
 }

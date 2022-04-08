@@ -61,11 +61,29 @@ namespace main
             this._settings[username] = setting;
         }
 
+        public void AddUserSetting(string username, Setting setting)
+        {
+            this._settings.Add(username, setting);
+        }
+
         // Write Settings Dictionary Data Into "settings.json" File
         public void SaveSettings()
         {
             var jsonSettings = JsonConvert.SerializeObject(this._settings, Formatting.Indented);
             File.WriteAllText(@"../../settings.json", jsonSettings);
         }
+
+        public void AddUserToUsers(string username, User user)
+        {
+            this._users.Add(username, user);
+        }
+
+        public void SaveUsers()
+        {
+            var jsonUsers = JsonConvert.SerializeObject(this._users, Formatting.Indented);
+            File.WriteAllText(@"../../users.json", jsonUsers);
+        }
+
+
     }
 }
