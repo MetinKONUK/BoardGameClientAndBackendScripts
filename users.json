@@ -9,24 +9,24 @@
     "Country": "None",
     "Email": "user@hotmail.com"
   },
+  "metin": {
+    "Username": "metin",
+    "Password": "2cda111b28e2b60c590facf56b2765ac434933914a1d99b010f23dd16aa39166",
+    "NameSurname": "Metin KONUK",
+    "PhoneNumber": "555 564 78 95",
+    "Address": "London/England",
+    "City": "Buckingham",
+    "Country": "United Kingdom",
+    "Email": "metinkonuk@hotmail.com"
+  },
   "beste": {
     "Username": "beste",
     "Password": "2483a056889c7257464e6ce0b9cf808a0add1e8d9fe67b253fdb7f2f1e9fa1df",
-    "NameSurname": "Beste BUDAK",
-    "PhoneNumber": "544 508 93 03",
-    "Address": "Eskisehir/Turkey",
-    "City": "Madrid",
-    "Country": "Spain",
-    "Email": "bestebudak@hotmail.com"
-  },
-  "elon": {
-    "Username": "elon",
-    "Password": "8b64d09d9a7290a3876504cdb0a64379c807c83bc45aa8e71eb46c5b0c772e07",
-    "NameSurname": "Elon Musk",
-    "PhoneNumber": "544 509 31 69",
-    "Address": "London/ England",
-    "City": "Spain",
-    "Country": "England",
-    "Email": "elonmusk@hotmail.com"
+    "NameSurname": "",
+    "PhoneNumber": "",
+    "Address": "",
+    "City": "",
+    "Country": "",
+    "Email": ""
   }
 }

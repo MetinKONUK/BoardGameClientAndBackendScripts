@@ -48,7 +48,17 @@ namespace main
                 {
                     MessageBox.Show(passwordInvalidErrorMessage);
                 }
-                UserBase.SetCurrentUser(username);
+                else
+                {
+                    MessageBox.Show(accessGranted);
+                    UserBase.SetCurrentUser(username);
+                    _succeededLoginLogs.Username = username;
+                    var succeededLoginLogs = JsonConvert.SerializeObject(_succeededLoginLogs);
+                    File.WriteAllText(@"../../succeededLoginLogs.json", succeededLoginLogs);
+                    var adminPanelWindow = new AdminPanelForm();
+                    this.Hide();
+                    adminPanelWindow.ShowDialog();
+                }
             }
             else
             {

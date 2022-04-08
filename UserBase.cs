@@ -88,6 +88,15 @@ namespace main
             File.WriteAllText(@"../../users.json", jsonUsers);
         }
 
+        public static void DeleteUser(string username)
+        {
+            _users.Remove(username);
+        }
+
+        public static void DeleteUserSetting(string username)
+        {
+            _settings.Remove(username);
+        }
 
     }
 }
