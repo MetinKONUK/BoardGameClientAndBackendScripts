@@ -1,0 +1,32 @@
+{
+  "user": {
+    "Username": "user",
+    "Password": "04f8996da763b7a969b1028ee3007569eaf3a635486ddab211d512c85b9df8fb",
+    "NameSurname": "User USER",
+    "PhoneNumber": "5xx xxx xx xx",
+    "Address": "None/None",
+    "City": "None",
+    "Country": "None",
+    "Email": "user@hotmail.com"
+  },
+  "metin": {
+    "Username": "metin",
+    "Password": "2cda111b28e2b60c590facf56b2765ac434933914a1d99b010f23dd16aa39166",
+    "NameSurname": "Metin KONUK",
+    "PhoneNumber": "555 564 78 95",
+    "Address": "London/England",
+    "City": "Buckingham",
+    "Country": "United Kingdom",
+    "Email": "metinkonuk@hotmail.com"
+  },
+  "beste": {
+    "Username": "beste",
+    "Password": "2483a056889c7257464e6ce0b9cf808a0add1e8d9fe67b253fdb7f2f1e9fa1df",
+    "NameSurname": "",
+    "PhoneNumber": "",
+    "Address": "",
+    "City": "",
+    "Country": "",
+    "Email": ""
+  }
+}

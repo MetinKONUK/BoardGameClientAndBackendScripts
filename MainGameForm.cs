@@ -19,7 +19,9 @@ namespace main
 
         private void MainGameForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            var loginWindow = new LoginForm();
+            this.Hide();
+            loginWindow.ShowDialog();
         }
 
         private void mainGameWindow_SettingsButton_Click(object sender, EventArgs e)
@@ -27,6 +29,13 @@ namespace main
             var settingsWindow = new SettingsForm();
 
             settingsWindow.ShowDialog();
+        }
+
+        private void MainGameWindow_ProfileButton_Click(object sender, EventArgs e)
+        {
+            var profileWindow = new ProfileForm();
+
+            profileWindow.ShowDialog();
         }
     }
 }

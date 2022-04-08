@@ -1,1 +1,47 @@
-{"Row":12,"Col":12,"Shapes":[1,1,1],"DifficultyLevel":3,"Colors":[0,0,1]}
+{
+  "user": {
+    "Row": -1,
+    "Col": -1,
+    "Shapes": [
+      1,
+      0,
+      1
+    ],
+    "DifficultyLevel": 2,
+    "Colors": [
+      1,
+      1,
+      1
+    ]
+  },
+  "metin": {
+    "Row": -1,
+    "Col": -1,
+    "Shapes": [
+      1,
+      0,
+      0
+    ],
+    "DifficultyLevel": 0,
+    "Colors": [
+      1,
+      0,
+      0
+    ]
+  },
+  "beste": {
+    "Row": -1,
+    "Col": -1,
+    "Shapes": [
+      1,
+      0,
+      0
+    ],
+    "DifficultyLevel": 0,
+    "Colors": [
+      1,
+      0,
+      0
+    ]
+  }
+}
