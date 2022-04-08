@@ -103,18 +103,18 @@ namespace main
             _user.Email = eMail;
             const string userNameIsTaken = "Username is Taken!";
 
-            _userBase.SetUsers();
-            if (_userBase.GetUsers().ContainsKey(_user.Username))
+            UserBase.SetUsers();
+            if (UserBase.GetUsers().ContainsKey(_user.Username))
             {
                 MessageBox.Show(userNameIsTaken);
                 return;
             }
-            _userBase.AddUserToUsers(_user.Username, _user);
-            _userBase.SaveUsers();
+            UserBase.AddUserToUsers(_user.Username, _user);
+            UserBase.SaveUsers();
 
-            _userBase.SetSettings();
-            _userBase.AddUserSetting(_user.Username, _setting);
-            _userBase.SaveSettings();
+            UserBase.SetSettings();
+            UserBase.AddUserSetting(_user.Username, _setting);
+            UserBase.SaveSettings();
 
             OpenLoginForm();
 

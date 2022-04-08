@@ -19,9 +19,29 @@
     "Country": "United States",
     "Email": "bestebudak@gmail.com"
   },
-  "hasan": {
-    "Username": "hasan",
-    "Password": "82a5c663481036616824c0510f21ede50f734e63d14e5f657716ac38f3c0f9f6",
+  "elon": {
+    "Username": "elon",
+    "Password": "8b64d09d9a7290a3876504cdb0a64379c807c83bc45aa8e71eb46c5b0c772e07",
+    "NameSurname": "Elon Musk",
+    "PhoneNumber": "544 509 58 65",
+    "Address": "New York/America",
+    "City": "New York",
+    "Country": "United States",
+    "Email": "elonmusk@hotmail.com"
+  },
+  "abcd": {
+    "Username": "abcd",
+    "Password": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NameSurname": "",
+    "PhoneNumber": "",
+    "Address": "",
+    "City": "",
+    "Country": "",
+    "Email": ""
+  },
+  "pala": {
+    "Username": "pala",
+    "Password": "623c0ca1a3741f5be6b9f47b1402af7e17f6a8b7891927d4bb9b15a174492a68",
     "NameSurname": "",
     "PhoneNumber": "",
     "Address": "",

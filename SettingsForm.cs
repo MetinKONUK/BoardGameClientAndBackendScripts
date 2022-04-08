@@ -35,9 +35,9 @@ namespace main
             settings_DifficultyLevelPanel.Visible = false;
             Settings_ColorPanel.Visible           = false;
 
-            _userBase.SetSettings();
+            UserBase.SetSettings();
             
-            _setting = _userBase.GetSettings()[_userBase.GetCurrentUser()];
+            _setting = UserBase.GetSettings()[UserBase.GetCurrentUser()];
             if (_setting != null && _setting.Colors != null)
             {
                 List<int> colors = _setting.Colors;
@@ -187,8 +187,8 @@ namespace main
         }
         private void SettingsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            _userBase.UpdateUserSetting(_userBase.GetCurrentUser(), _setting);
-            _userBase.SaveSettings();
+            UserBase.UpdateUserSetting(UserBase.GetCurrentUser(), _setting);
+            UserBase.SaveSettings();
         }
     }
 }

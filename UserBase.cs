@@ -12,75 +12,75 @@ namespace main
     {
         public UserBase() { }
 
-        private Dictionary<string, User>  _users;
+        private static Dictionary<string, User>  _users;
 
-        private Dictionary<string, Admin> _admins;
+        private static Dictionary<string, Admin> _admins;
 
-        private Dictionary<string, Setting> _settings;
-        private string CurrentUser { get; set; }
+        private static Dictionary<string, Setting> _settings;
+        private static string CurrentUser { get; set; }
 
         public static UserBase Instance { get; } = new UserBase();
 
-        public void SetUsers()
+        public static void SetUsers()
         {
             var usersJson = File.ReadAllText(@"../../users.json");
-            this._users = JsonConvert.DeserializeObject<Dictionary<string, User>>(usersJson);
+            _users = JsonConvert.DeserializeObject<Dictionary<string, User>>(usersJson);
         }
 
-        public Dictionary<string, User> GetUsers() => this._users;
+        public static Dictionary<string, User> GetUsers() => _users;
 
-        public void SetAdmins()
+        public static void SetAdmins()
         {
             var adminsJson = File.ReadAllText(@"../../admins.json");
-            this._admins = JsonConvert.DeserializeObject<Dictionary<string, Admin>>(adminsJson);
+            _admins = JsonConvert.DeserializeObject<Dictionary<string, Admin>>(adminsJson);
         }
 
-        public Dictionary<string, Admin> GetAdmins() => this._admins;
+        public static Dictionary<string, Admin> GetAdmins() => _admins;
 
-        public void SetCurrentUser(string currentUser)
+        public static void SetCurrentUser(string currentUser)
         {
-            this.CurrentUser = currentUser;
+            CurrentUser = currentUser;
         }
 
-        public string GetCurrentUser() => this.CurrentUser;
+        public static string GetCurrentUser() => CurrentUser;
 
 
         // Read Settings Data From "settings.json" And Write It Into Settings Dictionary
-        public void SetSettings()
+        public static void SetSettings()
         {
             var settingsJson = File.ReadAllText(@"../../settings.json");
-            this._settings = JsonConvert.DeserializeObject<Dictionary<string, Setting>>(settingsJson);
+            _settings = JsonConvert.DeserializeObject<Dictionary<string, Setting>>(settingsJson);
         }
 
         // Return The Settings Dictionary Which Holds Settings Data
-        public Dictionary<string, Setting> GetSettings() => this._settings;
+        public static Dictionary<string, Setting> GetSettings() => _settings;
 
         // Update Particular User's Setting Object
-        public void UpdateUserSetting(string username, Setting setting)
+        public static void UpdateUserSetting(string username, Setting setting)
         {
-            this._settings[username] = setting;
+            _settings[username] = setting;
         }
 
-        public void AddUserSetting(string username, Setting setting)
+        public static void AddUserSetting(string username, Setting setting)
         {
-            this._settings.Add(username, setting);
+            _settings.Add(username, setting);
         }
 
         // Write Settings Dictionary Data Into "settings.json" File
-        public void SaveSettings()
+        public static void SaveSettings()
         {
-            var jsonSettings = JsonConvert.SerializeObject(this._settings, Formatting.Indented);
+            var jsonSettings = JsonConvert.SerializeObject(_settings, Formatting.Indented);
             File.WriteAllText(@"../../settings.json", jsonSettings);
         }
 
-        public void AddUserToUsers(string username, User user)
+        public static void AddUserToUsers(string username, User user)
         {
-            this._users.Add(username, user);
+            _users.Add(username, user);
         }
 
-        public void SaveUsers()
+        public static void SaveUsers()
         {
-            var jsonUsers = JsonConvert.SerializeObject(this._users, Formatting.Indented);
+            var jsonUsers = JsonConvert.SerializeObject(_users, Formatting.Indented);
             File.WriteAllText(@"../../users.json", jsonUsers);
         }
 

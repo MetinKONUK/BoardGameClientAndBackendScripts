@@ -41,8 +41,8 @@ namespace main
             var username = login_usernameTextBox.Text;
             var password = login_passwordTextBox.Text;
             password = _sha2.Sha256Hash(password);
-            _userBase.SetAdmins();
-            var admins = _userBase.GetAdmins();
+            UserBase.SetAdmins();
+            var admins = UserBase.GetAdmins();
 
             if (admins.ContainsKey(username))
             {
@@ -51,12 +51,12 @@ namespace main
                 {
                     MessageBox.Show(passwordInvalidErrorMessage);
                 }
-                _userBase.SetCurrentUser(username);
+                UserBase.SetCurrentUser(username);
             }
             else
             {
-                _userBase.SetUsers();
-                var users = _userBase.GetUsers();
+                UserBase.SetUsers();
+                var users = UserBase.GetUsers();
                 if (users.ContainsKey(username))
                 {
                     MessageBox.Show("User type user");
@@ -67,7 +67,7 @@ namespace main
                     else
                     {
                         MessageBox.Show(accessGranted);
-                        _userBase.SetCurrentUser(username);
+                        UserBase.SetCurrentUser(username);
                         _succeededLoginLogs.Username = username;
                         var succeededLoginLogs = JsonConvert.SerializeObject(_succeededLoginLogs);
                         File.WriteAllText(@"../../succeededLoginLogs.json", succeededLoginLogs);
