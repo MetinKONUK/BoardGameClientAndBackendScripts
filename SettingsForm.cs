@@ -24,7 +24,6 @@ namespace main
                                        Colors          = new List<int>() {1, 1, 1}
                                    };
 
-        private readonly UserBase _userBase = UserBase.Instance;
         public SettingsForm()
         {
             InitializeComponent();

@@ -31,11 +31,13 @@ namespace main
         {
             this.mainGameWindow_UpPanel = new System.Windows.Forms.Panel();
             this.mainGameWindow_SettingsButton = new System.Windows.Forms.Button();
+            this.MainGameWindow_ProfileButton = new System.Windows.Forms.Button();
             this.mainGameWindow_UpPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainGameWindow_UpPanel
             // 
+            this.mainGameWindow_UpPanel.Controls.Add(this.MainGameWindow_ProfileButton);
             this.mainGameWindow_UpPanel.Controls.Add(this.mainGameWindow_SettingsButton);
             this.mainGameWindow_UpPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.mainGameWindow_UpPanel.Location = new System.Drawing.Point(0, 0);
@@ -53,6 +55,17 @@ namespace main
             this.mainGameWindow_SettingsButton.Text = "Settings";
             this.mainGameWindow_SettingsButton.UseVisualStyleBackColor = true;
             this.mainGameWindow_SettingsButton.Click += new System.EventHandler(this.mainGameWindow_SettingsButton_Click);
+            // 
+            // MainGameWindow_ProfileButton
+            // 
+            this.MainGameWindow_ProfileButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.MainGameWindow_ProfileButton.Location = new System.Drawing.Point(602, 0);
+            this.MainGameWindow_ProfileButton.Name = "MainGameWindow_ProfileButton";
+            this.MainGameWindow_ProfileButton.Size = new System.Drawing.Size(99, 40);
+            this.MainGameWindow_ProfileButton.TabIndex = 1;
+            this.MainGameWindow_ProfileButton.Text = "Profile";
+            this.MainGameWindow_ProfileButton.UseVisualStyleBackColor = true;
+            this.MainGameWindow_ProfileButton.Click += new System.EventHandler(this.MainGameWindow_ProfileButton_Click);
             // 
             // MainGameForm
             // 
@@ -72,5 +85,6 @@ namespace main
 
         private System.Windows.Forms.Panel mainGameWindow_UpPanel;
         private System.Windows.Forms.Button mainGameWindow_SettingsButton;
+        private System.Windows.Forms.Button MainGameWindow_ProfileButton;
     }
 }

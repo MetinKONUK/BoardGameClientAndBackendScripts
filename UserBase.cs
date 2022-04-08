@@ -61,6 +61,10 @@ namespace main
             _settings[username] = setting;
         }
 
+        public static void UpdateUserData(string username, User user)
+        {
+            _users[username] = user;
+        }
         public static void AddUserSetting(string username, Setting setting)
         {
             _settings.Add(username, setting);

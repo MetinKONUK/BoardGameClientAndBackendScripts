@@ -11,7 +11,7 @@ namespace main
     {
         public Sha2(){}
         public static Sha2 Instance { get; } = new Sha2();
-        public string Sha256Hash(string password)
+        public static string Sha256Hash(string password)
         {
             var sb = new StringBuilder();
             using (var hash = SHA256.Create())

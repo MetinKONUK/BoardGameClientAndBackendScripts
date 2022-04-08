@@ -23,9 +23,6 @@ namespace main
                                                       Username = "",
                                                   };
 
-        readonly UserBase _userBase = UserBase.Instance;
-        readonly Sha2 _sha2= Sha2.Instance;
-
 
         public LoginForm()
         {
@@ -40,7 +37,7 @@ namespace main
 
             var username = login_usernameTextBox.Text;
             var password = login_passwordTextBox.Text;
-            password = _sha2.Sha256Hash(password);
+            password = Sha2.Sha256Hash(password);
             UserBase.SetAdmins();
             var admins = UserBase.GetAdmins();
 
@@ -112,6 +109,8 @@ namespace main
 
         private void Login_TogglePasswordVisibilityCheckBox_CheckedChanged(object sender, EventArgs e)
         {
+            Login_TogglePasswordVisibilityCheckBox.Text = Login_TogglePasswordVisibilityCheckBox.Checked ? "Hide" : "Show";
+
             login_passwordTextBox.PasswordChar = Login_TogglePasswordVisibilityCheckBox.Checked ? '\0' : '*';
         }
 

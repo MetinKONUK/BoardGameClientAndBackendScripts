@@ -15,7 +15,6 @@ namespace main
 
     public partial class RegisterForm : Form
     {
-        private readonly Sha2 _sha2 = Sha2.Instance;
 
         private readonly Setting _setting = new Setting
                                    {
@@ -28,7 +27,6 @@ namespace main
         private readonly User _user = new User
                                       {
                                       };
-        private readonly UserBase _userBase = UserBase.Instance;
         public RegisterForm()
         {
             InitializeComponent();
@@ -38,35 +36,9 @@ namespace main
         {
             Application.Exit();
         }
-
-        private void AddCountriesToCountriesComboBox()
-        {
-            var  countryList = new List<string>();
-            var countries = CultureInfo.GetCultures(CultureTypes.SpecificCultures);
-
-
-            foreach (var country in countries)
-            {
-                var region = new RegionInfo(country.LCID);
-
-                if (!(countryList.Contains(region.EnglishName)))
-                {
-                    countryList.Add(region.EnglishName);
-                }
-            }
-            countryList.Sort();
-            foreach (var country in countryList)
-            {
-                Register_CountryComboBox.Items.Add(country);
-            }
-
-            Register_CountryComboBox.AutoCompleteMode = AutoCompleteMode.Suggest;
-            Register_CountryComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
-
-        }
         private void RegisterForm_Load(object sender, EventArgs e)
         {
-            AddCountriesToCountriesComboBox();
+            CountryData.AddCountriesToCountriesComboBox(Register_CountryComboBox);
         }
 
 
@@ -94,7 +66,7 @@ namespace main
             var eMail = Register_EmailTextBox.Text;
 
             _user.Username = username;
-            _user.Password = _sha2.Sha256Hash(password);
+            _user.Password = Sha2.Sha256Hash(password);
             _user.NameSurname = nameSurname;
             _user.PhoneNumber = phoneNumber;
             _user.Address = address;

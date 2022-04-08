@@ -43,35 +43,5 @@
       0,
       1
     ]
-  },
-  "abcd": {
-    "Row": -1,
-    "Col": -1,
-    "Shapes": [
-      1,
-      0,
-      0
-    ],
-    "DifficultyLevel": 0,
-    "Colors": [
-      1,
-      0,
-      0
-    ]
-  },
-  "pala": {
-    "Row": -1,
-    "Col": -1,
-    "Shapes": [
-      1,
-      0,
-      0
-    ],
-    "DifficultyLevel": 0,
-    "Colors": [
-      1,
-      0,
-      0
-    ]
   }
 }
