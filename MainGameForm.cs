@@ -37,5 +37,12 @@ namespace main
 
             profileWindow.ShowDialog();
         }
+
+        private void MainGame_AboutButton_Click(object sender, EventArgs e)
+        {
+            var aboutWindow = new AboutForm();
+
+            aboutWindow.ShowDialog();
+        }
     }
 }
