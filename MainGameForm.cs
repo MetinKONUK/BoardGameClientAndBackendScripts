@@ -15,6 +15,7 @@ namespace main
         public MainGameForm()
         {
             InitializeComponent();
+            UserBase.SetSettings();
         }
 
         private void MainGameForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -36,6 +37,34 @@ namespace main
             var profileWindow = new ProfileForm();
 
             profileWindow.ShowDialog();
+        }
+
+        private void MainGameForm_Load(object sender, EventArgs e)
+        {
+            var n         = 0;
+            var m         = 0;
+            var diffLevel = UserBase.GetSettings()[UserBase.GetCurrentUser()].DifficultyLevel;
+            MessageBox.Show(diffLevel.ToString());
+            if (diffLevel == 0)
+            {
+                n = 6;
+                m = 6;
+            }
+            else if (diffLevel == 1)
+            {
+                n = 9;
+                m = 9;
+            }
+            else
+            {
+                n = 12;
+                m = 12;
+            }
+
+            Board.SetBoard(n, m);
+            Board.ShowBoard(MainGameWindow_GamePanel, n, m);
+            Board.SetCellShape(0, 0, 2);
+
         }
     }
 }
