@@ -10,20 +10,47 @@ namespace main
 {
     public sealed class Board
     {
-        public Board() { }
+        public Board()
+        {
+            UserBase.SetSettings();
+        }
 
+        private static int _n = 0;
+        private static int _m = 0;
         public static Board Instance { get; } = new Board();
         private static readonly List<List<Button>> board = new List<List<Button>>();
 
         public static List<List<Button>> GetBoard() => board;
-        public static void SetBoard(int n, int m)
+
+        public static void SetRowCol()
         {
-            var y = 1;
-            for (var i = 0; i < n; i++)
+            var diffLevel = UserBase.GetSettings()[UserBase.GetCurrentUser()].DifficultyLevel;
+            switch (diffLevel)
             {
-                List<Button> row = new List<Button>();
-                var x = 1;
-                for (var j = 0; j < m; j++)
+                case 0:
+                    _n = 6;
+                    _m = 6;
+                    break;
+                case 1:
+                    _n = 9;
+                    _m = 9;
+                    break;
+                default:
+                    _n = 12;
+                    _m = 12;
+                    break;
+            }
+        }
+        public static void SetBoard()
+        {
+            ClearBoard();
+            SetRowCol();
+            var y = 2;
+            for (var i = 0; i < _n; i++)
+            {
+                var row = new List<Button>();
+                var x = 2;
+                for (var j = 0; j < _m; j++)
                 {
                     var btn = new Button
                     {
@@ -40,11 +67,14 @@ namespace main
             }
         }
 
-        public static void ShowBoard(Panel panel, int n, int m)
+        public static void ShowBoard()
         {
-            for (var i = 0; i < n; i++)
+            var panel = MainGameForm.MainGameFormInstance.MainGameWindowGamePanel;
+            ClearPanel(panel);
+            SetRowCol();
+            for (var i = 0; i < _n; i++)
             {
-                for (var j = 0; j < m; j++)
+                for (var j = 0; j < _m; j++)
                 {
                     panel.Controls.Add(board[i][j]);
                 }
@@ -55,6 +85,16 @@ namespace main
         {
             board[n][m].BackgroundImage = Image.FromFile($@"../../shapes/{shape}.png");
             board[n][m].BackgroundImageLayout = ImageLayout.Stretch;
+        }
+
+        public static void ClearPanel(Panel panel)
+        {
+            panel.Controls.Clear();
+        }
+
+        public static void ClearBoard()
+        {
+            board.Clear();
         }
 
 

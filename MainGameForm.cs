@@ -7,15 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace main
 {
     public partial class MainGameForm : Form
     {
+        public static MainGameForm MainGameFormInstance;
+        public Panel MainGameWindowGamePanel;
         public MainGameForm()
         {
             InitializeComponent();
+            MainGameFormInstance = this;
             UserBase.SetSettings();
+            //FormBorderStyle = FormBorderStyle.None;
+            WindowState = FormWindowState.Maximized;
+            MainGameWindowGamePanel = new Panel
+            {
+                Dock = DockStyle.Fill
+            };
+            Controls.Add(MainGameWindowGamePanel);
         }
 
         private void MainGameForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -23,6 +34,7 @@ namespace main
             var loginWindow = new LoginForm();
             this.Hide();
             loginWindow.ShowDialog();
+            Board.ClearPanel(MainGameWindowGamePanel);
         }
 
         private void mainGameWindow_SettingsButton_Click(object sender, EventArgs e)
@@ -41,30 +53,12 @@ namespace main
 
         private void MainGameForm_Load(object sender, EventArgs e)
         {
-            var n         = 0;
-            var m         = 0;
-            var diffLevel = UserBase.GetSettings()[UserBase.GetCurrentUser()].DifficultyLevel;
-            MessageBox.Show(diffLevel.ToString());
-            if (diffLevel == 0)
-            {
-                n = 6;
-                m = 6;
-            }
-            else if (diffLevel == 1)
-            {
-                n = 9;
-                m = 9;
-            }
-            else
-            {
-                n = 12;
-                m = 12;
-            }
-
-            Board.SetBoard(n, m);
-            Board.ShowBoard(MainGameWindow_GamePanel, n, m);
+            Board.SetRowCol();
+            Board.SetBoard();
+            Board.ShowBoard();
             Board.SetCellShape(0, 0, 2);
 
         }
+
     }
 }

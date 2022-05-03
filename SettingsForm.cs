@@ -188,6 +188,10 @@ namespace main
         {
             UserBase.UpdateUserSetting(UserBase.GetCurrentUser(), _setting);
             UserBase.SaveSettings();
+
+            Board.SetRowCol();
+            Board.SetBoard();
+            Board.ShowBoard();
         }
     }
 }
