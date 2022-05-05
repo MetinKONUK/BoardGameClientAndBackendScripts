@@ -34,14 +34,14 @@
     "Col": -1,
     "Shapes": [
       1,
-      0,
-      0
+      1,
+      1
     ],
     "DifficultyLevel": 1,
     "Colors": [
       1,
       0,
-      0
+      1
     ]
   }
 }

@@ -76,7 +76,6 @@ namespace main
                 }
             }
         }
-
         private void Settings_difficultyLevelButton_Click(object sender, EventArgs e)
         {
             settings_DifficultyLevelPanel.Show();
@@ -84,7 +83,6 @@ namespace main
             Settings_ColorPanel.Hide();
             settings_DifficultyLevelPanel.BringToFront();
         }
-
         private void Settings_ShapeButton_Click(object sender, EventArgs e)
         {
             settings_ShapesPanel.Show();
@@ -92,7 +90,6 @@ namespace main
             Settings_ColorPanel.Hide();
             settings_ShapesPanel.BringToFront();
         }
-
 
         private void Settings_backToGameWindowButton_Click(object sender, EventArgs e)
         {
@@ -111,7 +108,6 @@ namespace main
             var round = settings_RoundCheckBox.Checked ? 1 : 0;
             _setting.Shapes = new List<int>() { square, triangle, round};
         }
-
         private void settings_SaveDifficultyLevelSelectionButton_Click(object sender, EventArgs e)
         {
             if (settings_DifficultyLevelEasyRadioButton.Checked)
@@ -167,7 +163,6 @@ namespace main
 
             }
         }
-
 
         private void settings_ColorButton_Click(object sender, EventArgs e)
         {
