@@ -56,6 +56,7 @@ namespace main
             Board.SetRowCol();
             Board.SetBoard();
             Board.ShowBoard();
+            
         }
     }
 }
