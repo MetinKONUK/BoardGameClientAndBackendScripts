@@ -8,10 +8,10 @@ namespace main
 {
     public class Setting
     {
-        public int Row { get; set; }
-        public int Col{ get; set; }
-        public List<int> Shapes{ get; set; }
-        public int DifficultyLevel { get; set; }
-        public List<int> Colors { get; set; }
+        public int       Row             { get; set; }
+        public int       Col             { get; set; }
+        public List<int> Shapes          { get; set; }
+        public int       DifficultyLevel { get; set; }
+        public List<int> Colors          { get; set; }
     }
 }

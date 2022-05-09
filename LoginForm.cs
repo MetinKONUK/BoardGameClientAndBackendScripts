@@ -27,8 +27,8 @@ namespace main
         public LoginForm()
         {
             InitializeComponent();
-            //Login_ImagePanel.BackgroundImage = Image.FromFile(@"../../LoginBackgroundImage.jpg");
-            //Login_ImagePanel.BackgroundImageLayout = ImageLayout.Stretch;
+            Login_ImagePanel.BackgroundImage = Image.FromFile(@"../../LoginBackgroundImage.jpg");
+            Login_ImagePanel.BackgroundImageLayout = ImageLayout.Stretch;
             //this.FormBorderStyle = FormBorderStyle.None;
         }
 

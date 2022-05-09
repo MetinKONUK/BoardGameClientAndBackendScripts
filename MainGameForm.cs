@@ -14,7 +14,8 @@ namespace main
     public partial class MainGameForm : Form
     {
         public static MainGameForm MainGameFormInstance;
-        public Panel MainGameWindowGamePanel;
+        public        Panel        MainGameWindowGamePanel;
+
         public MainGameForm()
         {
             InitializeComponent();
@@ -23,9 +24,9 @@ namespace main
             //FormBorderStyle = FormBorderStyle.None;
             WindowState = FormWindowState.Maximized;
             MainGameWindowGamePanel = new Panel
-            {
-                Dock = DockStyle.Fill
-            };
+                                      {
+                                          Dock = DockStyle.Fill
+                                      };
             Controls.Add(MainGameWindowGamePanel);
         }
 
@@ -56,7 +57,6 @@ namespace main
             Board.SetRowCol();
             Board.SetBoard();
             Board.ShowBoard();
-            
         }
     }
 }
