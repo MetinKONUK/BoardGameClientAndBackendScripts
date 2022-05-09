@@ -27,6 +27,9 @@ namespace main
         public LoginForm()
         {
             InitializeComponent();
+            //Login_ImagePanel.BackgroundImage = Image.FromFile(@"../../LoginBackgroundImage.jpg");
+            //Login_ImagePanel.BackgroundImageLayout = ImageLayout.Stretch;
+            //this.FormBorderStyle = FormBorderStyle.None;
         }
 
         private void Login_loginButton_Click(object sender, EventArgs e)
@@ -43,14 +46,14 @@ namespace main
 
             if (admins.ContainsKey(username))
             {
-                MessageBox.Show("Admin type user");
+                //MessageBox.Show(@"Admin type user");
                 if (admins[username].Password != password)
                 {
                     MessageBox.Show(passwordInvalidErrorMessage);
                 }
                 else
                 {
-                    MessageBox.Show(accessGranted);
+                    //MessageBox.Show(accessGranted);
                     UserBase.SetCurrentUser(username);
                     _succeededLoginLogs.Username = username;
                     var succeededLoginLogs = JsonConvert.SerializeObject(_succeededLoginLogs);
@@ -66,14 +69,14 @@ namespace main
                 var users = UserBase.GetUsers();
                 if (users.ContainsKey(username))
                 {
-                    MessageBox.Show("User type user");
+                    //MessageBox.Show(@"User type user");
                     if (users[username].Password != password)
                     {
                         MessageBox.Show(passwordInvalidErrorMessage);
                     }
                     else
                     {
-                        MessageBox.Show(accessGranted);
+                        //MessageBox.Show(accessGranted);
                         UserBase.SetCurrentUser(username);
                         _succeededLoginLogs.Username = username;
                         var succeededLoginLogs = JsonConvert.SerializeObject(_succeededLoginLogs);

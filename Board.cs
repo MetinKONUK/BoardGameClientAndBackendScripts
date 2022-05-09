@@ -32,7 +32,10 @@ namespace main
 
         public static void SetRowCol()
         {
-            var diffLevel = UserBase.GetSettings()[UserBase.GetCurrentUser()].DifficultyLevel;
+            var userSettings = UserBase.GetSettings()[UserBase.GetCurrentUser()];
+            var row = userSettings.Row;
+            var col = userSettings.Col;
+            var diffLevel = userSettings.DifficultyLevel;
             switch (diffLevel)
             {
                 case 0:
@@ -43,9 +46,17 @@ namespace main
                     _n = 9;
                     _m = 9;
                     break;
+                case 2:
+                    _n = 15;
+                    _m = 15;
+                    break;
+                case 3:
+                    _n = row;
+                    _m = col;
+                    break;
                 default:
-                    _n = 12;
-                    _m = 12;
+                    _n = 15;
+                    _m = 15;
                     break;
             }
         } //end func
@@ -252,7 +263,7 @@ namespace main
                 _target.IsFilled = true;
                 _home            = null;
                 _target          = null;
-                SetCellShape();
+                PlaceShapes();
             }
         } //end func
 
@@ -291,12 +302,16 @@ namespace main
             }
 
             SetNeighbors();
+            PlaceShapes();
+        } //end func
+
+        public static void PlaceShapes()
+        {
             for (var i = 0; i < 3; i++)
             {
                 SetCellShape();
             }
-        } //end func
-
+        }
 
         public static void ShowBoard()
         {
@@ -357,12 +372,16 @@ namespace main
 
         public static List<int> SpecifyShapeLocation()
         {
-            var random = new Random();
+            while (true)
+            {
+                var random = new Random();
 
-            var  locationRow   = random.Next(0, _n);
-            var  locationCol   = random.Next(0, _m);
-            var alreadyExists = BoardMatrix[locationRow][locationCol].IsFilled == true;
-            return alreadyExists ? SpecifyShapeLocation() : new List<int>() { locationRow, locationCol };
+                var locationRow   = random.Next(0, _n);
+                var locationCol   = random.Next(0, _m);
+                var alreadyExists = BoardMatrix[locationRow][locationCol].IsFilled;
+                if (alreadyExists) continue;
+                return new List<int>() {locationRow, locationCol};
+            }
         } //end func
 
 
