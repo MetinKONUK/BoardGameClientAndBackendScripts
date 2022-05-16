@@ -32,11 +32,15 @@ namespace main
             this.mainGameWindow_UpPanel = new System.Windows.Forms.Panel();
             this.MainGameWindow_ProfileButton = new System.Windows.Forms.Button();
             this.mainGameWindow_SettingsButton = new System.Windows.Forms.Button();
+            this.HelpButton = new System.Windows.Forms.Button();
+            this.AboutButton = new System.Windows.Forms.Button();
             this.mainGameWindow_UpPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainGameWindow_UpPanel
             // 
+            this.mainGameWindow_UpPanel.Controls.Add(this.AboutButton);
+            this.mainGameWindow_UpPanel.Controls.Add(this.HelpButton);
             this.mainGameWindow_UpPanel.Controls.Add(this.MainGameWindow_ProfileButton);
             this.mainGameWindow_UpPanel.Controls.Add(this.mainGameWindow_SettingsButton);
             this.mainGameWindow_UpPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -67,6 +71,27 @@ namespace main
             this.mainGameWindow_SettingsButton.UseVisualStyleBackColor = true;
             this.mainGameWindow_SettingsButton.Click += new System.EventHandler(this.mainGameWindow_SettingsButton_Click);
             // 
+            // HelpButton
+            // 
+            this.HelpButton.Location = new System.Drawing.Point(315, 0);
+            this.HelpButton.Name = "HelpButton";
+            this.HelpButton.Size = new System.Drawing.Size(101, 50);
+            this.HelpButton.TabIndex = 2;
+            this.HelpButton.Text = "Help";
+            this.HelpButton.UseVisualStyleBackColor = true;
+            this.HelpButton.Click += new System.EventHandler(this.HelpButton_Click);
+            // 
+            // AboutButton
+            // 
+            this.AboutButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.AboutButton.Location = new System.Drawing.Point(499, 0);
+            this.AboutButton.Name = "AboutButton";
+            this.AboutButton.Size = new System.Drawing.Size(99, 50);
+            this.AboutButton.TabIndex = 3;
+            this.AboutButton.Text = "About";
+            this.AboutButton.UseVisualStyleBackColor = true;
+            this.AboutButton.Click += new System.EventHandler(this.AboutButton_Click);
+            // 
             // MainGameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -87,5 +112,7 @@ namespace main
         private System.Windows.Forms.Panel mainGameWindow_UpPanel;
         private System.Windows.Forms.Button mainGameWindow_SettingsButton;
         private System.Windows.Forms.Button MainGameWindow_ProfileButton;
+        private System.Windows.Forms.Button HelpButton;
+        private System.Windows.Forms.Button AboutButton;
     }
 }
