@@ -30,14 +30,14 @@
     ]
   },
   "beste": {
-    "Row": 10,
-    "Col": 10,
+    "Row": -1,
+    "Col": -1,
     "Shapes": [
       1,
       1,
       1
     ],
-    "DifficultyLevel": 3,
+    "DifficultyLevel": 1,
     "Colors": [
       1,
       1,

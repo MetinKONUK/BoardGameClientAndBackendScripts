@@ -6,6 +6,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
@@ -27,6 +28,7 @@ namespace main
         private static          Spot             _home       = null;
         private static          Spot             _target     = null;
         public static           Board            Instance { get; } = new Board();
+        public static           int              UserScore = 0;
 
         public static void SetRowCol()
         {
@@ -37,26 +39,36 @@ namespace main
             switch (diffLevel)
             {
                 case 0:
-                    _n = 6;
-                    _m = 6;
+                    _n = 15;
+                    _m = 15;
                     break;
                 case 1:
                     _n = 9;
                     _m = 9;
                     break;
                 case 2:
-                    _n = 15;
-                    _m = 15;
+                    _n = 6;
+                    _m = 6;
                     break;
                 case 3:
                     _n = row;
                     _m = col;
                     break;
                 default:
-                    _n = 15;
-                    _m = 15;
+                    _n = 9;
+                    _m = 9;
                     break;
             }
+        } //end func
+
+        public static int CalculateEmptySpotCount()
+        {
+            return BoardMatrix.SelectMany(row => row).Count(spot => spot.IsFilled);
+        } //end func
+
+        public static bool IsGameEnd()
+        {
+            return CalculateEmptySpotCount() > (_n * _m - 3);
         } //end func
 
         public static Spot SetSelectedSpot(Button btn)
@@ -302,8 +314,28 @@ namespace main
             return false;
         }
 
+        public static int Judge()
+        {
+            var userSettings = UserBase.GetSettings()[UserBase.GetCurrentUser()];
+            var diffLevel    = userSettings.DifficultyLevel;
+            switch (diffLevel)
+            {
+                case 0:
+                    return 1;                    
+                case 1:
+                    return 3;
+                case 2:
+                    return 5;
+                case 3:
+                    return 2;
+                default:
+                    return 0;
+            }
+        }
+
         public static void CheckForPoints()
         {
+            var point = Judge();
             for (var i = 0; i < _n; i++)
             {
                 for (var j = 0; j < _m; j++)
@@ -311,12 +343,14 @@ namespace main
                     if (RoWise(i, j))
                     {
                         MessageBox.Show($"Row Wise Point For: {i}, {j}");
+                        UserScore += point;
                         ClearSpotsAfterSuccess(i, j, 0);
                     }
 
                     if (CoWise(i, j))
                     {
                         MessageBox.Show($"Col Wise Point For: {i}, {j}");
+                        UserScore += point;
                         ClearSpotsAfterSuccess(i, j, 1);
                     }
                 }
@@ -373,7 +407,14 @@ namespace main
                 _target.IsFilled = true;
                 _home            = null;
                 _target          = null;
+
                 PlaceShapes();
+                if (IsGameEnd())
+                {
+                    MessageBox.Show(@"Game End!");
+                    MessageBox.Show($"Score: {UserScore}");
+                    return;
+                }
 
                 CheckForPoints();
 
@@ -477,7 +518,6 @@ namespace main
 
             return path;
         } //end func
-
 
         public static List<int> SpecifyShapeLocation()
         {
