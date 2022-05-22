@@ -61,8 +61,8 @@ namespace main
 
         private void HelpButton_Click(object sender, EventArgs e)
         {
-            //var helpWindow = new HelpForm();
-            //helpWindow.ShowDialog();
+            var helpWindow = new HelpForm();
+            helpWindow.ShowDialog();
         }
 
         private void AboutButton_Click(object sender, EventArgs e)
