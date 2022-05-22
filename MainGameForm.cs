@@ -56,9 +56,6 @@ namespace main
             Board.SetRowCol();
             Board.SetBoard();
             Board.ShowBoard();
-            Board.SetCellShape(0, 0, 2);
-
         }
-
     }
 }
