@@ -33,9 +33,9 @@ namespace main
         public static void SetRowCol()
         {
             var userSettings = UserBase.GetSettings()[UserBase.GetCurrentUser()];
-            var row          = userSettings.Row;
-            var col          = userSettings.Col;
-            var diffLevel    = userSettings.DifficultyLevel;
+            var row          = userSettings.Rows;
+            var col          = userSettings.Cols;
+            var diffLevel    = userSettings.DiffLevel;
             switch (diffLevel)
             {
                 case 0:
@@ -209,6 +209,7 @@ namespace main
 
         public static void SwapSpots(Spot a, Spot b)
         {
+            //Sound.Play(Sound.ShapeMoved);
             b.ShapeType                 = a.ShapeType;
             a.ShapeType                 = null;
             b.Btn.BackgroundImage       = a.Btn.BackgroundImage;
@@ -317,7 +318,7 @@ namespace main
         public static int Judge()
         {
             var userSettings = UserBase.GetSettings()[UserBase.GetCurrentUser()];
-            var diffLevel    = userSettings.DifficultyLevel;
+            var diffLevel    = userSettings.DiffLevel;
             switch (diffLevel)
             {
                 case 0:
@@ -342,18 +343,30 @@ namespace main
                 {
                     if (RoWise(i, j))
                     {
-                        MessageBox.Show($"Row Wise Point For: {i}, {j}");
+                        Sound.Play(Sound.PointsEarned);
                         UserScore += point;
                         ClearSpotsAfterSuccess(i, j, 0);
                     }
 
                     if (CoWise(i, j))
                     {
-                        MessageBox.Show($"Col Wise Point For: {i}, {j}");
+                        Sound.Play(Sound.PointsEarned);
                         UserScore += point;
                         ClearSpotsAfterSuccess(i, j, 1);
                     }
                 }
+            }
+        }
+
+        public static void HandleUserBestScore()
+        {
+            var user = UserBase.GetUsers()[UserBase.GetCurrentUser()];
+
+            Console.WriteLine($"UserScore: {UserScore}, Previous Score: {user.BestScore}");
+            if(user.BestScore < UserScore)
+            {
+                UserBase.UpdateUserBestScore(UserScore, user.Username);
+                UserBase.GetUsers()[UserBase.GetCurrentUser()].BestScore = UserScore;
             }
         }
 
@@ -396,7 +409,7 @@ namespace main
 
                 foreach (var spot in path)
                 {
-                    Sleep(500);
+                    Sleep(1100);
                     SwapSpots(prevSpot, spot);
                     prevSpot = spot;
                 }
@@ -413,6 +426,7 @@ namespace main
                 {
                     MessageBox.Show(@"Game End!");
                     MessageBox.Show($"Score: {UserScore}");
+                    HandleUserBestScore();
                     return;
                 }
 

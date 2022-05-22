@@ -18,9 +18,9 @@ namespace main
 
         private readonly Setting _setting = new Setting
                                    {
-                                       Row             = -1,
-                                       Col             = -1,
-                                       DifficultyLevel = 0,
+                                       Rows             = -1,
+                                       Cols             = -1,
+                                       DiffLevel = 0,
                                        Shapes          = new List<int>() { 1, 0, 0 },
                                        Colors          = new List<int>() { 1, 0, 0 }
                                    };
@@ -82,11 +82,9 @@ namespace main
                 return;
             }
             UserBase.AddUserToUsers(_user.Username, _user);
-            UserBase.SaveUsers();
 
             UserBase.SetSettings();
             UserBase.AddUserSetting(_user.Username, _setting);
-            UserBase.SaveSettings();
 
             OpenLoginForm();
 

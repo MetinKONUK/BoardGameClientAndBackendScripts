@@ -7,16 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace main
 {
     public partial class AdminPanelForm : Form
     {
         private readonly Setting _setting = new Setting
                                             {
-                                                Row             = -1,
-                                                Col             = -1,
-                                                DifficultyLevel = 0,
+                                                Rows             = -1,
+                                                Cols             = -1,
+                                                DiffLevel = 0,
                                                 Shapes          = new List<int>() {1, 0, 0},
                                                 Colors          = new List<int>() {1, 0, 0}
                                             };
@@ -41,6 +40,22 @@ namespace main
         {
             AddUsernamesToUsersComboBox();
             CountryData.AddCountriesToCountriesComboBox(AdminPanel_CountryComboBox);
+
+
+
+            Dictionary<string, int> data = new Dictionary<string, int>();
+
+            foreach (var dta in UserBase.GetUsers())
+            {
+                data.Add(dta.Key, dta.Value.BestScore);
+            }
+            var ascendingData = from entry in data orderby entry.Value descending select entry;
+            foreach (var dta in ascendingData)
+            {
+                ListViewItem item = new ListViewItem(dta.Key);
+                item.SubItems.Add(dta.Value.ToString());
+                AdminPanelForm_BestScoresListView.Items.Add(item);
+            }
 
         }
 
@@ -103,15 +118,18 @@ namespace main
         {
             UpdateUserInstanceRightPanel();
             UserBase.UpdateUserData(_user.Username, _user);
-            UserBase.SaveUsers();
         }
 
         private void AdminPanel_DeleteUserButton_Click(object sender, EventArgs e)
         {
+
+            const string caption = @"Approve user deletion";
+            const string message = @"Are you sure about deleting the user permanently?";
+
+            var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.No) return;
             UserBase.DeleteUser(_user.Username);
-            UserBase.SaveUsers();
             UserBase.DeleteUserSetting(_user.Username);
-            UserBase.SaveSettings();
             AdminPanel_RightPanel.Visible = false;
             AddUsernamesToUsersComboBox();
         }
@@ -128,11 +146,47 @@ namespace main
             var user = CreateUserInstance();
             MessageBox.Show(user.Username);
             UserBase.AddUserToUsers(user.Username, user);
-            UserBase.SaveUsers();
 
             UserBase.AddUserSetting(user.Username, _setting);
-            UserBase.SaveSettings();
 
+        }
+
+        private void AdminPanelForm_SortByAscendingButton_Click(object sender, EventArgs e)
+        {
+
+            AdminPanelForm_BestScoresListView.Items.Clear();
+            Dictionary<string, int> data = new Dictionary<string, int>();
+
+            foreach (var dta in UserBase.GetUsers())
+            {
+                data.Add(dta.Key, dta.Value.BestScore);
+            }
+            var ascendingData = from entry in data orderby entry.Value ascending select entry;
+            foreach (var dta in ascendingData)
+            {
+                ListViewItem item = new ListViewItem(dta.Key);
+                item.SubItems.Add(dta.Value.ToString());
+                AdminPanelForm_BestScoresListView.Items.Add(item);
+            }
+        }
+
+        private void AdminPanelForm_DescendingButton_Click(object sender, EventArgs e)
+        {
+
+            AdminPanelForm_BestScoresListView.Items.Clear();
+            Dictionary<string, int> data = new Dictionary<string, int>();
+
+            foreach (var dta in UserBase.GetUsers())
+            {
+                data.Add(dta.Key, dta.Value.BestScore);
+            }
+            var ascendingData = from entry in data orderby entry.Value descending select entry;
+            foreach (var dta in ascendingData)
+            {
+                ListViewItem item = new ListViewItem(dta.Key);
+                item.SubItems.Add(dta.Value.ToString());
+                AdminPanelForm_BestScoresListView.Items.Add(item);
+            }
         }
     }
 }
