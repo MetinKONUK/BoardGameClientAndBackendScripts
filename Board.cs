@@ -6,6 +6,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -20,22 +21,19 @@ namespace main
             UserBase.SetSettings();
         }
 
-        private static int _n = 0;
-        private static int _m = 0;
-        public static Board Instance { get; } = new Board();
-
+        private static int   _n = 0;
+        private static int   _m = 0;
         private static readonly List<List<Spot>> BoardMatrix = new List<List<Spot>>();
-        
         private static Spot _home = null;
-        
         private static Spot _target = null;
+        public static  Board Instance { get; } = new Board();
 
         public static void SetRowCol()
         {
             var userSettings = UserBase.GetSettings()[UserBase.GetCurrentUser()];
-            var row = userSettings.Row;
-            var col = userSettings.Col;
-            var diffLevel = userSettings.DifficultyLevel;
+            var row          = userSettings.Row;
+            var col          = userSettings.Col;
+            var diffLevel    = userSettings.DifficultyLevel;
             switch (diffLevel)
             {
                 case 0:
@@ -61,24 +59,24 @@ namespace main
             }
         } //end func
 
-
         public static Spot SetSelectedSpot(Button btn)
         {
-            foreach (var t in BoardMatrix)
+            foreach (var row in BoardMatrix)
             {
-                for (var b = 0; b < t.Count; b++)
+                for (var b = 0; b < row.Count; b++)
                 {
-                    if (t[b].Btn == btn)
+                    if (row[b].Btn == btn)
                     {
                         if (_home == null)
                         {
-                            _home = t[b];
+                            _home = row[b];
                         }
                         else
                         {
-                            _target = t[b];
+                            _target = row[b];
                         }
-                        return t[b];
+
+                        return row[b];
                     }
                 }
             }
@@ -117,6 +115,7 @@ namespace main
                 }
             }
         } //end func
+
 
         public static List<Spot> PathFinder(Spot start, Spot end)
         {
@@ -193,7 +192,7 @@ namespace main
         public static void Sleep(int ms)
         {
             var counter = 0;
-            while (counter < (ms/100))
+            while (counter < (ms / 100))
             {
                 Application.DoEvents();
                 Thread.Sleep(100);
@@ -204,7 +203,6 @@ namespace main
 
         public static void SwapSpots(Spot a, Spot b)
         {
-
             b.Btn.BackgroundImage       = a.Btn.BackgroundImage;
             b.Btn.BackgroundImageLayout = ImageLayout.Stretch;
             a.Btn.BackgroundImage       = null;
@@ -214,6 +212,7 @@ namespace main
         {
             MainGameForm.MainGameFormInstance.MainGameWindowGamePanel.Focus();
         }
+
         public static void OnCellClick(Button btn)
         {
             var selectedSpot = SetSelectedSpot(btn);
@@ -241,7 +240,7 @@ namespace main
                 {
                     MessageBox.Show(@"NO PATH EXISTS!!");
                     LoseFocus();
-                    _home = null;
+                    _home   = null;
                     _target = null;
                     return;
                 }
@@ -267,7 +266,6 @@ namespace main
             }
         } //end func
 
-
         public static void SetBoard()
         {
             ClearBoard();
@@ -277,26 +275,23 @@ namespace main
             for (var i = 0; i < _n; i++)
             {
                 var row = new List<Spot>();
-                var x = 2;
+                var x   = 2;
                 for (var j = 0; j < _m; j++)
                 {
-                    var spot = new Spot
-                               {
-                                   I = i,
-                                   J = j
-                               };
+                    var spot = new Spot {I = i, J = j};
                     var btn = new Button
                               {
-                                  Name = @"{n}{m}",
-                                  Size = new Size(40, 40),
-                                  Location = new Point(40 * x, 40 * y),
+                                  Name      = @"{n}{m}",
+                                  Size      = new Size(40, 40),
+                                  Location  = new Point(40 * x, 40 * y),
                                   BackColor = Color.AntiqueWhite,
                               };
                     btn.Click += (s, e) => OnCellClick(btn);
-                    spot.Btn = btn;
+                    spot.Btn  =  btn;
                     row.Add(spot);
                     x++;
                 }
+
                 y++;
                 BoardMatrix.Add(row);
             }
@@ -305,6 +300,7 @@ namespace main
             PlaceShapes();
         } //end func
 
+
         public static void PlaceShapes()
         {
             for (var i = 0; i < 3; i++)
@@ -312,6 +308,7 @@ namespace main
                 SetCellShape();
             }
         }
+
 
         public static void ShowBoard()
         {
@@ -363,12 +360,13 @@ namespace main
             }
 
             var random = new Random();
-            var shape = possibleShapes[random.Next(0, possibleShapes.Count())];
-            var color = possibleColors[random.Next(0, possibleColors.Count())];
-            var path = $"../../shapes/{shape}{color}.png";
+            var shape  = possibleShapes[random.Next(0, possibleShapes.Count())];
+            var color  = possibleColors[random.Next(0, possibleColors.Count())];
+            var path   = $"../../shapes/{shape}{color}.png";
 
             return path;
         } //end func
+
 
         public static List<int> SpecifyShapeLocation()
         {
@@ -394,7 +392,5 @@ namespace main
             BoardMatrix[n][m].Btn.BackgroundImageLayout = ImageLayout.Stretch;
             BoardMatrix[n][m].IsFilled                  = true;
         } //end func
-
-
-    } //class end
-} //namespace end
+    }     //class end
+}         //namespace end
