@@ -36,7 +36,6 @@ namespace main
         {
             const string userDoesNotExistErrorMessage = "User does not exist!";
             const string passwordInvalidErrorMessage = "Invalid Password!";
-            const string accessGranted = "Access Granted!";
 
             var username = login_usernameTextBox.Text;
             var password = login_passwordTextBox.Text;

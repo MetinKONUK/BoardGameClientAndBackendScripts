@@ -18,6 +18,7 @@ namespace main
         public Spot       Previous  = null;
         public bool       IsFilled  = false;
         public Button     Btn       = new Button();
+        public string ShapeType = null;
 
         public void AddNeighbors(List<List<Spot>> grid, int rows, int cols)
         {
