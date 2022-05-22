@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             this.login_leftPanel = new System.Windows.Forms.Panel();
+            this.Login_RegisterLabel = new System.Windows.Forms.Label();
+            this.Login_HaveAnAccountLabel = new System.Windows.Forms.Label();
             this.Login_TogglePasswordVisibilityCheckBox = new System.Windows.Forms.CheckBox();
             this.login_passwordLabel = new System.Windows.Forms.Label();
             this.login_usernameLabel = new System.Windows.Forms.Label();
             this.login_loginButton = new System.Windows.Forms.Button();
             this.login_passwordTextBox = new System.Windows.Forms.TextBox();
             this.login_usernameTextBox = new System.Windows.Forms.TextBox();
-            this.Login_HaveAnAccountLabel = new System.Windows.Forms.Label();
-            this.Login_RegisterLabel = new System.Windows.Forms.Label();
+            this.Login_ImagePanel = new System.Windows.Forms.Panel();
             this.login_leftPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,6 +56,27 @@
             this.login_leftPanel.Name = "login_leftPanel";
             this.login_leftPanel.Size = new System.Drawing.Size(201, 450);
             this.login_leftPanel.TabIndex = 0;
+            // 
+            // Login_RegisterLabel
+            // 
+            this.Login_RegisterLabel.AutoSize = true;
+            this.Login_RegisterLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Login_RegisterLabel.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.Login_RegisterLabel.Location = new System.Drawing.Point(145, 298);
+            this.Login_RegisterLabel.Name = "Login_RegisterLabel";
+            this.Login_RegisterLabel.Size = new System.Drawing.Size(46, 13);
+            this.Login_RegisterLabel.TabIndex = 7;
+            this.Login_RegisterLabel.Text = "Register";
+            this.Login_RegisterLabel.Click += new System.EventHandler(this.Login_RegisterLabel_Click);
+            // 
+            // Login_HaveAnAccountLabel
+            // 
+            this.Login_HaveAnAccountLabel.AutoSize = true;
+            this.Login_HaveAnAccountLabel.Location = new System.Drawing.Point(-3, 298);
+            this.Login_HaveAnAccountLabel.Name = "Login_HaveAnAccountLabel";
+            this.Login_HaveAnAccountLabel.Size = new System.Drawing.Size(126, 13);
+            this.Login_HaveAnAccountLabel.TabIndex = 6;
+            this.Login_HaveAnAccountLabel.Text = "Don\'t Have An Account?";
             // 
             // Login_TogglePasswordVisibilityCheckBox
             // 
@@ -115,26 +137,13 @@
             this.login_usernameTextBox.TabIndex = 1;
             this.login_usernameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Login_usernameTextBox_KeyPress);
             // 
-            // Login_HaveAnAccountLabel
+            // Login_ImagePanel
             // 
-            this.Login_HaveAnAccountLabel.AutoSize = true;
-            this.Login_HaveAnAccountLabel.Location = new System.Drawing.Point(-3, 298);
-            this.Login_HaveAnAccountLabel.Name = "Login_HaveAnAccountLabel";
-            this.Login_HaveAnAccountLabel.Size = new System.Drawing.Size(126, 13);
-            this.Login_HaveAnAccountLabel.TabIndex = 6;
-            this.Login_HaveAnAccountLabel.Text = "Don\'t Have An Account?";
-            // 
-            // Login_RegisterLabel
-            // 
-            this.Login_RegisterLabel.AutoSize = true;
-            this.Login_RegisterLabel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Login_RegisterLabel.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.Login_RegisterLabel.Location = new System.Drawing.Point(145, 298);
-            this.Login_RegisterLabel.Name = "Login_RegisterLabel";
-            this.Login_RegisterLabel.Size = new System.Drawing.Size(46, 13);
-            this.Login_RegisterLabel.TabIndex = 7;
-            this.Login_RegisterLabel.Text = "Register";
-            this.Login_RegisterLabel.Click += new System.EventHandler(this.Login_RegisterLabel_Click);
+            this.Login_ImagePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Login_ImagePanel.Location = new System.Drawing.Point(201, 0);
+            this.Login_ImagePanel.Name = "Login_ImagePanel";
+            this.Login_ImagePanel.Size = new System.Drawing.Size(599, 450);
+            this.Login_ImagePanel.TabIndex = 1;
             // 
             // LoginForm
             // 
@@ -142,6 +151,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Login_ImagePanel);
             this.Controls.Add(this.login_leftPanel);
             this.Name = "LoginForm";
             this.Text = "Log In";
@@ -165,6 +175,7 @@
         private System.Windows.Forms.CheckBox Login_TogglePasswordVisibilityCheckBox;
         private System.Windows.Forms.Label Login_RegisterLabel;
         private System.Windows.Forms.Label Login_HaveAnAccountLabel;
+        private System.Windows.Forms.Panel Login_ImagePanel;
     }
 }
 
