@@ -59,7 +59,6 @@ namespace main
             else
             {
                 UserBase.UpdateUserData(UserBase.GetCurrentUser(), UpdateUserInstance());
-                UserBase.SaveUsers();
                 MessageBox.Show("Profile Update Succeeded");
             }
         }

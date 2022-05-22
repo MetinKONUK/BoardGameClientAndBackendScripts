@@ -17,9 +17,9 @@ namespace main
     {
         private Setting _setting = new Setting
                                    {
-                                       Row             = -1,
-                                       Col             = -1,
-                                       DifficultyLevel = 0,
+                                       Rows             = -1,
+                                       Cols             = -1,
+                                       DiffLevel = 0,
                                        Shapes          = new List<int>() {1, 0, 1},
                                        Colors          = new List<int>() {1, 1, 1}
                                    };
@@ -58,7 +58,7 @@ namespace main
 
             if (_setting != null && _setting.Shapes != null)
             {
-                var difficultyLevel = _setting.DifficultyLevel;
+                var difficultyLevel = _setting.DiffLevel;
                 switch (difficultyLevel)
                 {
                     case 0:
@@ -72,8 +72,8 @@ namespace main
                         break;
                     default:
                         settings_DifficultyLevelCustomRadioButton.Checked = true;
-                        settings_DifficultyLevelCustomRowTextBox.Text     = _setting.Row.ToString();
-                        settings_DifficultyLevelCustomColTextBox.Text     = _setting.Col.ToString();
+                        settings_DifficultyLevelCustomRowTextBox.Text     = _setting.Rows.ToString();
+                        settings_DifficultyLevelCustomColTextBox.Text     = _setting.Cols.ToString();
                         break;
                 }
             }
@@ -117,28 +117,28 @@ namespace main
         {
             if (settings_DifficultyLevelEasyRadioButton.Checked)
             {
-                _setting.DifficultyLevel = 0;
-                _setting.Row             = -1;
-                _setting.Col             = -1;
+                _setting.DiffLevel= 0;
+                _setting.Rows             = -1;
+                _setting.Cols             = -1;
             }
             else if (settings_DifficultyLevelNormalRadioButton.Checked)
             {
-                _setting.DifficultyLevel = 1;
-                _setting.Row             = -1;
-                _setting.Col             = -1;
+                _setting.DiffLevel = 1;
+                _setting.Rows             = -1;
+                _setting.Cols             = -1;
             }
             else if (settings_DifficultyLevelHardRadioButton.Checked)
             {
-                _setting.DifficultyLevel = 2;
-                _setting.Row             = -1;
-                _setting.Col             = -1;
+                _setting.DiffLevel = 2;
+                _setting.Rows             = -1;
+                _setting.Cols             = -1;
             }
             else
             {
                 const string rowValueInvalidError = "Row value invalid!";
                 const string colValueInvalidError = "Col value invalid!";
 
-                _setting.DifficultyLevel = 3;
+                _setting.DiffLevel = 3;
                 int row;
                 int col;
                 try
@@ -163,8 +163,8 @@ namespace main
                     return;
                 }
 
-                _setting.Col = col;
-                _setting.Row = row;
+                _setting.Cols = col;
+                _setting.Rows = row;
             }
         }
 
@@ -187,7 +187,6 @@ namespace main
         private void SettingsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             UserBase.UpdateUserSetting(UserBase.GetCurrentUser(), _setting);
-            UserBase.SaveSettings();
 
             Board.SetRowCol();
             Board.SetBoard();

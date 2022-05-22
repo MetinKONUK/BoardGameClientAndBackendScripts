@@ -104,6 +104,7 @@
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Sha2.cs" />
+    <Compile Include="Sound.cs" />
     <Compile Include="Spot.cs" />
     <Compile Include="SucceededLoginLogs.cs" />
     <Compile Include="UserBase.cs" />

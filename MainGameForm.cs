@@ -28,6 +28,7 @@ namespace main
                                           Dock = DockStyle.Fill
                                       };
             Controls.Add(MainGameWindowGamePanel);
+            MainGameForm_BestScoreDynamicLabel.Text = UserBase.GetUsers()[UserBase.GetCurrentUser()].BestScore.ToString();
         }
 
         private void MainGameForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -69,6 +70,11 @@ namespace main
         {
             var aboutForm = new AboutForm();
             aboutForm.ShowDialog();
+        }
+
+        private void MainGameForm_RefreshBestScoreButton_Click(object sender, EventArgs e)
+        {
+            MainGameForm_BestScoreDynamicLabel.Text = UserBase.GetUsers()[UserBase.GetCurrentUser()].BestScore.ToString();
         }
     }
 }
