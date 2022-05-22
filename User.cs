@@ -9,6 +9,7 @@ namespace main
 {
     public class User
     {
+        public int UserId { get; set; }
         public string Username { get; set; }
         public string Password  { get; set; }
         public string NameSurname { get; set; }
@@ -17,10 +18,6 @@ namespace main
         public string City { get; set; }
         public string Country { get; set; }
         public string Email { get; set; }
-
-
-
-
-
+        public int BestScore = 0;
     }
 }
