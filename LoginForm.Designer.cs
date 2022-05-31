@@ -38,11 +38,13 @@
             this.login_passwordTextBox = new System.Windows.Forms.TextBox();
             this.login_usernameTextBox = new System.Windows.Forms.TextBox();
             this.Login_ImagePanel = new System.Windows.Forms.Panel();
+            this.LoginForm_MultiplayerModeCheckBox = new System.Windows.Forms.CheckBox();
             this.login_leftPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // login_leftPanel
             // 
+            this.login_leftPanel.Controls.Add(this.LoginForm_MultiplayerModeCheckBox);
             this.login_leftPanel.Controls.Add(this.Login_RegisterLabel);
             this.login_leftPanel.Controls.Add(this.Login_HaveAnAccountLabel);
             this.login_leftPanel.Controls.Add(this.Login_TogglePasswordVisibilityCheckBox);
@@ -145,6 +147,20 @@
             this.Login_ImagePanel.Size = new System.Drawing.Size(599, 450);
             this.Login_ImagePanel.TabIndex = 1;
             // 
+            // LoginForm_MultiplayerModeCheckBox
+            // 
+            this.LoginForm_MultiplayerModeCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LoginForm_MultiplayerModeCheckBox.AutoSize = true;
+            this.LoginForm_MultiplayerModeCheckBox.Location = new System.Drawing.Point(0, 216);
+            this.LoginForm_MultiplayerModeCheckBox.Name = "LoginForm_MultiplayerModeCheckBox";
+            this.LoginForm_MultiplayerModeCheckBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.LoginForm_MultiplayerModeCheckBox.Size = new System.Drawing.Size(109, 17);
+            this.LoginForm_MultiplayerModeCheckBox.TabIndex = 8;
+            this.LoginForm_MultiplayerModeCheckBox.Text = ":Multiplayer Mode";
+            this.LoginForm_MultiplayerModeCheckBox.UseVisualStyleBackColor = true;
+            // 
             // LoginForm
             // 
             this.AcceptButton = this.login_loginButton;
@@ -176,6 +192,7 @@
         private System.Windows.Forms.Label Login_RegisterLabel;
         private System.Windows.Forms.Label Login_HaveAnAccountLabel;
         private System.Windows.Forms.Panel Login_ImagePanel;
+        private System.Windows.Forms.CheckBox LoginForm_MultiplayerModeCheckBox;
     }
 }
 

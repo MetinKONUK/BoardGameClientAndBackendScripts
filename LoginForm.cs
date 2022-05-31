@@ -27,7 +27,7 @@ namespace main
         public LoginForm()
         {
             InitializeComponent();
-            Login_ImagePanel.BackgroundImage = Image.FromFile(@"../../LoginBackgroundImage.jpg");
+            Login_ImagePanel.BackgroundImage = Image.FromFile(@"../../LoginImage.png");
             Login_ImagePanel.BackgroundImageLayout = ImageLayout.Stretch;
             //this.FormBorderStyle = FormBorderStyle.None;
         }
@@ -41,6 +41,7 @@ namespace main
             var password = login_passwordTextBox.Text;
             password = Sha2.Sha256Hash(password);
             UserBase.SetAdmins();
+            UserBase.SetCurrentUser(username);
             var admins = UserBase.GetAdmins();
 
             if (admins.ContainsKey(username))
@@ -54,6 +55,7 @@ namespace main
                 {
                     //MessageBox.Show(accessGranted);
                     UserBase.SetCurrentUser(username);
+                    UserBase.IsCurrentUserAdmin = true;
                     _succeededLoginLogs.Username = username;
                     var succeededLoginLogs = JsonConvert.SerializeObject(_succeededLoginLogs);
                     File.WriteAllText(@"../../succeededLoginLogs.json", succeededLoginLogs);
@@ -80,9 +82,19 @@ namespace main
                         _succeededLoginLogs.Username = username;
                         var succeededLoginLogs = JsonConvert.SerializeObject(_succeededLoginLogs);
                         File.WriteAllText(@"../../succeededLoginLogs.json", succeededLoginLogs);
-                        var mainGameWindow = new MainGameForm();
-                        this.Hide();
-                        mainGameWindow.ShowDialog();
+                        if(LoginForm_MultiplayerModeCheckBox.Checked == true)
+                        {
+                            var multiplayerGameForm = new MultiplayerGameForm();
+                            this.Hide();
+                            MultiplayerBoard.Connect();
+                            multiplayerGameForm.ShowDialog();
+                        } 
+                        else
+                        {
+                            var mainGameWindow = new MainGameForm();
+                            this.Hide();
+                            mainGameWindow.ShowDialog();
+                        }
                     }
                 }
                 else
