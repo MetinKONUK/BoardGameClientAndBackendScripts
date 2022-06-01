@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WebSocketSharp;
@@ -19,7 +20,7 @@ namespace main
         public static bool gameStarted = false;
         public static MultiplayerSpot home = null;
         public static MultiplayerSpot target = null;
-        public static List<List<int>> path = null;
+        //public static List<List<int>> path = null;
 
 
         public static void Connect()
@@ -94,9 +95,9 @@ namespace main
             }
             if (data.Type == "shape-move-info")
             {
-                path = data.Path;
+                List<List<int>> path = data.Path;
 
-                ShapeWalksOnThePath();
+                ShapeWalksOnThePath(path);
                 if (UserBase.CurrentUser== data.Turn)
                 {
                     DataToServer dts = new DataToServer();
@@ -116,6 +117,17 @@ namespace main
             }
 
         }
+
+        public static void Sleep(int ms)
+        {
+            var counter = 0;
+            while (counter < (ms / 100))
+            {
+                Application.DoEvents();
+                Thread.Sleep(100);
+                ++counter;
+            }
+        } //end func
 
         public static void ClearSpotsAfterSuccess(int n, int m, int type)
         {
@@ -139,9 +151,13 @@ namespace main
             }
         }
 
-        public static void ShapeWalksOnThePath()
+        public static void ShapeWalksOnThePath(List<List<int>> path)
         {
-            SwapSpots(board[path[0][0]][path[0][1]], board[path[path.Count - 1][0]][path[path.Count - 1][1]]);
+            for(var i = 1; i < path.Count; ++i)
+            {
+                SwapSpots(board[path[i-1][0]][path[i-1][1]], board[path[i][0]][path[i][1]]);
+                Sleep(500);
+            }
             LoseFocus();
             home = null;
             target = null;
