@@ -27,6 +27,12 @@ namespace main
                                       {
                                           Dock = DockStyle.Fill
                                       };
+            //MainGameWindowGamePanel.Location = new Point(
+            //this.ClientSize.Width / 2 - MainGameWindowGamePanel.Size.Width / 2,
+            //this.ClientSize.Height / 2 - MainGameWindowGamePanel.Size.Height / 2);
+            //MainGameWindowGamePanel.Anchor = AnchorStyles.None;
+
+
             Controls.Add(MainGameWindowGamePanel);
             MainGameForm_BestScoreDynamicLabel.Text = UserBase.GetUsers()[UserBase.GetCurrentUser()].BestScore.ToString();
         }
