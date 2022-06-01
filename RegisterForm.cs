@@ -30,6 +30,9 @@ namespace main
         public RegisterForm()
         {
             InitializeComponent();
+            Register_RightPanel.BackgroundImage = Image.FromFile(@"../../LoginImage.png");
+            Register_RightPanel.BackgroundImageLayout = ImageLayout.Stretch;
+            //Register_LeftPanel.BackColor = Color.FromArgb(25, Color.Black); //make panel transparent
         }
 
         private void RegisterForm_FormClosed(object sender, FormClosedEventArgs e)
