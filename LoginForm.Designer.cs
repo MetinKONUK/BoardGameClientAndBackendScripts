@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.login_leftPanel = new System.Windows.Forms.Panel();
+            this.LoginForm_MultiplayerModeCheckBox = new System.Windows.Forms.CheckBox();
             this.Login_RegisterLabel = new System.Windows.Forms.Label();
             this.Login_HaveAnAccountLabel = new System.Windows.Forms.Label();
             this.Login_TogglePasswordVisibilityCheckBox = new System.Windows.Forms.CheckBox();
@@ -38,7 +39,6 @@
             this.login_passwordTextBox = new System.Windows.Forms.TextBox();
             this.login_usernameTextBox = new System.Windows.Forms.TextBox();
             this.Login_ImagePanel = new System.Windows.Forms.Panel();
-            this.LoginForm_MultiplayerModeCheckBox = new System.Windows.Forms.CheckBox();
             this.login_leftPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,6 +59,22 @@
             this.login_leftPanel.Size = new System.Drawing.Size(201, 450);
             this.login_leftPanel.TabIndex = 0;
             // 
+            // LoginForm_MultiplayerModeCheckBox
+            // 
+            this.LoginForm_MultiplayerModeCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LoginForm_MultiplayerModeCheckBox.AutoSize = true;
+            this.LoginForm_MultiplayerModeCheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LoginForm_MultiplayerModeCheckBox.Location = new System.Drawing.Point(0, 216);
+            this.LoginForm_MultiplayerModeCheckBox.Name = "LoginForm_MultiplayerModeCheckBox";
+            this.LoginForm_MultiplayerModeCheckBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.LoginForm_MultiplayerModeCheckBox.Size = new System.Drawing.Size(109, 17);
+            this.LoginForm_MultiplayerModeCheckBox.TabIndex = 0;
+            this.LoginForm_MultiplayerModeCheckBox.TabStop = false;
+            this.LoginForm_MultiplayerModeCheckBox.Text = ":Multiplayer Mode";
+            this.LoginForm_MultiplayerModeCheckBox.UseVisualStyleBackColor = true;
+            // 
             // Login_RegisterLabel
             // 
             this.Login_RegisterLabel.AutoSize = true;
@@ -67,7 +83,7 @@
             this.Login_RegisterLabel.Location = new System.Drawing.Point(145, 298);
             this.Login_RegisterLabel.Name = "Login_RegisterLabel";
             this.Login_RegisterLabel.Size = new System.Drawing.Size(46, 13);
-            this.Login_RegisterLabel.TabIndex = 7;
+            this.Login_RegisterLabel.TabIndex = 0;
             this.Login_RegisterLabel.Text = "Register";
             this.Login_RegisterLabel.Click += new System.EventHandler(this.Login_RegisterLabel_Click);
             // 
@@ -77,7 +93,7 @@
             this.Login_HaveAnAccountLabel.Location = new System.Drawing.Point(-3, 298);
             this.Login_HaveAnAccountLabel.Name = "Login_HaveAnAccountLabel";
             this.Login_HaveAnAccountLabel.Size = new System.Drawing.Size(126, 13);
-            this.Login_HaveAnAccountLabel.TabIndex = 6;
+            this.Login_HaveAnAccountLabel.TabIndex = 0;
             this.Login_HaveAnAccountLabel.Text = "Don\'t Have An Account?";
             // 
             // Login_TogglePasswordVisibilityCheckBox
@@ -87,7 +103,7 @@
             this.Login_TogglePasswordVisibilityCheckBox.Location = new System.Drawing.Point(148, 194);
             this.Login_TogglePasswordVisibilityCheckBox.Name = "Login_TogglePasswordVisibilityCheckBox";
             this.Login_TogglePasswordVisibilityCheckBox.Size = new System.Drawing.Size(51, 17);
-            this.Login_TogglePasswordVisibilityCheckBox.TabIndex = 1;
+            this.Login_TogglePasswordVisibilityCheckBox.TabIndex = 0;
             this.Login_TogglePasswordVisibilityCheckBox.TabStop = false;
             this.Login_TogglePasswordVisibilityCheckBox.Text = "show";
             this.Login_TogglePasswordVisibilityCheckBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -100,7 +116,7 @@
             this.login_passwordLabel.Location = new System.Drawing.Point(12, 176);
             this.login_passwordLabel.Name = "login_passwordLabel";
             this.login_passwordLabel.Size = new System.Drawing.Size(52, 13);
-            this.login_passwordLabel.TabIndex = 5;
+            this.login_passwordLabel.TabIndex = 0;
             this.login_passwordLabel.Text = "password";
             // 
             // login_usernameLabel
@@ -109,15 +125,16 @@
             this.login_usernameLabel.Location = new System.Drawing.Point(12, 137);
             this.login_usernameLabel.Name = "login_usernameLabel";
             this.login_usernameLabel.Size = new System.Drawing.Size(53, 13);
-            this.login_usernameLabel.TabIndex = 4;
+            this.login_usernameLabel.TabIndex = 0;
             this.login_usernameLabel.Text = "username";
             // 
             // login_loginButton
             // 
+            this.login_loginButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.login_loginButton.Location = new System.Drawing.Point(0, 239);
             this.login_loginButton.Name = "login_loginButton";
             this.login_loginButton.Size = new System.Drawing.Size(201, 35);
-            this.login_loginButton.TabIndex = 3;
+            this.login_loginButton.TabIndex = 5;
             this.login_loginButton.Text = "Log In";
             this.login_loginButton.UseVisualStyleBackColor = true;
             this.login_loginButton.Click += new System.EventHandler(this.Login_loginButton_Click);
@@ -146,20 +163,6 @@
             this.Login_ImagePanel.Name = "Login_ImagePanel";
             this.Login_ImagePanel.Size = new System.Drawing.Size(599, 450);
             this.Login_ImagePanel.TabIndex = 1;
-            // 
-            // LoginForm_MultiplayerModeCheckBox
-            // 
-            this.LoginForm_MultiplayerModeCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.LoginForm_MultiplayerModeCheckBox.AutoSize = true;
-            this.LoginForm_MultiplayerModeCheckBox.Location = new System.Drawing.Point(0, 216);
-            this.LoginForm_MultiplayerModeCheckBox.Name = "LoginForm_MultiplayerModeCheckBox";
-            this.LoginForm_MultiplayerModeCheckBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LoginForm_MultiplayerModeCheckBox.Size = new System.Drawing.Size(109, 17);
-            this.LoginForm_MultiplayerModeCheckBox.TabIndex = 8;
-            this.LoginForm_MultiplayerModeCheckBox.Text = ":Multiplayer Mode";
-            this.LoginForm_MultiplayerModeCheckBox.UseVisualStyleBackColor = true;
             // 
             // LoginForm
             // 
