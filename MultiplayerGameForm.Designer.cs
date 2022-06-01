@@ -35,10 +35,11 @@
             // 
             // PlayButton
             // 
-            this.PlayButton.Location = new System.Drawing.Point(344, 6);
+            this.PlayButton.Font = new System.Drawing.Font("Times New Roman", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlayButton.Location = new System.Drawing.Point(353, 5);
             this.PlayButton.Name = "PlayButton";
             this.PlayButton.Size = new System.Drawing.Size(75, 23);
-            this.PlayButton.TabIndex = 5;
+            this.PlayButton.TabIndex = 1;
             this.PlayButton.Text = "Play";
             this.PlayButton.UseVisualStyleBackColor = true;
             this.PlayButton.Click += new System.EventHandler(this.PlayButton_Click);
@@ -46,18 +47,19 @@
             // OpponentUsernameLabel
             // 
             this.OpponentUsernameLabel.AutoSize = true;
+            this.OpponentUsernameLabel.Font = new System.Drawing.Font("Times New Roman", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.OpponentUsernameLabel.Location = new System.Drawing.Point(12, 9);
             this.OpponentUsernameLabel.Name = "OpponentUsernameLabel";
-            this.OpponentUsernameLabel.Size = new System.Drawing.Size(136, 13);
+            this.OpponentUsernameLabel.Size = new System.Drawing.Size(142, 15);
             this.OpponentUsernameLabel.TabIndex = 3;
             this.OpponentUsernameLabel.Text = "Enter Opponent Username:";
             // 
             // OpponentUsernameTextBox
             // 
-            this.OpponentUsernameTextBox.Location = new System.Drawing.Point(151, 6);
+            this.OpponentUsernameTextBox.Location = new System.Drawing.Point(160, 7);
             this.OpponentUsernameTextBox.Name = "OpponentUsernameTextBox";
             this.OpponentUsernameTextBox.Size = new System.Drawing.Size(187, 20);
-            this.OpponentUsernameTextBox.TabIndex = 4;
+            this.OpponentUsernameTextBox.TabIndex = 0;
             // 
             // MultiplayerGameForm
             // 
@@ -69,6 +71,7 @@
             this.Controls.Add(this.OpponentUsernameTextBox);
             this.Name = "MultiplayerGameForm";
             this.Text = "MultiplayerGameForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MultiplayerGameForm_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

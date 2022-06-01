@@ -17,6 +17,7 @@ namespace main
         public MultiplayerGameForm()
         {
             InitializeComponent();
+            //FormBorderStyle = FormBorderStyle.None;
             Control.CheckForIllegalCrossThreadCalls = false;
             GameFormInstance = this;
             WindowState = FormWindowState.Maximized;
@@ -25,6 +26,7 @@ namespace main
                 Dock = DockStyle.Fill
             };
             Controls.Add(GameFormLowerPanel);
+
         }
 
         private void PlayButton_Click(object sender, EventArgs e)
@@ -32,6 +34,14 @@ namespace main
             UserBase.GetUsers()[UserBase.CurrentUser].OpponentUsername = OpponentUsernameTextBox.Text;
             var OpponentUsername = OpponentUsernameTextBox.Text;
             MultiplayerBoard.SetOpponent(OpponentUsername);
+        }
+
+        private void MultiplayerGameForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MultiplayerBoard.Disconnect();
+            var loginWindow = new LoginForm();
+            this.Hide();
+            loginWindow.ShowDialog();
         }
     }
 }

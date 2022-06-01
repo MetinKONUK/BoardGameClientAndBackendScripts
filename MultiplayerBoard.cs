@@ -20,8 +20,6 @@ namespace main
         public static bool gameStarted = false;
         public static MultiplayerSpot home = null;
         public static MultiplayerSpot target = null;
-        //public static List<List<int>> path = null;
-
 
         public static void Connect()
         {
@@ -31,6 +29,10 @@ namespace main
             dts.Type = "username";
             dts.CurrentUsername = UserBase.CurrentUser;
             ws.Send(DataConvertion.Serialize(dts));
+        }
+        public static void Disconnect()
+        {
+            ws.Close();
         }
 
         public static void SetOpponent(string OpponentUsername)
@@ -56,6 +58,18 @@ namespace main
                 }
             }
 
+            if(data.Type == "opponent-does-not-exist-error")
+            {
+                MessageBox.Show("Opponent does not exist!");
+            }
+            if(data.Type == "opponent-disconnected")
+            {
+                MessageBox.Show("Opponent disconnected!");
+                ClearBoard();
+                ClearPanel(MultiplayerGameForm.GameFormInstance.GameFormLowerPanel);
+                MultiplayerGameForm.GameFormInstance.Close();
+
+            }
             if (data.Type == "game-started-feedback")
             {
                 gameStarted = true;
@@ -98,7 +112,7 @@ namespace main
                 List<List<int>> path = data.Path;
 
                 ShapeWalksOnThePath(path);
-                if (UserBase.CurrentUser== data.Turn)
+                if (UserBase.CurrentUser == data.Turn)
                 {
                     DataToServer dts = new DataToServer();
                     dts.Type = "place_new_shapes_request";
@@ -114,6 +128,9 @@ namespace main
             if (data.Type == "game-end-info")
             {
                 MessageBox.Show(data.GameEndInfo);
+                ClearBoard();
+                ClearPanel(MultiplayerGameForm.GameFormInstance.GameFormLowerPanel);
+
             }
 
         }
@@ -292,7 +309,7 @@ namespace main
         }
         public static void ClearPanel(Panel panel)
         {
-            panel.Controls.Clear();
+            //panel.Controls.Clear();
         }
         public static void ClearBoard()
         {
