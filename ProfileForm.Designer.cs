@@ -30,6 +30,11 @@ namespace main
         private void InitializeComponent()
         {
             this.Register_LeftPanel = new System.Windows.Forms.Panel();
+            this.Profile_PasswordLabel = new System.Windows.Forms.Label();
+            this.Profile_PasswordTextBox = new System.Windows.Forms.TextBox();
+            this.Profile_UpdateButton = new System.Windows.Forms.Button();
+            this.Profile_UsernameTextLabel = new System.Windows.Forms.Label();
+            this.Profile_UsernameLabel = new System.Windows.Forms.Label();
             this.Profile_EmailLabel = new System.Windows.Forms.Label();
             this.Profile_EmailTextBox = new System.Windows.Forms.TextBox();
             this.Profile_CityLabel = new System.Windows.Forms.Label();
@@ -42,11 +47,6 @@ namespace main
             this.Profile_NameSurnameLabel = new System.Windows.Forms.Label();
             this.Profile_PhoneNumberTextBox = new System.Windows.Forms.TextBox();
             this.Profile_NameSurnameTextBox = new System.Windows.Forms.TextBox();
-            this.Profile_UsernameLabel = new System.Windows.Forms.Label();
-            this.Profile_UsernameTextLabel = new System.Windows.Forms.Label();
-            this.Profile_UpdateButton = new System.Windows.Forms.Button();
-            this.Profile_PasswordTextBox = new System.Windows.Forms.TextBox();
-            this.Profile_PasswordLabel = new System.Windows.Forms.Label();
             this.Register_LeftPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,6 +75,50 @@ namespace main
             this.Register_LeftPanel.Size = new System.Drawing.Size(262, 450);
             this.Register_LeftPanel.TabIndex = 1;
             // 
+            // Profile_PasswordLabel
+            // 
+            this.Profile_PasswordLabel.AutoSize = true;
+            this.Profile_PasswordLabel.Location = new System.Drawing.Point(10, 279);
+            this.Profile_PasswordLabel.Name = "Profile_PasswordLabel";
+            this.Profile_PasswordLabel.Size = new System.Drawing.Size(84, 13);
+            this.Profile_PasswordLabel.TabIndex = 18;
+            this.Profile_PasswordLabel.Text = "Enter Password:";
+            // 
+            // Profile_PasswordTextBox
+            // 
+            this.Profile_PasswordTextBox.Location = new System.Drawing.Point(11, 295);
+            this.Profile_PasswordTextBox.Name = "Profile_PasswordTextBox";
+            this.Profile_PasswordTextBox.Size = new System.Drawing.Size(217, 20);
+            this.Profile_PasswordTextBox.TabIndex = 6;
+            // 
+            // Profile_UpdateButton
+            // 
+            this.Profile_UpdateButton.Location = new System.Drawing.Point(11, 321);
+            this.Profile_UpdateButton.Name = "Profile_UpdateButton";
+            this.Profile_UpdateButton.Size = new System.Drawing.Size(217, 23);
+            this.Profile_UpdateButton.TabIndex = 7;
+            this.Profile_UpdateButton.Text = "Update Profile";
+            this.Profile_UpdateButton.UseVisualStyleBackColor = true;
+            this.Profile_UpdateButton.Click += new System.EventHandler(this.Profile_UpdateButton_Click);
+            // 
+            // Profile_UsernameTextLabel
+            // 
+            this.Profile_UsernameTextLabel.AutoSize = true;
+            this.Profile_UsernameTextLabel.Location = new System.Drawing.Point(10, 9);
+            this.Profile_UsernameTextLabel.Name = "Profile_UsernameTextLabel";
+            this.Profile_UsernameTextLabel.Size = new System.Drawing.Size(58, 13);
+            this.Profile_UsernameTextLabel.TabIndex = 16;
+            this.Profile_UsernameTextLabel.Text = "Username:";
+            // 
+            // Profile_UsernameLabel
+            // 
+            this.Profile_UsernameLabel.AutoSize = true;
+            this.Profile_UsernameLabel.Location = new System.Drawing.Point(74, 9);
+            this.Profile_UsernameLabel.Name = "Profile_UsernameLabel";
+            this.Profile_UsernameLabel.Size = new System.Drawing.Size(123, 13);
+            this.Profile_UsernameLabel.TabIndex = 2;
+            this.Profile_UsernameLabel.Text = "<username-placeholder>";
+            // 
             // Profile_EmailLabel
             // 
             this.Profile_EmailLabel.AutoSize = true;
@@ -89,7 +133,7 @@ namespace main
             this.Profile_EmailTextBox.Location = new System.Drawing.Point(11, 243);
             this.Profile_EmailTextBox.Name = "Profile_EmailTextBox";
             this.Profile_EmailTextBox.Size = new System.Drawing.Size(217, 20);
-            this.Profile_EmailTextBox.TabIndex = 14;
+            this.Profile_EmailTextBox.TabIndex = 5;
             // 
             // Profile_CityLabel
             // 
@@ -105,7 +149,7 @@ namespace main
             this.Profile_CityTextBox.Location = new System.Drawing.Point(11, 204);
             this.Profile_CityTextBox.Name = "Profile_CityTextBox";
             this.Profile_CityTextBox.Size = new System.Drawing.Size(217, 20);
-            this.Profile_CityTextBox.TabIndex = 12;
+            this.Profile_CityTextBox.TabIndex = 4;
             // 
             // Profile_AddressLabel
             // 
@@ -121,7 +165,7 @@ namespace main
             this.Profile_AddressTextBox.Location = new System.Drawing.Point(11, 125);
             this.Profile_AddressTextBox.Name = "Profile_AddressTextBox";
             this.Profile_AddressTextBox.Size = new System.Drawing.Size(217, 20);
-            this.Profile_AddressTextBox.TabIndex = 10;
+            this.Profile_AddressTextBox.TabIndex = 2;
             // 
             // Profile_CountryLabel
             // 
@@ -138,7 +182,7 @@ namespace main
             this.Profile_CountryComboBox.Location = new System.Drawing.Point(11, 164);
             this.Profile_CountryComboBox.Name = "Profile_CountryComboBox";
             this.Profile_CountryComboBox.Size = new System.Drawing.Size(217, 21);
-            this.Profile_CountryComboBox.TabIndex = 8;
+            this.Profile_CountryComboBox.TabIndex = 3;
             // 
             // Profile_PhoneNumberLabel
             // 
@@ -163,58 +207,14 @@ namespace main
             this.Profile_PhoneNumberTextBox.Location = new System.Drawing.Point(11, 86);
             this.Profile_PhoneNumberTextBox.Name = "Profile_PhoneNumberTextBox";
             this.Profile_PhoneNumberTextBox.Size = new System.Drawing.Size(217, 20);
-            this.Profile_PhoneNumberTextBox.TabIndex = 3;
+            this.Profile_PhoneNumberTextBox.TabIndex = 1;
             // 
             // Profile_NameSurnameTextBox
             // 
             this.Profile_NameSurnameTextBox.Location = new System.Drawing.Point(11, 47);
             this.Profile_NameSurnameTextBox.Name = "Profile_NameSurnameTextBox";
             this.Profile_NameSurnameTextBox.Size = new System.Drawing.Size(217, 20);
-            this.Profile_NameSurnameTextBox.TabIndex = 2;
-            // 
-            // Profile_UsernameLabel
-            // 
-            this.Profile_UsernameLabel.AutoSize = true;
-            this.Profile_UsernameLabel.Location = new System.Drawing.Point(74, 9);
-            this.Profile_UsernameLabel.Name = "Profile_UsernameLabel";
-            this.Profile_UsernameLabel.Size = new System.Drawing.Size(123, 13);
-            this.Profile_UsernameLabel.TabIndex = 2;
-            this.Profile_UsernameLabel.Text = "<username-placeholder>";
-            // 
-            // Profile_UsernameTextLabel
-            // 
-            this.Profile_UsernameTextLabel.AutoSize = true;
-            this.Profile_UsernameTextLabel.Location = new System.Drawing.Point(10, 9);
-            this.Profile_UsernameTextLabel.Name = "Profile_UsernameTextLabel";
-            this.Profile_UsernameTextLabel.Size = new System.Drawing.Size(58, 13);
-            this.Profile_UsernameTextLabel.TabIndex = 16;
-            this.Profile_UsernameTextLabel.Text = "Username:";
-            // 
-            // Profile_UpdateButton
-            // 
-            this.Profile_UpdateButton.Location = new System.Drawing.Point(11, 321);
-            this.Profile_UpdateButton.Name = "Profile_UpdateButton";
-            this.Profile_UpdateButton.Size = new System.Drawing.Size(217, 23);
-            this.Profile_UpdateButton.TabIndex = 2;
-            this.Profile_UpdateButton.Text = "Update Profile";
-            this.Profile_UpdateButton.UseVisualStyleBackColor = true;
-            this.Profile_UpdateButton.Click += new System.EventHandler(this.Profile_UpdateButton_Click);
-            // 
-            // Profile_PasswordTextBox
-            // 
-            this.Profile_PasswordTextBox.Location = new System.Drawing.Point(11, 295);
-            this.Profile_PasswordTextBox.Name = "Profile_PasswordTextBox";
-            this.Profile_PasswordTextBox.Size = new System.Drawing.Size(217, 20);
-            this.Profile_PasswordTextBox.TabIndex = 17;
-            // 
-            // Profile_PasswordLabel
-            // 
-            this.Profile_PasswordLabel.AutoSize = true;
-            this.Profile_PasswordLabel.Location = new System.Drawing.Point(10, 279);
-            this.Profile_PasswordLabel.Name = "Profile_PasswordLabel";
-            this.Profile_PasswordLabel.Size = new System.Drawing.Size(84, 13);
-            this.Profile_PasswordLabel.TabIndex = 18;
-            this.Profile_PasswordLabel.Text = "Enter Password:";
+            this.Profile_NameSurnameTextBox.TabIndex = 0;
             // 
             // ProfileForm
             // 
