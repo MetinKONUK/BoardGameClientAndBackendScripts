@@ -38,7 +38,14 @@ namespace main
 
         private void MultiplayerGameForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            try
+            {
             MultiplayerBoard.Disconnect();
+            }
+            catch
+            {
+                MessageBox.Show("An error occured while disconnecting from server...");
+            }
             var loginWindow = new LoginForm();
             this.Hide();
             loginWindow.ShowDialog();

@@ -84,10 +84,17 @@ namespace main
                         File.WriteAllText(@"../../succeededLoginLogs.json", succeededLoginLogs);
                         if(LoginForm_MultiplayerModeCheckBox.Checked == true)
                         {
+                            try
+                            {
                             var multiplayerGameForm = new MultiplayerGameForm();
-                            this.Hide();
                             MultiplayerBoard.Connect();
                             multiplayerGameForm.ShowDialog();
+                            this.Hide();
+                            }
+                            catch
+                            {
+                                MessageBox.Show("An error occured while connecting to server...");
+                            }
                         } 
                         else
                         {

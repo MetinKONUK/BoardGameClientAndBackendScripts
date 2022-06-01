@@ -37,6 +37,12 @@ namespace main
 
         public static void SetOpponent(string OpponentUsername)
         {
+            if(OpponentUsername == UserBase.CurrentUser)
+            {
+                MessageBox.Show("You cannot match with yourself obviously...");
+                return;
+
+            }
             DataToServer dts = new DataToServer();
             dts.Type = "opponent_username";
             dts.OpponentUsername = OpponentUsername;
