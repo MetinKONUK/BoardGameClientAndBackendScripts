@@ -87,7 +87,7 @@ namespace main
             this.AdminPanel_LeftPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.AdminPanel_LeftPanel.Location = new System.Drawing.Point(0, 0);
             this.AdminPanel_LeftPanel.Name = "AdminPanel_LeftPanel";
-            this.AdminPanel_LeftPanel.Size = new System.Drawing.Size(281, 450);
+            this.AdminPanel_LeftPanel.Size = new System.Drawing.Size(281, 496);
             this.AdminPanel_LeftPanel.TabIndex = 0;
             // 
             // AdminPanel_CreateNewUserPanel
@@ -295,7 +295,7 @@ namespace main
             this.AdminPanel_RightPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.AdminPanel_RightPanel.Location = new System.Drawing.Point(281, 0);
             this.AdminPanel_RightPanel.Name = "AdminPanel_RightPanel";
-            this.AdminPanel_RightPanel.Size = new System.Drawing.Size(258, 450);
+            this.AdminPanel_RightPanel.Size = new System.Drawing.Size(258, 496);
             this.AdminPanel_RightPanel.TabIndex = 1;
             this.AdminPanel_RightPanel.Visible = false;
             // 
@@ -440,9 +440,9 @@ namespace main
             this.AdminPanelForm_ListByBestScoresPanel.Controls.Add(this.AdminPanelForm_DescendingButton);
             this.AdminPanelForm_ListByBestScoresPanel.Controls.Add(this.AdminPanelForm_BestScoresListView);
             this.AdminPanelForm_ListByBestScoresPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.AdminPanelForm_ListByBestScoresPanel.Location = new System.Drawing.Point(540, 0);
+            this.AdminPanelForm_ListByBestScoresPanel.Location = new System.Drawing.Point(579, 0);
             this.AdminPanelForm_ListByBestScoresPanel.Name = "AdminPanelForm_ListByBestScoresPanel";
-            this.AdminPanelForm_ListByBestScoresPanel.Size = new System.Drawing.Size(255, 450);
+            this.AdminPanelForm_ListByBestScoresPanel.Size = new System.Drawing.Size(255, 496);
             this.AdminPanelForm_ListByBestScoresPanel.TabIndex = 2;
             // 
             // AdminPanelForm_SortByAscendingButton
@@ -494,11 +494,12 @@ namespace main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(795, 450);
+            this.ClientSize = new System.Drawing.Size(834, 496);
             this.Controls.Add(this.AdminPanelForm_ListByBestScoresPanel);
             this.Controls.Add(this.AdminPanel_RightPanel);
             this.Controls.Add(this.AdminPanel_LeftPanel);
             this.Name = "AdminPanelForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminPanel";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdminPanelForm_FormClosed);
             this.Load += new System.EventHandler(this.AdminPanelForm_Load);

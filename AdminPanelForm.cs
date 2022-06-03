@@ -20,11 +20,14 @@ namespace main
                                                 Colors          = new List<int>() {1, 0, 0}
                                             };
         private User _user;
+        Rectangle screen = Screen.PrimaryScreen.WorkingArea;
         public AdminPanelForm()
         {
             UserBase.SetUsers();
             UserBase.SetSettings();
             InitializeComponent();
+
+            this.Size = new Size(screen.Width * 3 / 5, screen.Height * 3 / 4);
         }
 
         private void AddUsernamesToUsersComboBox()

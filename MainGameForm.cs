@@ -15,20 +15,32 @@ namespace main
     {
         public static MainGameForm MainGameFormInstance;
         public        Panel        MainGameWindowGamePanel;
-
+        public Label BestScoreLabel;
+        Rectangle screen = Screen.PrimaryScreen.WorkingArea;
         public MainGameForm()
         {
             InitializeComponent();
+            this.Size = new Size(screen.Width* 3/5, screen.Height * 3/4);
+
             MainGameFormInstance = this;
             UserBase.SetSettings();
-            FormBorderStyle = FormBorderStyle.None;
-            WindowState = FormWindowState.Maximized;
+            //FormBorderStyle = FormBorderStyle.None;
+            //WindowState = FormWindowState.Maximized;
             MainGameWindowGamePanel = new Panel
-                                      {
-                                          Dock = DockStyle.Fill
+            {
+                Dock = DockStyle.Bottom,
+                Location = new Point(0, mainGameWindow_UpPanel.Height),
+                Size = new Size(this.Width, this.Height - mainGameWindow_UpPanel.Height),
                                       };
             Controls.Add(MainGameWindowGamePanel);
-            MainGameForm_BestScoreDynamicLabel.Text = UserBase.GetUsers()[UserBase.GetCurrentUser()].BestScore.ToString();
+            //Add bestscore label
+            BestScoreLabel = new Label();
+            BestScoreLabel.Text = "0";
+            BestScoreLabel.Font = new Font("Times New Roman; 14,25pt; style=Bold, Italic", 14);
+            BestScoreLabel.Location = new Point(106, 13);
+            BestScoreLabel.AutoSize = true;
+            mainGameWindow_UpPanel.Controls.Add(BestScoreLabel);
+            Board.UpdateBestScore();
         }
 
         private void MainGameForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -74,7 +86,7 @@ namespace main
 
         private void MainGameForm_RefreshBestScoreButton_Click(object sender, EventArgs e)
         {
-            MainGameForm_BestScoreDynamicLabel.Text = UserBase.GetUsers()[UserBase.GetCurrentUser()].BestScore.ToString();
+            Board.UpdateBestScore();
         }
     }
 }

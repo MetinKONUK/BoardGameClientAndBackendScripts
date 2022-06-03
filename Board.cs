@@ -29,7 +29,7 @@ namespace main
         private static          Spot             _target     = null;
         public static           Board            Instance { get; } = new Board();
         public static           int              UserScore = 0;
-
+        public static int ButtonSize = 20;
         public static void SetRowCol()
         {
             var userSettings = UserBase.GetSettings()[UserBase.GetCurrentUser()];
@@ -41,22 +41,34 @@ namespace main
                 case 0:
                     _n = 15;
                     _m = 15;
+                    ButtonSize = 20;
                     break;
                 case 1:
                     _n = 9;
                     _m = 9;
+                    ButtonSize = 35;
                     break;
                 case 2:
                     _n = 6;
                     _m = 6;
+                    ButtonSize = 40;
                     break;
                 case 3:
                     _n = row;
                     _m = col;
+                    if(_n*_m < 200)
+                    {
+                        ButtonSize = 30;
+                    } 
+                    else
+                    {
+                        ButtonSize = 18;
+                    }
                     break;
                 default:
                     _n = 9;
                     _m = 9;
+                    ButtonSize = 35;
                     break;
             }
         } //end func
@@ -95,6 +107,14 @@ namespace main
 
             return null;
         } //end func
+
+
+        public static void UpdateBestScore()
+        {
+            Label label = MainGameForm.MainGameFormInstance.BestScoreLabel;
+
+            label.Text = UserBase.GetUsers()[UserBase.GetCurrentUser()].BestScore.ToString();
+        }
 
         private static double Heuristic(Spot a, Spot b)
         {
@@ -367,6 +387,7 @@ namespace main
             {
                 UserBase.UpdateUserBestScore(UserScore, user.Username);
                 UserBase.GetUsers()[UserBase.GetCurrentUser()].BestScore = UserScore;
+                UpdateBestScore();
             }
         }
 
@@ -409,7 +430,7 @@ namespace main
 
                 foreach (var spot in path)
                 {
-                    Sleep(1100);
+                    Sleep(500);
                     SwapSpots(prevSpot, spot);
                     prevSpot = spot;
                 }
@@ -441,29 +462,33 @@ namespace main
         {
             ClearBoard();
             SetRowCol();
-
-            var y = 2;
+            var panel = MainGameForm.MainGameFormInstance.MainGameWindowGamePanel;
+            var PanelWidth = panel.Width;
+            var PanelHeight = panel.Height;
+            int y = ((PanelHeight) - (_m * ButtonSize)) / 2;
+            MessageBox.Show(y.ToString());
             for (var i = 0; i < _n; i++)
             {
                 var row = new List<Spot>();
-                var x   = 2;
+                int x = ((PanelWidth) - (_n * ButtonSize)) / 2;
                 for (var j = 0; j < _m; j++)
                 {
                     var spot = new Spot {I = i, J = j};
                     var btn = new Button
                               {
                                   Name      = @"{n}{m}",
-                                  Size      = new Size(40, 40),
-                                  Location  = new Point(40 * x, 40 * y),
+                                  Size      = new Size(ButtonSize, ButtonSize),
+                                  Location  = new Point(x, y),
                                   BackColor = Color.AntiqueWhite,
+                                  TabStop = false,
                               };
                     btn.Click += (s, e) => OnCellClick(btn);
                     spot.Btn  =  btn;
                     row.Add(spot);
-                    x++;
+                    x += ButtonSize;
                 }
 
-                y++;
+                y += ButtonSize;
                 BoardMatrix.Add(row);
             }
 
