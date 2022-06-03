@@ -12,11 +12,13 @@ namespace main
 {
     public partial class ProfileForm : Form
     {
+        Rectangle screen = Screen.PrimaryScreen.WorkingArea;
         private readonly User _user = UserBase.GetUsers()[UserBase.GetCurrentUser()];
 
         public ProfileForm()
         {
             InitializeComponent();
+            this.Size = new Size(screen.Width* 7 / 10, screen.Height* 3 / 4);
         }
 
         private void PlaceCurrentUserDataToProfileWindow()

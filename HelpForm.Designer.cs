@@ -65,7 +65,10 @@ namespace main
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.HelpForm_InfoTextBox);
             this.Controls.Add(this.HelpForm_AboutButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "HelpForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HelpForm";
             this.ResumeLayout(false);
             this.PerformLayout();

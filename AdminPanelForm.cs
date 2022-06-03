@@ -27,7 +27,7 @@ namespace main
             UserBase.SetSettings();
             InitializeComponent();
 
-            this.Size = new Size(screen.Width * 3 / 5, screen.Height * 3 / 4);
+            this.Size = new Size(screen.Width * 7 / 10, screen.Height * 3 / 4);
         }
 
         private void AddUsernamesToUsersComboBox()

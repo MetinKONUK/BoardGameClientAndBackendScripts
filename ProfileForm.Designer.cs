@@ -29,6 +29,7 @@ namespace main
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProfileForm));
             this.Register_LeftPanel = new System.Windows.Forms.Panel();
             this.Profile_PasswordLabel = new System.Windows.Forms.Label();
             this.Profile_PasswordTextBox = new System.Windows.Forms.TextBox();
@@ -232,7 +233,10 @@ namespace main
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.Register_LeftPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ProfileForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProfileForm";
             this.Load += new System.EventHandler(this.ProfileForm_Load);
             this.Register_LeftPanel.ResumeLayout(false);

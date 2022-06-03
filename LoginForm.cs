@@ -24,12 +24,14 @@ namespace main
                                                   };
 
 
+        Rectangle screen = Screen.PrimaryScreen.WorkingArea;
         public LoginForm()
         {
             InitializeComponent();
-            Login_ImagePanel.BackgroundImage = Image.FromFile(@"../../LoginImage.png");
+            this.Size = new Size(screen.Width* 7 / 10, screen.Height* 3 / 4);
+            Login_ImagePanel.BackgroundImage = Image.FromFile(@"../../LoginPageImage.jpg");
             Login_ImagePanel.BackgroundImageLayout = ImageLayout.Stretch;
-            //this.FormBorderStyle = FormBorderStyle.None;
+            this.FormBorderStyle = FormBorderStyle.None;
         }
 
         private void Login_loginButton_Click(object sender, EventArgs e)
@@ -86,10 +88,10 @@ namespace main
                         {
                             try
                             {
-                            var multiplayerGameForm = new MultiplayerGameForm();
-                            MultiplayerBoard.Connect();
-                            multiplayerGameForm.ShowDialog();
-                            this.Hide();
+                                var multiplayerGameForm = new MultiplayerGameForm();
+                                MultiplayerBoard.Connect();
+                                this.Hide();
+                                multiplayerGameForm.ShowDialog();
                             }
                             catch
                             {
@@ -153,6 +155,11 @@ namespace main
         }
 
         private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void LoginForm_ExitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }

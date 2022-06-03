@@ -466,7 +466,7 @@ namespace main
             var PanelWidth = panel.Width;
             var PanelHeight = panel.Height;
             int y = ((PanelHeight) - (_m * ButtonSize)) / 2;
-            MessageBox.Show(y.ToString());
+            //MessageBox.Show(y.ToString());
             for (var i = 0; i < _n; i++)
             {
                 var row = new List<Spot>();

@@ -12,19 +12,24 @@ namespace main
 {
     public partial class MultiplayerGameForm : Form
     {
+        Rectangle screen = Screen.PrimaryScreen.WorkingArea;
         public static MultiplayerGameForm GameFormInstance;
         public Panel GameFormLowerPanel;
         public MultiplayerGameForm()
         {
             InitializeComponent();
+            GameFormInstance = this;
+            this.Size = new Size(screen.Width * 7 / 10, screen.Height * 3 / 4);
             //FormBorderStyle = FormBorderStyle.None;
             Control.CheckForIllegalCrossThreadCalls = false;
-            GameFormInstance = this;
-            WindowState = FormWindowState.Maximized;
             GameFormLowerPanel = new Panel
             {
-                Dock = DockStyle.Fill
+                Dock = DockStyle.Bottom,
+                Location = new Point(0, UpPanel.Height),
+                Size = new Size(this.Width, this.Height - UpPanel.Height),
+
             };
+
             Controls.Add(GameFormLowerPanel);
 
         }
@@ -40,7 +45,7 @@ namespace main
         {
             try
             {
-            MultiplayerBoard.Disconnect();
+                MultiplayerBoard.Disconnect();
             }
             catch
             {

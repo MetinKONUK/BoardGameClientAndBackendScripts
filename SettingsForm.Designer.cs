@@ -29,6 +29,7 @@ namespace main
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
             this.settings_LeftPanel = new System.Windows.Forms.Panel();
             this.settings_ColorButton = new System.Windows.Forms.Button();
             this.settings_backToGameWindowButton = new System.Windows.Forms.Button();
@@ -341,7 +342,10 @@ namespace main
             this.Controls.Add(this.settings_ShapesPanel);
             this.Controls.Add(this.settings_DifficultyLevelPanel);
             this.Controls.Add(this.settings_LeftPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SettingsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Settings";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SettingsForm_FormClosed);
             this.Load += new System.EventHandler(this.SettingsForm_Load);

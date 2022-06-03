@@ -78,7 +78,10 @@ namespace main
             this.Controls.Add(this.AboutForm_InfoTextBoxSecond);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.AboutForm_InfoTextBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AboutForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AboutForm";
             this.ResumeLayout(false);
             this.PerformLayout();

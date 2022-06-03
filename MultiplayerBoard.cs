@@ -21,6 +21,10 @@ namespace main
         public static MultiplayerSpot home = null;
         public static MultiplayerSpot target = null;
 
+        public static void LoseFocus()
+        {
+            MultiplayerGameForm.GameFormInstance.Focus();
+        }
         public static void Connect()
         {
             ws.Connect();
@@ -59,8 +63,8 @@ namespace main
                 {
                     home = null;
                     target = null;
-                    LoseFocus();
                     MessageBox.Show("Wait your turn!!");
+                    LoseFocus();
                 }
             }
 
@@ -210,11 +214,6 @@ namespace main
             return null;
         }//end-func
 
-        public static void LoseFocus()
-        {
-            var panel = MultiplayerGameForm.GameFormInstance.GameFormLowerPanel;
-            panel.Focus();
-        }
         public static void OnCellClick(Button btn)
         {
             Console.WriteLine("Clicked to button!!\n");
@@ -263,18 +262,22 @@ namespace main
         {
             ClearPanel(MultiplayerGameForm.GameFormInstance.GameFormLowerPanel);
             ClearBoard();
-            var y = 2;
+            var panel = MultiplayerGameForm.GameFormInstance.GameFormLowerPanel;
+            var PanelWidth = panel.Width;
+            var PanelHeight = panel.Height;
+            var ButtonSize = 35;
+            int y = ((PanelHeight) - (9 * ButtonSize)) / 2;
             for (var i = 0; i < 9; ++i)
             {
                 var row = new List<MultiplayerSpot>();
-                var x = 2;
+                int x = ((PanelWidth) - (9 * ButtonSize)) / 2;
                 for (var j = 0; j < 9; ++j)
                 {
                     var spot = new MultiplayerSpot();
                     var btn = new Button
                     {
-                        Size = new Size(40, 40),
-                        Location = new Point(40 * x, 40 * y),
+                        Size = new Size(ButtonSize, ButtonSize),
+                        Location = new Point(x, y),
                         BackColor = Color.AntiqueWhite,
                     };
                     btn.Click += (s, e) => OnCellClick(btn);
@@ -282,9 +285,9 @@ namespace main
                     spot.I = i;
                     spot.J = j;
                     row.Add(spot);
-                    x++;
+                    x += ButtonSize;
                 }
-                y++;
+                y += ButtonSize;
                 board.Add(row);
             }
         }

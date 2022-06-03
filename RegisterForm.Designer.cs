@@ -29,6 +29,7 @@ namespace main
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterForm));
             this.Register_LeftPanel = new System.Windows.Forms.Panel();
             this.Register_LoginLabel = new System.Windows.Forms.Label();
             this.Register_AlreadyHaveAnAccountLabel = new System.Windows.Forms.Label();
@@ -256,7 +257,10 @@ namespace main
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.Register_RightPanel);
             this.Controls.Add(this.Register_LeftPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RegisterForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegisterForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RegisterForm_FormClosed);
             this.Load += new System.EventHandler(this.RegisterForm_Load);

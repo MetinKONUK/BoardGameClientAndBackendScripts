@@ -12,9 +12,11 @@ namespace main
 {
     public partial class HelpForm : Form
     {
+        Rectangle screen = Screen.PrimaryScreen.WorkingArea;
         public HelpForm()
         {
             InitializeComponent();
+            this.Size = new Size(screen.Width * 7 / 10, screen.Height * 3 / 4);
         }
 
         private void AboutButton_Click(object sender, EventArgs e)

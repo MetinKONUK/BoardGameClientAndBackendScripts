@@ -20,12 +20,11 @@ namespace main
         public MainGameForm()
         {
             InitializeComponent();
-            this.Size = new Size(screen.Width* 3/5, screen.Height * 3/4);
-
+            this.FormBorderStyle = FormBorderStyle.None;
             MainGameFormInstance = this;
+            this.Size = new Size(screen.Width * 7 / 10, screen.Height * 3 / 4);
+            
             UserBase.SetSettings();
-            //FormBorderStyle = FormBorderStyle.None;
-            //WindowState = FormWindowState.Maximized;
             MainGameWindowGamePanel = new Panel
             {
                 Dock = DockStyle.Bottom,
@@ -33,6 +32,7 @@ namespace main
                 Size = new Size(this.Width, this.Height - mainGameWindow_UpPanel.Height),
                                       };
             Controls.Add(MainGameWindowGamePanel);
+
             //Add bestscore label
             BestScoreLabel = new Label();
             BestScoreLabel.Text = "0";
@@ -87,6 +87,11 @@ namespace main
         private void MainGameForm_RefreshBestScoreButton_Click(object sender, EventArgs e)
         {
             Board.UpdateBestScore();
+        }
+
+        private void MainGameWindow_ExitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

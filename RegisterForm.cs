@@ -15,7 +15,7 @@ namespace main
 
     public partial class RegisterForm : Form
     {
-
+        Rectangle screen = Screen.PrimaryScreen.WorkingArea;
         private readonly Setting _setting = new Setting
                                    {
                                        Rows             = -1,
@@ -30,9 +30,10 @@ namespace main
         public RegisterForm()
         {
             InitializeComponent();
-            Register_RightPanel.BackgroundImage = Image.FromFile(@"../../LoginImage.png");
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.Size = new Size(screen.Width* 7 / 10, screen.Height* 3 / 4);
+            Register_RightPanel.BackgroundImage = Image.FromFile(@"../../LoginPageImage.jpg");
             Register_RightPanel.BackgroundImageLayout = ImageLayout.Stretch;
-            //Register_LeftPanel.BackColor = Color.FromArgb(25, Color.Black); //make panel transparent
         }
 
         private void RegisterForm_FormClosed(object sender, FormClosedEventArgs e)
