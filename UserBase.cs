@@ -23,8 +23,9 @@ namespace main
         public static bool IsCurrentUserAdmin = false;
 
         public static UserBase Instance { get; } = new UserBase();
+        public static string ConnectionString = "Server=tcp:oop-project-server.database.windows.net,1433;Initial Catalog=OOP-PROJECT-DATABASE;Persist Security Info=True;User ID=metinkonuk;Password=C++Python.38;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;";
 
-        public static SqlConnection connection = new SqlConnection("Data Source=DESKTOP-H42PN9G;Initial Catalog=OOP-PROJECT;Integrated Security=True");
+        public static SqlConnection connection = new SqlConnection(ConnectionString);
 
         // SQL
 
