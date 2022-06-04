@@ -15,6 +15,9 @@ namespace main
         Rectangle screen = Screen.PrimaryScreen.WorkingArea;
         public static MultiplayerGameForm GameFormInstance;
         public Panel GameFormLowerPanel;
+        public Button CurrentUserScoreBox;
+        public Button OpponentScoreBox;
+        public Button InfoBox;
         public MultiplayerGameForm()
         {
             InitializeComponent();
@@ -22,14 +25,42 @@ namespace main
             this.FormBorderStyle = FormBorderStyle.None;
             GameFormInstance = this;
             Control.CheckForIllegalCrossThreadCalls = false;
+
+            InfoBox = new Button()
+            {
+                Location = new Point((this.Size.Width / 2) - 100, UpPanel.Height),
+                Size = new Size(200, 28),
+                Visible = true,
+                Enabled = false,
+            };
+            CurrentUserScoreBox = new Button
+            {
+                Location = new Point(12, UpPanel.Height + 24),
+                Size = new Size(145, 28),
+                Visible = true,
+                Enabled = false,
+            };
+
+            OpponentScoreBox = new Button
+            {
+                Location = new Point(this.Width - 157, UpPanel.Height + 24),
+                Size = new Size(145, 28),
+                Visible = true,
+                Enabled = false,
+                
+            };
+
             GameFormLowerPanel = new Panel
             {
                 Dock = DockStyle.Bottom,
                 Location = new Point(0, UpPanel.Height),
                 Size = new Size(this.Width, this.Height - UpPanel.Height),
             };
-            Controls.Add(GameFormLowerPanel);
 
+            Controls.Add(GameFormLowerPanel);
+            GameFormLowerPanel.Controls.Add(CurrentUserScoreBox);
+            GameFormLowerPanel.Controls.Add(InfoBox);
+            GameFormLowerPanel.Controls.Add(OpponentScoreBox);
         }
 
         private void PlayButton_Click(object sender, EventArgs e)

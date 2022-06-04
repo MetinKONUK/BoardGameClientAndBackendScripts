@@ -74,7 +74,7 @@
             this.UpPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.UpPanel.Location = new System.Drawing.Point(0, 0);
             this.UpPanel.Name = "UpPanel";
-            this.UpPanel.Size = new System.Drawing.Size(899, 42);
+            this.UpPanel.Size = new System.Drawing.Size(899, 44);
             this.UpPanel.TabIndex = 4;
             // 
             // button1

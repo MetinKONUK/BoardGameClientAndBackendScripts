@@ -20,5 +20,7 @@ namespace main
         public string ErrorMessage = null;
         public List<int> ClearSpotsData = null;
         public string GameEndInfo = null;
+        public List<int> Scores = null;
+        public string OpponentUsername = null;
     }
 }

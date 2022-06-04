@@ -14,12 +14,17 @@ namespace main
     {
         public static string local = "ws://127.0.0.1:5000";
         public static string glitch = "ws://oop-websocket-server.glitch.me";
-        readonly static WebSocket ws = new WebSocket(glitch);
+        readonly static WebSocket ws = new WebSocket(local);
 
         public static List<List<MultiplayerSpot>> board = new List<List<MultiplayerSpot>>();
         public static bool gameStarted = false;
         public static MultiplayerSpot home = null;
         public static MultiplayerSpot target = null;
+        public static List<int> Scores = new List<int>();
+        public static string OpponentUsername = "";
+        public static Button CurrentUserScoreBox = MultiplayerGameForm.GameFormInstance.CurrentUserScoreBox;
+        public static Button OpponentUserScoreBox = MultiplayerGameForm.GameFormInstance.OpponentScoreBox;
+
 
         public static void LoseFocus()
         {
@@ -71,6 +76,18 @@ namespace main
             if(data.Type == "opponent-does-not-exist-error")
             {
                 System.Windows.Forms.MessageBox.Show("Opponent does not exist!");
+            }
+            if(data.Type == "opponent-username-data")
+            {
+                OpponentUsername = data.OpponentUsername;
+            }
+            if(data.Type == "update-scores-request")
+            {
+                Scores = data.Scores;
+                var currentUserScoreState = $"{UserBase.CurrentUser}: {Scores[0]}";
+                var opponentUserScoreState = $"{OpponentUsername}: {Scores[1]}";
+                CurrentUserScoreBox.Text = currentUserScoreState;
+                OpponentUserScoreBox.Text = opponentUserScoreState;
             }
             if(data.Type == "opponent-disconnected")
             {
@@ -305,9 +322,16 @@ namespace main
                 }
             });
         }
+        public static void SetScoreBoxes()
+        {
+            CurrentUserScoreBox.Text = $"{UserBase.CurrentUser}: 0";
+            OpponentUserScoreBox.Text = $"{OpponentUsername}: 0";
+        }
         public static void ShowBoard()
         {
+            SetScoreBoxes();
             SetBoard();
+            
             for (var i = 0; i < 9; i++)
             {
                 for (var j = 0; j < 9; j++)
