@@ -18,6 +18,7 @@ namespace main
         public MultiplayerGameForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
             GameFormInstance = this;
             this.Size = new Size(screen.Width * 7 / 10, screen.Height * 3 / 4);
             //FormBorderStyle = FormBorderStyle.None;
@@ -54,6 +55,11 @@ namespace main
             var loginWindow = new LoginForm();
             this.Hide();
             loginWindow.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -28,16 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MultiplayerGameForm));
             this.PlayButton = new System.Windows.Forms.Button();
             this.OpponentUsernameLabel = new System.Windows.Forms.Label();
             this.OpponentUsernameTextBox = new System.Windows.Forms.TextBox();
             this.UpPanel = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.UpPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // PlayButton
             // 
-            this.PlayButton.Font = new System.Drawing.Font("Times New Roman", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlayButton.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PlayButton.Location = new System.Drawing.Point(344, 8);
             this.PlayButton.Name = "PlayButton";
             this.PlayButton.Size = new System.Drawing.Size(75, 23);
@@ -49,11 +51,11 @@
             // OpponentUsernameLabel
             // 
             this.OpponentUsernameLabel.AutoSize = true;
-            this.OpponentUsernameLabel.Font = new System.Drawing.Font("Times New Roman", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OpponentUsernameLabel.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.OpponentUsernameLabel.Location = new System.Drawing.Point(3, 12);
             this.OpponentUsernameLabel.Name = "OpponentUsernameLabel";
-            this.OpponentUsernameLabel.Size = new System.Drawing.Size(142, 15);
-            this.OpponentUsernameLabel.TabIndex = 3;
+            this.OpponentUsernameLabel.Size = new System.Drawing.Size(140, 15);
+            this.OpponentUsernameLabel.TabIndex = 0;
             this.OpponentUsernameLabel.Text = "Enter Opponent Username:";
             // 
             // OpponentUsernameTextBox
@@ -65,22 +67,35 @@
             // 
             // UpPanel
             // 
+            this.UpPanel.Controls.Add(this.button1);
             this.UpPanel.Controls.Add(this.OpponentUsernameLabel);
             this.UpPanel.Controls.Add(this.PlayButton);
             this.UpPanel.Controls.Add(this.OpponentUsernameTextBox);
             this.UpPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.UpPanel.Location = new System.Drawing.Point(0, 0);
             this.UpPanel.Name = "UpPanel";
-            this.UpPanel.Size = new System.Drawing.Size(800, 42);
+            this.UpPanel.Size = new System.Drawing.Size(868, 42);
             this.UpPanel.TabIndex = 4;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(425, 8);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Exit";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // MultiplayerGameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(868, 450);
             this.Controls.Add(this.UpPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MultiplayerGameForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MultiplayerGameForm";
@@ -97,5 +112,6 @@
         private System.Windows.Forms.Label OpponentUsernameLabel;
         private System.Windows.Forms.TextBox OpponentUsernameTextBox;
         private System.Windows.Forms.Panel UpPanel;
+        private System.Windows.Forms.Button button1;
     }
 }

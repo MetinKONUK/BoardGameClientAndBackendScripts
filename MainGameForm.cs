@@ -34,11 +34,13 @@ namespace main
             Controls.Add(MainGameWindowGamePanel);
 
             //Add bestscore label
-            BestScoreLabel = new Label();
-            BestScoreLabel.Text = "0";
-            BestScoreLabel.Font = new Font("Times New Roman; 14,25pt; style=Bold, Italic", 14);
-            BestScoreLabel.Location = new Point(106, 13);
-            BestScoreLabel.AutoSize = true;
+            BestScoreLabel = new Label
+            {
+                Text = "0",
+                Font = new Font("Times New Roman; 14,25pt; style=Bold, Italic", 14),
+                Location = new Point(106, 13),
+                AutoSize = true
+            };
             mainGameWindow_UpPanel.Controls.Add(BestScoreLabel);
             Board.UpdateBestScore();
         }
