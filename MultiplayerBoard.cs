@@ -24,6 +24,7 @@ namespace main
         public static string OpponentUsername = "";
         public static Button CurrentUserScoreBox = MultiplayerGameForm.GameFormInstance.CurrentUserScoreBox;
         public static Button OpponentUserScoreBox = MultiplayerGameForm.GameFormInstance.OpponentScoreBox;
+        public static Button InfoBox = MultiplayerGameForm.GameFormInstance.InfoBox;
 
 
         public static void LoseFocus()
@@ -68,6 +69,7 @@ namespace main
                 {
                     home = null;
                     target = null;
+                    InfoBox.Text = "Wait your turn!!";
                     System.Windows.Forms.MessageBox.Show("Wait your turn!!");
                     LoseFocus();
                 }
@@ -116,6 +118,7 @@ namespace main
                 bool decision = data.HomeSpotSetRequestFeedback;
                 if (decision == false)
                 {
+                    InfoBox.Text = "CANNOT SELECT EMPTY SPOT FOR HOME!!";
                     System.Windows.Forms.MessageBox.Show(@"CANNOT SELECT EMPTY SPOT FOR HOME!!");
                     LoseFocus();
                     home = null;
@@ -128,6 +131,7 @@ namespace main
                 bool decision = data.TargetSpotSetRequestFeedback;
                 if (decision == false)
                 {
+                    InfoBox.Text = "TARGET IS NOT VALID!!";
                     System.Windows.Forms.MessageBox.Show(@"TARGET IS NOT VALID!!");
                     LoseFocus();
                     home = null;

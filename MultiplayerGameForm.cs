@@ -29,9 +29,10 @@ namespace main
             InfoBox = new Button()
             {
                 Location = new Point((this.Size.Width / 2) - 100, UpPanel.Height),
-                Size = new Size(200, 28),
+                Size = new Size(200, 20),
                 Visible = true,
                 Enabled = false,
+                ForeColor = Color.Red,
             };
             CurrentUserScoreBox = new Button
             {
