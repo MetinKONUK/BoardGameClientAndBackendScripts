@@ -18,19 +18,16 @@ namespace main
         public MultiplayerGameForm()
         {
             InitializeComponent();
+            this.Size = new Size(screen.Width * 7 / 10, screen.Height * 3 / 4);
             this.FormBorderStyle = FormBorderStyle.None;
             GameFormInstance = this;
-            this.Size = new Size(screen.Width * 7 / 10, screen.Height * 3 / 4);
-            //FormBorderStyle = FormBorderStyle.None;
             Control.CheckForIllegalCrossThreadCalls = false;
             GameFormLowerPanel = new Panel
             {
                 Dock = DockStyle.Bottom,
                 Location = new Point(0, UpPanel.Height),
                 Size = new Size(this.Width, this.Height - UpPanel.Height),
-
             };
-
             Controls.Add(GameFormLowerPanel);
 
         }

@@ -43,7 +43,7 @@ namespace main
         {
             if(OpponentUsername == UserBase.CurrentUser)
             {
-                MessageBox.Show("You cannot match with yourself obviously...");
+                System.Windows.Forms.MessageBox.Show("You cannot match with yourself obviously...");
                 return;
 
             }
@@ -63,18 +63,18 @@ namespace main
                 {
                     home = null;
                     target = null;
-                    MessageBox.Show("Wait your turn!!");
+                    System.Windows.Forms.MessageBox.Show("Wait your turn!!");
                     LoseFocus();
                 }
             }
 
             if(data.Type == "opponent-does-not-exist-error")
             {
-                MessageBox.Show("Opponent does not exist!");
+                System.Windows.Forms.MessageBox.Show("Opponent does not exist!");
             }
             if(data.Type == "opponent-disconnected")
             {
-                MessageBox.Show("Opponent disconnected!");
+                System.Windows.Forms.MessageBox.Show("Opponent disconnected!");
                 ClearBoard();
                 ClearPanel(MultiplayerGameForm.GameFormInstance.GameFormLowerPanel);
                 MultiplayerGameForm.GameFormInstance.Close();
@@ -99,7 +99,7 @@ namespace main
                 bool decision = data.HomeSpotSetRequestFeedback;
                 if (decision == false)
                 {
-                    MessageBox.Show(@"CANNOT SELECT EMPTY SPOT FOR HOME!!");
+                    System.Windows.Forms.MessageBox.Show(@"CANNOT SELECT EMPTY SPOT FOR HOME!!");
                     LoseFocus();
                     home = null;
                     target = null;
@@ -111,7 +111,7 @@ namespace main
                 bool decision = data.TargetSpotSetRequestFeedback;
                 if (decision == false)
                 {
-                    MessageBox.Show(@"TARGET IS NOT VALID!!");
+                    System.Windows.Forms.MessageBox.Show(@"TARGET IS NOT VALID!!");
                     LoseFocus();
                     home = null;
                     target = null;
@@ -137,7 +137,7 @@ namespace main
             }
             if (data.Type == "game-end-info")
             {
-                MessageBox.Show(data.GameEndInfo);
+                System.Windows.Forms.MessageBox.Show(data.GameEndInfo);
                 ClearBoard();
                 ClearPanel(MultiplayerGameForm.GameFormInstance.GameFormLowerPanel);
 
