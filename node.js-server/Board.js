@@ -1,4 +1,4 @@
-import Spot from "./Spot.js";
+const Spot = require('./Spot.js')
 class Board {
 	constructor() {
 		this.board = [];
@@ -71,6 +71,17 @@ class Board {
 		this.player2.send(data);
 
 	}
+	UpdateScoresRequest = (dtc) => {
+		dtc.Type = "update-scores-request";
+		dtc.Scores = [this.player1.Score, this.player2.Score];
+		var data = JSON.stringify(dtc);
+		this.player1.send(data);
+
+		dtc.Scores = [this.player2.Score, this.player1.Score];
+		var data = JSON.stringify(dtc);
+		this.player2.send(data);
+
+	}
 	CheckForPoints = (dtc) => {
 		var point = this.Judge();
 		for (let i = 0; i < this.rows; ++i) {
@@ -89,7 +100,8 @@ class Board {
 					dtc.Type = "clear-spots-request";
 					dtc.ClearSpotsData = [i, j, 0]
 					this.SendClearRequest(dtc);
-
+					
+					this.UpdateScoresRequest(dtc);
 					this.ClearSpotsAfterSuccess(i, j, 0);
 				}
 				if (this.CoWise(i, j)) {
@@ -107,7 +119,8 @@ class Board {
 
 					dtc.ClearSpotsData = [i, j, 1]
 					this.SendClearRequest(dtc);
-
+					
+					this.UpdateScoresRequest(dtc);
 					this.ClearSpotsAfterSuccess(i, j, 1);
 				}
 			}
@@ -369,4 +382,5 @@ class Board {
 	} //end-func
 
 } ////end-class
-export default Board;
+
+module.exports = Board;

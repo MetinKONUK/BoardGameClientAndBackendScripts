@@ -25,4 +25,4 @@ class Spot {
 		};
 	}
 }
-export default Spot;
+module.exports = Spot;

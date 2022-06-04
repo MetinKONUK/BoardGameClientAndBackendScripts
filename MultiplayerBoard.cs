@@ -14,7 +14,7 @@ namespace main
     {
         public static string local = "ws://127.0.0.1:5000";
         public static string glitch = "ws://oop-websocket-server.glitch.me";
-        readonly static WebSocket ws = new WebSocket(local);
+        readonly static WebSocket ws = new WebSocket(glitch);
 
         public static List<List<MultiplayerSpot>> board = new List<List<MultiplayerSpot>>();
         public static bool gameStarted = false;
@@ -25,7 +25,6 @@ namespace main
         public static Button CurrentUserScoreBox = MultiplayerGameForm.GameFormInstance.CurrentUserScoreBox;
         public static Button OpponentUserScoreBox = MultiplayerGameForm.GameFormInstance.OpponentScoreBox;
         public static Button InfoBox = MultiplayerGameForm.GameFormInstance.InfoBox;
-
 
         public static void LoseFocus()
         {
@@ -70,7 +69,7 @@ namespace main
                     home = null;
                     target = null;
                     InfoBox.Text = "Wait your turn!!";
-                    System.Windows.Forms.MessageBox.Show("Wait your turn!!");
+                    //System.Windows.Forms.MessageBox.Show("Wait your turn!!");
                     LoseFocus();
                 }
             }
@@ -119,7 +118,7 @@ namespace main
                 if (decision == false)
                 {
                     InfoBox.Text = "CANNOT SELECT EMPTY SPOT FOR HOME!!";
-                    System.Windows.Forms.MessageBox.Show(@"CANNOT SELECT EMPTY SPOT FOR HOME!!");
+                    //System.Windows.Forms.MessageBox.Show(@"CANNOT SELECT EMPTY SPOT FOR HOME!!");
                     LoseFocus();
                     home = null;
                     target = null;
@@ -132,7 +131,7 @@ namespace main
                 if (decision == false)
                 {
                     InfoBox.Text = "TARGET IS NOT VALID!!";
-                    System.Windows.Forms.MessageBox.Show(@"TARGET IS NOT VALID!!");
+                    //System.Windows.Forms.MessageBox.Show(@"TARGET IS NOT VALID!!");
                     LoseFocus();
                     home = null;
                     target = null;
@@ -142,6 +141,7 @@ namespace main
             {
                 List<List<int>> path = data.Path;
 
+                InfoBox.Text = "";
                 ShapeWalksOnThePath(path);
                 if (UserBase.CurrentUser == data.Turn)
                 {

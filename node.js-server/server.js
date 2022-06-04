@@ -1,5 +1,5 @@
-import WebSocket from "ws";
-import Board from "./Board.js";
+const WebSocket = require('ws');
+const Board = require('./Board.js')
 const PORT = 5000;
 const wss = new WebSocket.Server({
 	port: PORT,
@@ -32,6 +32,8 @@ var DataToClient = {
 	ClearSpotsData: [],
 	GameEndInfo: null,
 	TurnInfo: null,
+	Scores : null,
+	OpponentUsername : "",
 };
 
 const SendDataToClients = (dtc, clnts) => {
@@ -89,7 +91,7 @@ const HandleMessage = (ws, data) => {
 		}
 		ws.Opponent = Opponent;
 		clients.filter(client => client.Username == Opponent.Username)[0].Opponent = ws;
-
+		
 		//CREATE MATCH BOARD FOR CLIENTS
 		let board = new Board();
 		board.player1 = ws;
@@ -97,6 +99,14 @@ const HandleMessage = (ws, data) => {
 		board.player1.Score = 0;
 		board.player2.Score = 0;
 		board.turn = board.player1;
+		
+		DataToClient.Type = "opponent-username-data";
+		DataToClient.OpponentUsername = board.player2.Username;
+		SendDataToClients(DataToClient, [board.player1]);
+
+		DataToClient.OpponentUsername = board.player1.Username;
+		SendDataToClients(DataToClient, [board.player2]);
+
 		board.SetBoard();
 		let coordinates = board.PlaceShapes(); //PLACE SHAPES FOR SERVER BOARD
 		let ShapeTypes = [];
@@ -181,6 +191,7 @@ const HandleMessage = (ws, data) => {
 
 				// CHECK FOR POINTS
 				board.CheckForPoints(DataToClient);
+
 				if (board.IsGameEnd()) {
 					board.SendGameEndInfo(DataToClient);
 					DeleteBoard(board);
