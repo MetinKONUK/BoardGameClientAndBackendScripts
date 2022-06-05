@@ -259,7 +259,7 @@ namespace main
                 ws.Send(DataConvertion.Serialize(dts));
             }
 
-        }
+        }//end-func
 
         public static void SetCellShape(int n, int m, int type)
         {
@@ -267,7 +267,7 @@ namespace main
             board[n][m].Btn.BackgroundImage = Image.FromFile(@fileName);
             board[n][m].Btn.BackgroundImageLayout = ImageLayout.Stretch;
             board[n][m].IsFilled = true;
-        }
+        }//end-func
 
         public static void PlaceShapes(List<List<int>> coordinates, List<int> types)
         {
@@ -275,7 +275,7 @@ namespace main
             {
                 SetCellShape(coordinates[i][0], coordinates[i][1], types[i]);
             }
-        }
+        }//end-func
 
         public static void SetBoard()
         {
@@ -309,7 +309,7 @@ namespace main
                 y += ButtonSize;
                 board.Add(row);
             }
-        }
+        }//end-func
         public static Task AddButton(Button btn)
         {
             var panel = MultiplayerGameForm.GameFormInstance.GameFormLowerPanel;
@@ -323,12 +323,12 @@ namespace main
                     });
                 }
             });
-        }
+        }//end-func
         public static void SetScoreBoxes()
         {
             CurrentUserScoreBox.Text = $"{UserBase.CurrentUser}: 0";
             OpponentUserScoreBox.Text = $"{OpponentUsername}: 0";
-        }
+        }//end-func
         public static void ShowBoard()
         {
             SetScoreBoxes();
@@ -341,7 +341,7 @@ namespace main
                     AddButton(board[i][j].Btn);
                 }
             }
-        }
+        }//end-func
         public static void ClearPanel(Panel panel)
         {
             //panel.Controls.Clear();
@@ -349,6 +349,6 @@ namespace main
         public static void ClearBoard()
         {
             board.Clear();
-        }
-    }
-}
+        }//end-func
+    }//end-class
+}//end-namespace
