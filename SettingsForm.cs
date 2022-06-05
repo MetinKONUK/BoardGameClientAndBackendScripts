@@ -15,6 +15,7 @@ namespace main
 {
     public partial class SettingsForm : Form
     {
+
         private Setting _setting = new Setting
                                    {
                                        Rows             = -1,
@@ -24,9 +25,11 @@ namespace main
                                        Colors          = new List<int>() {1, 1, 1}
                                    };
 
+        Rectangle screen = Screen.PrimaryScreen.WorkingArea;
         public SettingsForm()
         {
             InitializeComponent();
+            this.Size = new Size(screen.Width* 7 / 10, screen.Height* 3 / 4);
         }
 
         private void SettingsForm_Load(object sender, EventArgs e)

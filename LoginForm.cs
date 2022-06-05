@@ -24,12 +24,14 @@ namespace main
                                                   };
 
 
+        Rectangle screen = Screen.PrimaryScreen.WorkingArea;
         public LoginForm()
         {
             InitializeComponent();
-            Login_ImagePanel.BackgroundImage = Image.FromFile(@"../../LoginBackgroundImage.jpg");
+            this.Size = new Size(screen.Width* 7 / 10, screen.Height* 3 / 4);
+            Login_ImagePanel.BackgroundImage = Image.FromFile(@"../../LoginPageImage.jpg");
             Login_ImagePanel.BackgroundImageLayout = ImageLayout.Stretch;
-            //this.FormBorderStyle = FormBorderStyle.None;
+            this.FormBorderStyle = FormBorderStyle.None;
         }
 
         private void Login_loginButton_Click(object sender, EventArgs e)
@@ -41,6 +43,7 @@ namespace main
             var password = login_passwordTextBox.Text;
             password = Sha2.Sha256Hash(password);
             UserBase.SetAdmins();
+            UserBase.SetCurrentUser(username);
             var admins = UserBase.GetAdmins();
 
             if (admins.ContainsKey(username))
@@ -54,6 +57,7 @@ namespace main
                 {
                     //MessageBox.Show(accessGranted);
                     UserBase.SetCurrentUser(username);
+                    UserBase.IsCurrentUserAdmin = true;
                     _succeededLoginLogs.Username = username;
                     var succeededLoginLogs = JsonConvert.SerializeObject(_succeededLoginLogs);
                     File.WriteAllText(@"../../succeededLoginLogs.json", succeededLoginLogs);
@@ -80,9 +84,26 @@ namespace main
                         _succeededLoginLogs.Username = username;
                         var succeededLoginLogs = JsonConvert.SerializeObject(_succeededLoginLogs);
                         File.WriteAllText(@"../../succeededLoginLogs.json", succeededLoginLogs);
-                        var mainGameWindow = new MainGameForm();
-                        this.Hide();
-                        mainGameWindow.ShowDialog();
+                        if(LoginForm_MultiplayerModeCheckBox.Checked == true)
+                        {
+                            try
+                            {
+                                var multiplayerGameForm = new MultiplayerGameForm();
+                                MultiplayerBoard.Connect();
+                                this.Hide();
+                                multiplayerGameForm.ShowDialog();
+                            }
+                            catch
+                            {
+                                MessageBox.Show("An error occured while connecting to server...");
+                            }
+                        } 
+                        else
+                        {
+                            var mainGameWindow = new MainGameForm();
+                            this.Hide();
+                            mainGameWindow.ShowDialog();
+                        }
                     }
                 }
                 else
@@ -134,6 +155,11 @@ namespace main
         }
 
         private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void LoginForm_ExitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }

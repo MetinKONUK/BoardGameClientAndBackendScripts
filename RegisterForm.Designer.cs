@@ -29,6 +29,7 @@ namespace main
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterForm));
             this.Register_LeftPanel = new System.Windows.Forms.Panel();
             this.Register_LoginLabel = new System.Windows.Forms.Label();
             this.Register_AlreadyHaveAnAccountLabel = new System.Windows.Forms.Label();
@@ -49,6 +50,7 @@ namespace main
             this.Register_NameSurnameTextBox = new System.Windows.Forms.TextBox();
             this.Register_PasswordTextBox = new System.Windows.Forms.TextBox();
             this.Register_UsernameTextBox = new System.Windows.Forms.TextBox();
+            this.Register_RightPanel = new System.Windows.Forms.Panel();
             this.Register_LeftPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -87,7 +89,7 @@ namespace main
             this.Register_LoginLabel.Location = new System.Drawing.Point(201, 362);
             this.Register_LoginLabel.Name = "Register_LoginLabel";
             this.Register_LoginLabel.Size = new System.Drawing.Size(33, 13);
-            this.Register_LoginLabel.TabIndex = 17;
+            this.Register_LoginLabel.TabIndex = 0;
             this.Register_LoginLabel.Text = "Login";
             this.Register_LoginLabel.Click += new System.EventHandler(this.Register_LoginLabel_Click);
             // 
@@ -97,15 +99,16 @@ namespace main
             this.Register_AlreadyHaveAnAccountLabel.Location = new System.Drawing.Point(16, 362);
             this.Register_AlreadyHaveAnAccountLabel.Name = "Register_AlreadyHaveAnAccountLabel";
             this.Register_AlreadyHaveAnAccountLabel.Size = new System.Drawing.Size(136, 13);
-            this.Register_AlreadyHaveAnAccountLabel.TabIndex = 1;
+            this.Register_AlreadyHaveAnAccountLabel.TabIndex = 0;
             this.Register_AlreadyHaveAnAccountLabel.Text = "Already Have An Account?";
             // 
             // Register_RegisterButton
             // 
+            this.Register_RegisterButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Register_RegisterButton.Location = new System.Drawing.Point(19, 336);
             this.Register_RegisterButton.Name = "Register_RegisterButton";
             this.Register_RegisterButton.Size = new System.Drawing.Size(217, 23);
-            this.Register_RegisterButton.TabIndex = 16;
+            this.Register_RegisterButton.TabIndex = 8;
             this.Register_RegisterButton.Text = "Register";
             this.Register_RegisterButton.UseVisualStyleBackColor = true;
             this.Register_RegisterButton.Click += new System.EventHandler(this.Register_RegisterButton_Click);
@@ -116,7 +119,7 @@ namespace main
             this.Register_EmailLabel.Location = new System.Drawing.Point(18, 294);
             this.Register_EmailLabel.Name = "Register_EmailLabel";
             this.Register_EmailLabel.Size = new System.Drawing.Size(36, 13);
-            this.Register_EmailLabel.TabIndex = 15;
+            this.Register_EmailLabel.TabIndex = 0;
             this.Register_EmailLabel.Text = "E-Mail";
             // 
             // Register_EmailTextBox
@@ -124,7 +127,7 @@ namespace main
             this.Register_EmailTextBox.Location = new System.Drawing.Point(19, 310);
             this.Register_EmailTextBox.Name = "Register_EmailTextBox";
             this.Register_EmailTextBox.Size = new System.Drawing.Size(217, 20);
-            this.Register_EmailTextBox.TabIndex = 14;
+            this.Register_EmailTextBox.TabIndex = 7;
             // 
             // Register_CityLabel
             // 
@@ -132,7 +135,7 @@ namespace main
             this.Register_CityLabel.Location = new System.Drawing.Point(18, 255);
             this.Register_CityLabel.Name = "Register_CityLabel";
             this.Register_CityLabel.Size = new System.Drawing.Size(24, 13);
-            this.Register_CityLabel.TabIndex = 13;
+            this.Register_CityLabel.TabIndex = 0;
             this.Register_CityLabel.Text = "City";
             // 
             // Register_CityTextBox
@@ -140,7 +143,7 @@ namespace main
             this.Register_CityTextBox.Location = new System.Drawing.Point(19, 271);
             this.Register_CityTextBox.Name = "Register_CityTextBox";
             this.Register_CityTextBox.Size = new System.Drawing.Size(217, 20);
-            this.Register_CityTextBox.TabIndex = 12;
+            this.Register_CityTextBox.TabIndex = 6;
             // 
             // Register_AddressLabel
             // 
@@ -148,7 +151,7 @@ namespace main
             this.Register_AddressLabel.Location = new System.Drawing.Point(18, 176);
             this.Register_AddressLabel.Name = "Register_AddressLabel";
             this.Register_AddressLabel.Size = new System.Drawing.Size(45, 13);
-            this.Register_AddressLabel.TabIndex = 11;
+            this.Register_AddressLabel.TabIndex = 0;
             this.Register_AddressLabel.Text = "Address";
             // 
             // Register_AddressTextBox
@@ -156,7 +159,7 @@ namespace main
             this.Register_AddressTextBox.Location = new System.Drawing.Point(19, 192);
             this.Register_AddressTextBox.Name = "Register_AddressTextBox";
             this.Register_AddressTextBox.Size = new System.Drawing.Size(217, 20);
-            this.Register_AddressTextBox.TabIndex = 10;
+            this.Register_AddressTextBox.TabIndex = 4;
             // 
             // Register_CountryLabel
             // 
@@ -164,7 +167,7 @@ namespace main
             this.Register_CountryLabel.Location = new System.Drawing.Point(16, 215);
             this.Register_CountryLabel.Name = "Register_CountryLabel";
             this.Register_CountryLabel.Size = new System.Drawing.Size(43, 13);
-            this.Register_CountryLabel.TabIndex = 9;
+            this.Register_CountryLabel.TabIndex = 0;
             this.Register_CountryLabel.Text = "Country";
             // 
             // Register_CountryComboBox
@@ -173,7 +176,7 @@ namespace main
             this.Register_CountryComboBox.Location = new System.Drawing.Point(19, 231);
             this.Register_CountryComboBox.Name = "Register_CountryComboBox";
             this.Register_CountryComboBox.Size = new System.Drawing.Size(217, 21);
-            this.Register_CountryComboBox.TabIndex = 8;
+            this.Register_CountryComboBox.TabIndex = 5;
             // 
             // Register_PhoneNumberLabel
             // 
@@ -181,7 +184,7 @@ namespace main
             this.Register_PhoneNumberLabel.Location = new System.Drawing.Point(18, 137);
             this.Register_PhoneNumberLabel.Name = "Register_PhoneNumberLabel";
             this.Register_PhoneNumberLabel.Size = new System.Drawing.Size(75, 13);
-            this.Register_PhoneNumberLabel.TabIndex = 7;
+            this.Register_PhoneNumberLabel.TabIndex = 0;
             this.Register_PhoneNumberLabel.Text = "PhoneNumber";
             // 
             // Register_NameSurnameLabel
@@ -190,7 +193,7 @@ namespace main
             this.Register_NameSurnameLabel.Location = new System.Drawing.Point(18, 98);
             this.Register_NameSurnameLabel.Name = "Register_NameSurnameLabel";
             this.Register_NameSurnameLabel.Size = new System.Drawing.Size(80, 13);
-            this.Register_NameSurnameLabel.TabIndex = 6;
+            this.Register_NameSurnameLabel.TabIndex = 0;
             this.Register_NameSurnameLabel.Text = "Name-Surname";
             // 
             // Register_PasswordLabel
@@ -199,7 +202,7 @@ namespace main
             this.Register_PasswordLabel.Location = new System.Drawing.Point(16, 59);
             this.Register_PasswordLabel.Name = "Register_PasswordLabel";
             this.Register_PasswordLabel.Size = new System.Drawing.Size(53, 13);
-            this.Register_PasswordLabel.TabIndex = 5;
+            this.Register_PasswordLabel.TabIndex = 0;
             this.Register_PasswordLabel.Text = "Password";
             // 
             // Register_UsernameLabel
@@ -208,7 +211,7 @@ namespace main
             this.Register_UsernameLabel.Location = new System.Drawing.Point(16, 20);
             this.Register_UsernameLabel.Name = "Register_UsernameLabel";
             this.Register_UsernameLabel.Size = new System.Drawing.Size(55, 13);
-            this.Register_UsernameLabel.TabIndex = 4;
+            this.Register_UsernameLabel.TabIndex = 0;
             this.Register_UsernameLabel.Text = "Username";
             // 
             // Register_PhoneNumberTextBox
@@ -239,13 +242,25 @@ namespace main
             this.Register_UsernameTextBox.Size = new System.Drawing.Size(217, 20);
             this.Register_UsernameTextBox.TabIndex = 0;
             // 
+            // Register_RightPanel
+            // 
+            this.Register_RightPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Register_RightPanel.Location = new System.Drawing.Point(262, 0);
+            this.Register_RightPanel.Name = "Register_RightPanel";
+            this.Register_RightPanel.Size = new System.Drawing.Size(538, 450);
+            this.Register_RightPanel.TabIndex = 1;
+            // 
             // RegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Register_RightPanel);
             this.Controls.Add(this.Register_LeftPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RegisterForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegisterForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RegisterForm_FormClosed);
             this.Load += new System.EventHandler(this.RegisterForm_Load);
@@ -277,5 +292,6 @@ namespace main
         private System.Windows.Forms.Button Register_RegisterButton;
         private System.Windows.Forms.Label Register_LoginLabel;
         private System.Windows.Forms.Label Register_AlreadyHaveAnAccountLabel;
+        private System.Windows.Forms.Panel Register_RightPanel;
     }
 }

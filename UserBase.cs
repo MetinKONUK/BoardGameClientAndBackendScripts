@@ -19,11 +19,13 @@ namespace main
         private static Dictionary<string, Admin> _admins = new Dictionary<string, Admin>();
 
         private static Dictionary<string, Setting> _settings = new Dictionary<string, Setting>();
-        private static string CurrentUser { get; set; }
+        public static string CurrentUser { get; set; }
+        public static bool IsCurrentUserAdmin = false;
 
         public static UserBase Instance { get; } = new UserBase();
+        public static string ConnectionString = "Server=tcp:oop-project-server.database.windows.net,1433;Initial Catalog=OOP-PROJECT-DATABASE;Persist Security Info=True;User ID=metinkonuk;Password=C++Python.38;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;";
 
-        public static SqlConnection connection = new SqlConnection("Data Source=DESKTOP-H42PN9G;Initial Catalog=OOP-DATABASE;Integrated Security=True");
+        public static SqlConnection connection = new SqlConnection(ConnectionString);
 
         // SQL
 
@@ -47,7 +49,8 @@ namespace main
         public static void SetUsers()
         {
             OpenConnection();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM USERS", connection);
+            var query = IsCurrentUserAdmin ? "SELECT * FROM USERS" : $"SELECT * FROM USERS WHERE username='{CurrentUser}'";
+            SqlCommand cmd = new SqlCommand(query, connection);
             SqlDataReader rd = cmd.ExecuteReader();
             _users.Clear();
 
@@ -109,7 +112,7 @@ namespace main
         public static void SetSettings()
         {
             OpenConnection();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM SETTINGS", connection);
+            SqlCommand cmd = new SqlCommand($"SELECT * FROM SETTINGS WHERE username='{CurrentUser}'", connection);
             SqlDataReader rd = cmd.ExecuteReader();
             _settings.Clear();
 
@@ -190,7 +193,7 @@ namespace main
         public static void UpdateUserData(string username, User user)
         {
             OpenConnection();
-            var query = $"UPDATE USERS SET password='{user.Password}', nameSurname='{user.NameSurname}', email='{user.Email}', address='{user.Address}', country='{user.Country}', city='{user.City}', phoneNumber='{user.PhoneNumber}, bestScore='{user.BestScore}'' WHERE username='{username}'";
+            var query = $"UPDATE USERS SET password='{user.Password}', nameSurname='{user.NameSurname}', email='{user.Email}', address='{user.Address}', country='{user.Country}', city='{user.City}', phoneNumber='{user.PhoneNumber}', bestScore='{user.BestScore}' WHERE username='{username}'";
             SqlCommand cmd = new SqlCommand(query, connection);
             cmd.ExecuteNonQuery();
             _users[username] = user;

@@ -68,11 +68,11 @@ namespace main
             this.AdminPanel_PhoneNumberTextBox = new System.Windows.Forms.TextBox();
             this.AdminPanel_NameSurnameTextBox = new System.Windows.Forms.TextBox();
             this.AdminPanelForm_ListByBestScoresPanel = new System.Windows.Forms.Panel();
+            this.AdminPanelForm_SortByAscendingButton = new System.Windows.Forms.Button();
+            this.AdminPanelForm_DescendingButton = new System.Windows.Forms.Button();
             this.AdminPanelForm_BestScoresListView = new System.Windows.Forms.ListView();
             this.Username = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.BestScore = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.AdminPanelForm_DescendingButton = new System.Windows.Forms.Button();
-            this.AdminPanelForm_SortByAscendingButton = new System.Windows.Forms.Button();
             this.AdminPanel_LeftPanel.SuspendLayout();
             this.AdminPanel_CreateNewUserPanel.SuspendLayout();
             this.AdminPanel_RightPanel.SuspendLayout();
@@ -87,7 +87,7 @@ namespace main
             this.AdminPanel_LeftPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.AdminPanel_LeftPanel.Location = new System.Drawing.Point(0, 0);
             this.AdminPanel_LeftPanel.Name = "AdminPanel_LeftPanel";
-            this.AdminPanel_LeftPanel.Size = new System.Drawing.Size(281, 450);
+            this.AdminPanel_LeftPanel.Size = new System.Drawing.Size(281, 496);
             this.AdminPanel_LeftPanel.TabIndex = 0;
             // 
             // AdminPanel_CreateNewUserPanel
@@ -120,7 +120,7 @@ namespace main
             this.AdminPanel_CreateUserButton.Location = new System.Drawing.Point(29, 325);
             this.AdminPanel_CreateUserButton.Name = "AdminPanel_CreateUserButton";
             this.AdminPanel_CreateUserButton.Size = new System.Drawing.Size(223, 23);
-            this.AdminPanel_CreateUserButton.TabIndex = 49;
+            this.AdminPanel_CreateUserButton.TabIndex = 11;
             this.AdminPanel_CreateUserButton.Text = "Create User";
             this.AdminPanel_CreateUserButton.UseVisualStyleBackColor = true;
             this.AdminPanel_CreateUserButton.Click += new System.EventHandler(this.AdminPanel_CreateUserButton_Click);
@@ -139,7 +139,7 @@ namespace main
             this.AdminPanel_CreateEmailTextBox.Location = new System.Drawing.Point(29, 299);
             this.AdminPanel_CreateEmailTextBox.Name = "AdminPanel_CreateEmailTextBox";
             this.AdminPanel_CreateEmailTextBox.Size = new System.Drawing.Size(223, 20);
-            this.AdminPanel_CreateEmailTextBox.TabIndex = 47;
+            this.AdminPanel_CreateEmailTextBox.TabIndex = 10;
             // 
             // AdminPanel_CreateCityLabel
             // 
@@ -155,7 +155,7 @@ namespace main
             this.AdminPanel_CreateCityTextBox.Location = new System.Drawing.Point(29, 260);
             this.AdminPanel_CreateCityTextBox.Name = "AdminPanel_CreateCityTextBox";
             this.AdminPanel_CreateCityTextBox.Size = new System.Drawing.Size(223, 20);
-            this.AdminPanel_CreateCityTextBox.TabIndex = 45;
+            this.AdminPanel_CreateCityTextBox.TabIndex = 9;
             // 
             // AdminPanel_CreateAddressLabel
             // 
@@ -171,7 +171,7 @@ namespace main
             this.AdminPanel_CreateAddressTextBox.Location = new System.Drawing.Point(29, 181);
             this.AdminPanel_CreateAddressTextBox.Name = "AdminPanel_CreateAddressTextBox";
             this.AdminPanel_CreateAddressTextBox.Size = new System.Drawing.Size(223, 20);
-            this.AdminPanel_CreateAddressTextBox.TabIndex = 43;
+            this.AdminPanel_CreateAddressTextBox.TabIndex = 7;
             // 
             // AdminPanel_CreateCountryLabel
             // 
@@ -188,7 +188,7 @@ namespace main
             this.AdminPanel_CreateCountryComboBox.Location = new System.Drawing.Point(29, 220);
             this.AdminPanel_CreateCountryComboBox.Name = "AdminPanel_CreateCountryComboBox";
             this.AdminPanel_CreateCountryComboBox.Size = new System.Drawing.Size(223, 21);
-            this.AdminPanel_CreateCountryComboBox.TabIndex = 41;
+            this.AdminPanel_CreateCountryComboBox.TabIndex = 8;
             // 
             // AdminPanel_CreatePhoneNumberLabel
             // 
@@ -231,28 +231,28 @@ namespace main
             this.AdminPanel_CreatePhoneNumberTextBox.Location = new System.Drawing.Point(29, 142);
             this.AdminPanel_CreatePhoneNumberTextBox.Name = "AdminPanel_CreatePhoneNumberTextBox";
             this.AdminPanel_CreatePhoneNumberTextBox.Size = new System.Drawing.Size(223, 20);
-            this.AdminPanel_CreatePhoneNumberTextBox.TabIndex = 36;
+            this.AdminPanel_CreatePhoneNumberTextBox.TabIndex = 6;
             // 
             // AdminPanel_CreateNameSurnameTextBox
             // 
             this.AdminPanel_CreateNameSurnameTextBox.Location = new System.Drawing.Point(29, 103);
             this.AdminPanel_CreateNameSurnameTextBox.Name = "AdminPanel_CreateNameSurnameTextBox";
             this.AdminPanel_CreateNameSurnameTextBox.Size = new System.Drawing.Size(223, 20);
-            this.AdminPanel_CreateNameSurnameTextBox.TabIndex = 35;
+            this.AdminPanel_CreateNameSurnameTextBox.TabIndex = 5;
             // 
             // AdminPanel_CreatePasswordTextBox
             // 
             this.AdminPanel_CreatePasswordTextBox.Location = new System.Drawing.Point(29, 64);
             this.AdminPanel_CreatePasswordTextBox.Name = "AdminPanel_CreatePasswordTextBox";
             this.AdminPanel_CreatePasswordTextBox.Size = new System.Drawing.Size(223, 20);
-            this.AdminPanel_CreatePasswordTextBox.TabIndex = 34;
+            this.AdminPanel_CreatePasswordTextBox.TabIndex = 4;
             // 
             // AdminPanel_CreateUsernameTextBox
             // 
             this.AdminPanel_CreateUsernameTextBox.Location = new System.Drawing.Point(29, 25);
             this.AdminPanel_CreateUsernameTextBox.Name = "AdminPanel_CreateUsernameTextBox";
             this.AdminPanel_CreateUsernameTextBox.Size = new System.Drawing.Size(223, 20);
-            this.AdminPanel_CreateUsernameTextBox.TabIndex = 33;
+            this.AdminPanel_CreateUsernameTextBox.TabIndex = 3;
             // 
             // AdminPanel_OpenCreateNewUserComponentsButton
             // 
@@ -295,7 +295,7 @@ namespace main
             this.AdminPanel_RightPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.AdminPanel_RightPanel.Location = new System.Drawing.Point(281, 0);
             this.AdminPanel_RightPanel.Name = "AdminPanel_RightPanel";
-            this.AdminPanel_RightPanel.Size = new System.Drawing.Size(258, 450);
+            this.AdminPanel_RightPanel.Size = new System.Drawing.Size(258, 496);
             this.AdminPanel_RightPanel.TabIndex = 1;
             this.AdminPanel_RightPanel.Visible = false;
             // 
@@ -304,7 +304,7 @@ namespace main
             this.AdminPanel_DeleteUserButton.Location = new System.Drawing.Point(10, 313);
             this.AdminPanel_DeleteUserButton.Name = "AdminPanel_DeleteUserButton";
             this.AdminPanel_DeleteUserButton.Size = new System.Drawing.Size(217, 23);
-            this.AdminPanel_DeleteUserButton.TabIndex = 34;
+            this.AdminPanel_DeleteUserButton.TabIndex = 19;
             this.AdminPanel_DeleteUserButton.Text = "Delete User";
             this.AdminPanel_DeleteUserButton.UseVisualStyleBackColor = true;
             this.AdminPanel_DeleteUserButton.Click += new System.EventHandler(this.AdminPanel_DeleteUserButton_Click);
@@ -314,7 +314,7 @@ namespace main
             this.AdminPanel_UpdateUserDataButton.Location = new System.Drawing.Point(10, 284);
             this.AdminPanel_UpdateUserDataButton.Name = "AdminPanel_UpdateUserDataButton";
             this.AdminPanel_UpdateUserDataButton.Size = new System.Drawing.Size(217, 23);
-            this.AdminPanel_UpdateUserDataButton.TabIndex = 33;
+            this.AdminPanel_UpdateUserDataButton.TabIndex = 18;
             this.AdminPanel_UpdateUserDataButton.Text = "Update User Data";
             this.AdminPanel_UpdateUserDataButton.UseVisualStyleBackColor = true;
             this.AdminPanel_UpdateUserDataButton.Click += new System.EventHandler(this.AdminPanel_UpdateUserDataButton_Click);
@@ -351,7 +351,7 @@ namespace main
             this.AdminPanel_EmailTextBox.Location = new System.Drawing.Point(10, 258);
             this.AdminPanel_EmailTextBox.Name = "AdminPanel_EmailTextBox";
             this.AdminPanel_EmailTextBox.Size = new System.Drawing.Size(217, 20);
-            this.AdminPanel_EmailTextBox.TabIndex = 30;
+            this.AdminPanel_EmailTextBox.TabIndex = 17;
             // 
             // AdminPanel_CityLabel
             // 
@@ -367,7 +367,7 @@ namespace main
             this.AdminPanel_CityTextBox.Location = new System.Drawing.Point(10, 219);
             this.AdminPanel_CityTextBox.Name = "AdminPanel_CityTextBox";
             this.AdminPanel_CityTextBox.Size = new System.Drawing.Size(217, 20);
-            this.AdminPanel_CityTextBox.TabIndex = 28;
+            this.AdminPanel_CityTextBox.TabIndex = 16;
             // 
             // AdminPanel_AddressLabel
             // 
@@ -383,7 +383,7 @@ namespace main
             this.AdminPanel_AddressTextBox.Location = new System.Drawing.Point(10, 140);
             this.AdminPanel_AddressTextBox.Name = "AdminPanel_AddressTextBox";
             this.AdminPanel_AddressTextBox.Size = new System.Drawing.Size(217, 20);
-            this.AdminPanel_AddressTextBox.TabIndex = 26;
+            this.AdminPanel_AddressTextBox.TabIndex = 14;
             // 
             // AdminPanel_CountryLabel
             // 
@@ -400,7 +400,7 @@ namespace main
             this.AdminPanel_CountryComboBox.Location = new System.Drawing.Point(10, 179);
             this.AdminPanel_CountryComboBox.Name = "AdminPanel_CountryComboBox";
             this.AdminPanel_CountryComboBox.Size = new System.Drawing.Size(217, 21);
-            this.AdminPanel_CountryComboBox.TabIndex = 24;
+            this.AdminPanel_CountryComboBox.TabIndex = 15;
             // 
             // AdminPanel_PhoneNumberLabel
             // 
@@ -425,14 +425,14 @@ namespace main
             this.AdminPanel_PhoneNumberTextBox.Location = new System.Drawing.Point(10, 101);
             this.AdminPanel_PhoneNumberTextBox.Name = "AdminPanel_PhoneNumberTextBox";
             this.AdminPanel_PhoneNumberTextBox.Size = new System.Drawing.Size(217, 20);
-            this.AdminPanel_PhoneNumberTextBox.TabIndex = 21;
+            this.AdminPanel_PhoneNumberTextBox.TabIndex = 13;
             // 
             // AdminPanel_NameSurnameTextBox
             // 
             this.AdminPanel_NameSurnameTextBox.Location = new System.Drawing.Point(10, 62);
             this.AdminPanel_NameSurnameTextBox.Name = "AdminPanel_NameSurnameTextBox";
             this.AdminPanel_NameSurnameTextBox.Size = new System.Drawing.Size(217, 20);
-            this.AdminPanel_NameSurnameTextBox.TabIndex = 20;
+            this.AdminPanel_NameSurnameTextBox.TabIndex = 12;
             // 
             // AdminPanelForm_ListByBestScoresPanel
             // 
@@ -440,10 +440,30 @@ namespace main
             this.AdminPanelForm_ListByBestScoresPanel.Controls.Add(this.AdminPanelForm_DescendingButton);
             this.AdminPanelForm_ListByBestScoresPanel.Controls.Add(this.AdminPanelForm_BestScoresListView);
             this.AdminPanelForm_ListByBestScoresPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.AdminPanelForm_ListByBestScoresPanel.Location = new System.Drawing.Point(540, 0);
+            this.AdminPanelForm_ListByBestScoresPanel.Location = new System.Drawing.Point(579, 0);
             this.AdminPanelForm_ListByBestScoresPanel.Name = "AdminPanelForm_ListByBestScoresPanel";
-            this.AdminPanelForm_ListByBestScoresPanel.Size = new System.Drawing.Size(255, 450);
+            this.AdminPanelForm_ListByBestScoresPanel.Size = new System.Drawing.Size(255, 496);
             this.AdminPanelForm_ListByBestScoresPanel.TabIndex = 2;
+            // 
+            // AdminPanelForm_SortByAscendingButton
+            // 
+            this.AdminPanelForm_SortByAscendingButton.Location = new System.Drawing.Point(0, 338);
+            this.AdminPanelForm_SortByAscendingButton.Name = "AdminPanelForm_SortByAscendingButton";
+            this.AdminPanelForm_SortByAscendingButton.Size = new System.Drawing.Size(252, 23);
+            this.AdminPanelForm_SortByAscendingButton.TabIndex = 20;
+            this.AdminPanelForm_SortByAscendingButton.Text = "Sort By Ascending";
+            this.AdminPanelForm_SortByAscendingButton.UseVisualStyleBackColor = true;
+            this.AdminPanelForm_SortByAscendingButton.Click += new System.EventHandler(this.AdminPanelForm_SortByAscendingButton_Click);
+            // 
+            // AdminPanelForm_DescendingButton
+            // 
+            this.AdminPanelForm_DescendingButton.Location = new System.Drawing.Point(-3, 363);
+            this.AdminPanelForm_DescendingButton.Name = "AdminPanelForm_DescendingButton";
+            this.AdminPanelForm_DescendingButton.Size = new System.Drawing.Size(255, 23);
+            this.AdminPanelForm_DescendingButton.TabIndex = 21;
+            this.AdminPanelForm_DescendingButton.Text = "Sort By Descending";
+            this.AdminPanelForm_DescendingButton.UseVisualStyleBackColor = true;
+            this.AdminPanelForm_DescendingButton.Click += new System.EventHandler(this.AdminPanelForm_DescendingButton_Click);
             // 
             // AdminPanelForm_BestScoresListView
             // 
@@ -470,35 +490,16 @@ namespace main
             this.BestScore.Text = "Best Score";
             this.BestScore.Width = 166;
             // 
-            // AdminPanelForm_DescendingButton
-            // 
-            this.AdminPanelForm_DescendingButton.Location = new System.Drawing.Point(-3, 363);
-            this.AdminPanelForm_DescendingButton.Name = "AdminPanelForm_DescendingButton";
-            this.AdminPanelForm_DescendingButton.Size = new System.Drawing.Size(255, 23);
-            this.AdminPanelForm_DescendingButton.TabIndex = 1;
-            this.AdminPanelForm_DescendingButton.Text = "Sort By Descending";
-            this.AdminPanelForm_DescendingButton.UseVisualStyleBackColor = true;
-            this.AdminPanelForm_DescendingButton.Click += new System.EventHandler(this.AdminPanelForm_DescendingButton_Click);
-            // 
-            // AdminPanelForm_SortByAscendingButton
-            // 
-            this.AdminPanelForm_SortByAscendingButton.Location = new System.Drawing.Point(0, 338);
-            this.AdminPanelForm_SortByAscendingButton.Name = "AdminPanelForm_SortByAscendingButton";
-            this.AdminPanelForm_SortByAscendingButton.Size = new System.Drawing.Size(252, 23);
-            this.AdminPanelForm_SortByAscendingButton.TabIndex = 2;
-            this.AdminPanelForm_SortByAscendingButton.Text = "Sort By Ascending";
-            this.AdminPanelForm_SortByAscendingButton.UseVisualStyleBackColor = true;
-            this.AdminPanelForm_SortByAscendingButton.Click += new System.EventHandler(this.AdminPanelForm_SortByAscendingButton_Click);
-            // 
             // AdminPanelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(795, 450);
+            this.ClientSize = new System.Drawing.Size(834, 496);
             this.Controls.Add(this.AdminPanelForm_ListByBestScoresPanel);
             this.Controls.Add(this.AdminPanel_RightPanel);
             this.Controls.Add(this.AdminPanel_LeftPanel);
             this.Name = "AdminPanelForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminPanel";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdminPanelForm_FormClosed);
             this.Load += new System.EventHandler(this.AdminPanelForm_Load);

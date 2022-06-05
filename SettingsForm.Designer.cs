@@ -29,7 +29,9 @@ namespace main
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
             this.settings_LeftPanel = new System.Windows.Forms.Panel();
+            this.settings_ColorButton = new System.Windows.Forms.Button();
             this.settings_backToGameWindowButton = new System.Windows.Forms.Button();
             this.settings_ShapeButton = new System.Windows.Forms.Button();
             this.settings_difficultyLevelButton = new System.Windows.Forms.Button();
@@ -48,7 +50,6 @@ namespace main
             this.settings_TriangleCheckBox = new System.Windows.Forms.CheckBox();
             this.settings_SquareCheckBox = new System.Windows.Forms.CheckBox();
             this.settings_ShapesPanel = new System.Windows.Forms.Panel();
-            this.settings_ColorButton = new System.Windows.Forms.Button();
             this.Settings_ColorPanel = new System.Windows.Forms.Panel();
             this.settings_RedCheckBox = new System.Windows.Forms.CheckBox();
             this.Settings_SaveColorSelectionButton = new System.Windows.Forms.Button();
@@ -73,9 +74,24 @@ namespace main
             this.settings_LeftPanel.Size = new System.Drawing.Size(109, 450);
             this.settings_LeftPanel.TabIndex = 0;
             // 
+            // settings_ColorButton
+            // 
+            this.settings_ColorButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.settings_ColorButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.settings_ColorButton.Font = new System.Drawing.Font("Times New Roman", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.settings_ColorButton.Location = new System.Drawing.Point(0, 62);
+            this.settings_ColorButton.Name = "settings_ColorButton";
+            this.settings_ColorButton.Size = new System.Drawing.Size(109, 31);
+            this.settings_ColorButton.TabIndex = 2;
+            this.settings_ColorButton.Text = "Colors";
+            this.settings_ColorButton.UseVisualStyleBackColor = true;
+            this.settings_ColorButton.Click += new System.EventHandler(this.settings_ColorButton_Click);
+            // 
             // settings_backToGameWindowButton
             // 
+            this.settings_backToGameWindowButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.settings_backToGameWindowButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.settings_backToGameWindowButton.Font = new System.Drawing.Font("Times New Roman", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.settings_backToGameWindowButton.Location = new System.Drawing.Point(0, 427);
             this.settings_backToGameWindowButton.Name = "settings_backToGameWindowButton";
             this.settings_backToGameWindowButton.Size = new System.Drawing.Size(109, 23);
@@ -86,7 +102,9 @@ namespace main
             // 
             // settings_ShapeButton
             // 
+            this.settings_ShapeButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.settings_ShapeButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.settings_ShapeButton.Font = new System.Drawing.Font("Times New Roman", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.settings_ShapeButton.Location = new System.Drawing.Point(0, 31);
             this.settings_ShapeButton.Name = "settings_ShapeButton";
             this.settings_ShapeButton.Size = new System.Drawing.Size(109, 31);
@@ -97,7 +115,9 @@ namespace main
             // 
             // settings_difficultyLevelButton
             // 
+            this.settings_difficultyLevelButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.settings_difficultyLevelButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.settings_difficultyLevelButton.Font = new System.Drawing.Font("Times New Roman", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.settings_difficultyLevelButton.Location = new System.Drawing.Point(0, 0);
             this.settings_difficultyLevelButton.Name = "settings_difficultyLevelButton";
             this.settings_difficultyLevelButton.Size = new System.Drawing.Size(109, 31);
@@ -259,17 +279,6 @@ namespace main
             this.settings_ShapesPanel.Size = new System.Drawing.Size(308, 197);
             this.settings_ShapesPanel.TabIndex = 27;
             // 
-            // settings_ColorButton
-            // 
-            this.settings_ColorButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.settings_ColorButton.Location = new System.Drawing.Point(0, 62);
-            this.settings_ColorButton.Name = "settings_ColorButton";
-            this.settings_ColorButton.Size = new System.Drawing.Size(109, 31);
-            this.settings_ColorButton.TabIndex = 4;
-            this.settings_ColorButton.Text = "Colors";
-            this.settings_ColorButton.UseVisualStyleBackColor = true;
-            this.settings_ColorButton.Click += new System.EventHandler(this.settings_ColorButton_Click);
-            // 
             // Settings_ColorPanel
             // 
             this.Settings_ColorPanel.Controls.Add(this.settings_RedCheckBox);
@@ -333,7 +342,10 @@ namespace main
             this.Controls.Add(this.settings_ShapesPanel);
             this.Controls.Add(this.settings_DifficultyLevelPanel);
             this.Controls.Add(this.settings_LeftPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SettingsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Settings";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SettingsForm_FormClosed);
             this.Load += new System.EventHandler(this.SettingsForm_Load);
