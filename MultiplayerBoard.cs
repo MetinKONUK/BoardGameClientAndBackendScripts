@@ -299,7 +299,7 @@ namespace main
                     {
                         Size = new Size(ButtonSize, ButtonSize),
                         Location = new Point(x, y),
-                        BackColor = Color.AntiqueWhite,
+                        BackColor = Color.AliceBlue,
                     };
                     btn.Click += (s, e) => OnCellClick(btn);
                     spot.Btn = btn;
