@@ -27,7 +27,7 @@ namespace main
         public static void LoseFocus()
         {
             MultiplayerGameForm.GameFormInstance.Focus();
-        }
+        }//end-func
         public static void Connect()
         {
             ws.Connect();
@@ -40,7 +40,7 @@ namespace main
         public static void Disconnect()
         {
             ws.Close();
-        }
+        }//end-func
 
         public static void SetOpponent(string OpponentUsername)
         {
@@ -54,7 +54,7 @@ namespace main
             dts.Type = "opponent_username";
             dts.OpponentUsername = OpponentUsername;
             ws.Send(DataConvertion.Serialize(dts));
-        }
+        }//end-func
 
         private static void Ws_OnMessage(object sender, MessageEventArgs e)
         {
@@ -71,7 +71,6 @@ namespace main
                     LoseFocus();
                 }
             }
-
             if(data.Type == "opponent-does-not-exist-error")
             {
                 System.Windows.Forms.MessageBox.Show("Opponent does not exist!");
@@ -162,7 +161,7 @@ namespace main
 
             }
 
-        }
+        }//end-func
 
         public static void Sleep(int ms)
         {
@@ -195,7 +194,7 @@ namespace main
                     board[i][m].ShapeType = -1;
                 }
             }
-        }
+        }//end-func
 
         public static void ShapeWalksOnThePath(List<List<int>> path)
         {
