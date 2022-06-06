@@ -22,7 +22,7 @@ namespace main
         {
             InitializeComponent();
             this.Size = new Size(screen.Width * 7 / 10, screen.Height * 3 / 4);
-            this.FormBorderStyle = FormBorderStyle.None;
+            //this.FormBorderStyle = FormBorderStyle.None;
             GameFormInstance = this;
             Control.CheckForIllegalCrossThreadCalls = false;
 
